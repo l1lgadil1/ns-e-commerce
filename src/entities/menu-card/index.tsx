@@ -4,7 +4,7 @@ import Image from 'next/image';
 export const MenuCard = ({ href, title, description, imageSrc, iconSrc }: IProps) => (
   <a
     href={href}
-    className="group flex flex-col justify-between rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+    className="group flex flex-col justify-between rounded-lg border border-transparent px-5 py-4 transition-all ease-in hover:opacity-50 border-gray-300 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800/30"
     target="_blank"
     rel="noopener noreferrer"
   >
