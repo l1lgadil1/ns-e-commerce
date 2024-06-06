@@ -1,0 +1,39 @@
+.image {
+	width: 100%;
+	aspect-ratio: 3/4;
+
+}
+
+.container {
+	//background: white;
+	//border-radius: 15px;
+	width: 100%;
+
+	& img {
+		object-fit: contain;
+	}
+
+	.smallImg{
+			height: 24px;
+		width: 24px;
+	}
+
+	& h3 {
+		display: block;
+		font-weight: 400;
+		font-size: inherit;
+		line-height: inherit;
+		letter-spacing: .3px;
+		transition: opacity .3s ease;
+		will-change: opacity;
+		color: white;
+	}
+
+	& h4 {
+		color: #9d9390;
+		font-weight: 500;
+		font-size: 14px;
+		line-height: 1.79;
+		text-align: left;
+	}
+}
