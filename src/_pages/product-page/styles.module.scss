@@ -3,6 +3,7 @@
 	height: 100%;
 	flex: 1;
 	padding-top: var(--header-margin);
+	overflow-x: hidden;
 
 	.content {
 		display: flex;
@@ -81,9 +82,10 @@
 					color: #F6F6F6;
 				}
 			}
-			.kaspi{
-				& button{
-					&:hover{
+
+			.kaspi {
+				& button {
+					&:hover {
 						background: #ee003e;
 					}
 				}
