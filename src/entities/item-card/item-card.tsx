@@ -5,11 +5,11 @@ import Image from 'next/image';
 import { cn } from "@/shared/lib";
 
 export const ItemCard = (props: ItemCardModel) => {
-  const { name, price, images, kaspiUrl } = props;
+  const { name, price, images, id } = props;
   return (
     <Link
-      href={kaspiUrl}
-      // href={`/product/${id}`}
+      // href={kaspiUrl}
+      href={`/product/${id}`}
       className={cn(styles.container)}
     >
       <div className='flex flex-col gap-3'>

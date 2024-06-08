@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const Header = () => (
-  <header className="fixed left-0 font-mono top-0 flex w-full px-3  items-center justify-between border-b border-gray-300 bg-[transparent]  backdrop-blur-2xl  ">
+  <header className="fixed left-0 font-mono top-0 flex w-full px-3  items-center justify-between border-b z-10 border-gray-300 bg-primary  backdrop-blur-2xl  ">
     <div className='w-full '>
       <Link href="tel:+77762918098">
         +7 776 291 80 98
