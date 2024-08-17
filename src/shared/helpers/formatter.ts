@@ -4,5 +4,5 @@ export function formatPrice(amount:number) {
     maximumFractionDigits: 0
   });
 
-  return `${formatter.format(amount)} ₸`;
+  return `${formatter.format(amount)}`;
 }

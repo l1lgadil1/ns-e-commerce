@@ -1,0 +1,45 @@
+.wrapper {
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+	@media (min-width: 768px) {
+	max-width: 300px;
+		}
+}
+
+.picture{
+	height: 410px;
+	background: var(--bg-secondary);
+	padding: 20px;
+	border-radius: var(--border-l);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@media (max-width: 600px) {
+		height: unset;
+		padding: 0;
+	}
+}
+.img{
+	width: auto;
+	height: auto;
+	//max-height: 85%;
+	margin: 0 auto;
+	object-fit: cover;
+	object-position: center;
+
+	aspect-ratio:  1/1;
+
+	@media (max-width: 768px) {
+		max-height: 90%;
+		max-width: 90%;
+	}
+
+	@media (min-width: 768px) {
+		max-height: 90%;
+	}
+}

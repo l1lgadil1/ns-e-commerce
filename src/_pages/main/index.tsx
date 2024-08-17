@@ -6,7 +6,6 @@ import { containerStyles } from "@/shared/styles";
 
 export const MainPage = () => {
   const itemsArr:ItemCardModel[] = productsArr as ItemCardModel[];
-
   return (
     <main className={cn(styles.container, 'bg-primary')}>
       {/* <div className='w-full h-[400px]'> */}

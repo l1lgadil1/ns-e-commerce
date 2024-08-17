@@ -1,0 +1,19 @@
+.wrapper {
+}
+
+.container {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: var(--z-header);
+	&::before{
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 1px;
+		background: var(--dividing-line-header);
+		content: "";
+	}
+}

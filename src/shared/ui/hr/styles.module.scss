@@ -1,0 +1,14 @@
+.wrapper {
+}
+
+.container {
+}
+.line{
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 1px;
+	background: var(--dividing-line-header);
+	content: "";
+}

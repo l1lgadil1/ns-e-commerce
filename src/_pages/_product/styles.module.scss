@@ -1,0 +1,68 @@
+.wrapper {
+}
+
+.container {
+background: var(--product-bg);
+}
+
+.imageContainer {
+	position: relative;
+	height: 75vh;
+
+	& img {
+		height: 100%;
+		width: 100%;
+		object-position: center;
+		object-fit: cover;
+		position: absolute;
+	}
+
+	.progress {
+		position: absolute;
+	}
+
+	.name {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		bottom: 15%;
+
+		.info {
+			max-width: 50%;
+		}
+	}
+
+	.featuresDesktop{
+		position: absolute;
+		bottom: 5%;
+		left: 0;
+	}
+}
+
+.featureCard {
+	@media (min-width: 768px) {
+		flex-direction: row!important;
+
+		& h3{
+			display: flex;
+			width: 100%;
+			height: 100%;
+			justify-self: center;
+			align-self: center;
+		}
+	}
+	& img {
+		object-fit: cover;
+		object-position: center;
+		height: calc(100vw - 107px);
+
+		border-radius: var(--border-l);
+
+		@media (min-width: 768px) {
+			//min-width: 420px;
+			//max-width: 420p;
+			width: 420px;
+			height: 420px;
+		}
+	}
+}

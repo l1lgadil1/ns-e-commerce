@@ -1,8 +1,25 @@
 :root{
 	//Colors
-	--primary:#CB1243;
+	--text-black:#333;
+	--text-gray:#555;
+	--product-btn:#8f8480;
+
+	//Header
+	--dividing-line-header:linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);;
+
+	//Heights
+	--header-height:66px;
+
+	//Z -indexes
+	--z-modal:10;
+	--z-header:5;
 
 
+	//Border Radiuses
+	--border-l:12px;
+
+	//Border colors
+	--tab-border:rgba(255, 255, 255, 0.1);
 
 	//Margins
 	--header-margin:80px;

@@ -1,17 +1,20 @@
 'use client';
 
 import { IProps } from './props';
-import { PropsWithChildren } from "react";
-import { Header } from "@/widgets/header";
+import { PropsWithChildren, useState } from "react";
+import { HeaderV2 } from "@/widgets/_header";
+import { cn } from "@/shared/lib";
 
 export const AppContainer = (props: PropsWithChildren<IProps>) => {
   const { children } = props;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [theme, setTheme] = useState('women');
   return (
     <>
-      <Header />
+      <HeaderV2 />
       <div
         // style={{ paddingTop: headerMargins }}
-        className='w-full h-full flex-1 flex flex-col'
+        className={cn('w-full h-full flex-1 flex flex-col', theme)}
       >
         {children}
       </div>
