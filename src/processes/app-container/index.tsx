@@ -4,6 +4,7 @@ import { IProps } from './props';
 import { PropsWithChildren, useState } from "react";
 import { HeaderV2 } from "@/widgets/_header";
 import { cn } from "@/shared/lib";
+import { Footer } from "@/widgets/footer";
 
 export const AppContainer = (props: PropsWithChildren<IProps>) => {
   const { children } = props;
@@ -18,6 +19,7 @@ export const AppContainer = (props: PropsWithChildren<IProps>) => {
       >
         {children}
       </div>
+      <Footer />
     </>
   );
 };

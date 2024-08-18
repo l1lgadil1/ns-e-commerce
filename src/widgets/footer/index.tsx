@@ -1,0 +1,64 @@
+import styles from './styles.module.scss';
+import { IProps } from './props';
+import { Flex } from "@/shared/ui/flex";
+import Link from "next/link";
+import { P } from "@/shared/ui/p";
+import { Colors, URLS } from "@/shared/consts";
+import { Hr } from "@/shared/ui/hr";
+import { Button } from "@/shared/ui/button";
+import { menus } from "@/widgets/_header/lib/mock";
+import { Instagram, MoveRight, Youtube } from "lucide-react";
+import { H4 } from "@/shared/ui/h4";
+import { cn } from "@/shared/lib";
+
+export const Footer = (props: IProps) => {
+  const { className } = props;
+  return (
+    <div className={cn(styles.container, className)}>
+      <Flex gap={40} className='container !py-10'>
+        <Flex gap={24}>
+          <Flex justify='center' mode='row'>
+            <Link href='tel:+77762918098'>
+              <P fontWeight={500} fontSize={22} lineHeight={30} className='tracking-wide' color={Colors.White}>
+                +7 776 291 80 98
+              </P>
+            </Link>
+          </Flex>
+          <Hr />
+          <Flex justify='center' mode='row'>
+            <Flex className='w-full'>
+              {menus?.map(i => (
+                <Button variant='ghost' key={i.name} className='py-4 px-0 border-b-[0.5px] h-auto border-[var(--white)] rounded-none flex justify-between'>
+                  <P fontWeight={300} color={Colors.White}>{i.name}</P>
+                  <MoveRight color={Colors.White} />
+                </Button>
+              ))}
+            </Flex>
+          </Flex>
+        </Flex>
+        <Flex gap={24}>
+          <Flex mode='row' justify='center'>
+            <H4 size='m' color={Colors.Gray}>NS - Казахстанский бренд, который делает стиль доступнее</H4>
+          </Flex>
+          <Flex mode='row' className='w-full' justify='center' gap={16}>
+            <Link href={URLS.insta}>
+              <Instagram color={Colors.White} />
+            </Link>
+            <Link href={URLS.youtube}>
+              <Youtube color={Colors.White} />
+            </Link>
+            <Link href={URLS.tiktok}>
+              <svg fill="#ffffff" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" stroke="#ffffff">
+                <g id="SVGRepo_bgCarrier" strokeWidth="0" />
+                <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
+                <g id="SVGRepo_iconCarrier">
+                  <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z" />
+                </g>
+              </svg>
+            </Link>
+          </Flex>
+        </Flex>
+      </Flex>
+    </div>
+  );
+};

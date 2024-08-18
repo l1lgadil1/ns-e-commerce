@@ -8,18 +8,23 @@ import { cn } from "@/shared/lib";
 
 export const CoursesList = (props: IProps) => {
   const { className, list, title } = props;
+  const isMobile = window.innerWidth <= 768;
 
   return (
-    <Flex gap={12} className={cn(styles.container, className)}>
-      <H3 size='m' color={Colors.White} fontWeight={500}>{title}</H3>
-      {list?.map(i => (
-        <CourseCard
-          imgPreview={i?.imgPreview}
-          title={i?.title}
-          description={i?.description}
-          subtitle={i?.subtitle}
-        />
-      ))}
+    <Flex className={cn(styles.container, className)}>
+      <Flex gap={12} className='container'>
+        <H3 size='m' color={Colors.White} fontWeight={500}>{title}</H3>
+        <Flex gap={12} mode={isMobile ? 'column' : 'row'}>
+          {list?.map(i => (
+            <CourseCard
+              imgPreview={i?.imgPreview}
+              title={i?.title}
+              description={i?.description}
+              subtitle={i?.subtitle}
+            />
+          ))}
+        </Flex>
+      </Flex>
     </Flex>
   );
 };

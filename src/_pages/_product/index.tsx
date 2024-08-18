@@ -12,8 +12,6 @@ import { Globe, ShieldCheck, Box, Castle, Plus, Minus } from "lucide-react";
 import { cn } from "@/shared/lib";
 import { H3 } from "@/shared/ui/h3";
 import { useMemo, useState } from "react";
-import Link from "next/link";
-import { Hr } from "@/shared/ui/hr";
 
 const featuresArr = [
   {
@@ -190,16 +188,6 @@ export const ProductPage = () => {
         <Button>
           <P color={Colors.White} className='uppercase' fontWeight={500}>Инструкция</P>
         </Button>
-      </Flex>
-      <Flex gap={24} className='container !py-5'>
-        <Flex justify='center' mode='row'>
-          <Link href='tel:+77762918098'>
-            <P fontWeight={500} fontSize={22} lineHeight={30} className='tracking-wide' color={Colors.White}>
-              +7 776 291 80 98
-            </P>
-          </Link>
-        </Flex>
-        <Hr />
       </Flex>
     </div>
   );

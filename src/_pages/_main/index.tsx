@@ -73,7 +73,7 @@ export const MainPageV2 = () => {
           </Flex>
         </Flex>
       </Flex>
-      <Flex gap={isMobile ? 16 : 32} className='my-20 mx-4 container' flexWrap mode='row'>
+      <Flex gap={isMobile ? 16 : 32} className='my-10 mx-4 container' flexWrap mode='row'>
         {/*  Нужно сохранять картинки в соотношение 1:1 с минимальной шириной в 220 и высотой 220 */}
         {/* <CardItem name='NS Super Air' id='1' imgSrc="/images/products/dryer/dryer1.png" price={76000} /> */}
         <CardItem name='NS Super Air' id='1' imgSrc="https://st.bork.kz/original/common/1248155/1_1248155.png?1720709244" price={76000} />
@@ -82,7 +82,7 @@ export const MainPageV2 = () => {
       </Flex>
       <div ref={intersectionRef} />
 
-      <CoursesList className='py-20 px-4 bg-[var(--bg-secondary)]' list={coursesArrMock} title='Уход за волосами' />
+      <CoursesList className='py-10 px-4 bg-[var(--bg-secondary)]' list={coursesArrMock} title='Уход за волосами' />
     </div>
   );
 };
