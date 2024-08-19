@@ -1,26 +1,35 @@
-:root{
+:root {
 	//Colors
-	--text-black:#333;
-	--text-gray:#555;
-	--product-btn:#8f8480;
+	--text-black: #333;
+	--text-gray: #555;
+	--product-btn: #8f8480;
+
 
 	//Header
-	--dividing-line-header:linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);;
+	--dividing-line-header: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);;
 
 	//Heights
-	--header-height:66px;
+	--header-height: 66px;
 
 	//Z -indexes
-	--z-modal:10;
-	--z-header:5;
+	--z-modal: 10;
+	--z-header: 5;
 
 
 	//Border Radiuses
-	--border-l:12px;
+	--border-l: 12px;
 
 	//Border colors
-	--tab-border:rgba(255, 255, 255, 0.1);
+	--tab-border: rgba(255, 255, 255, 0.1);
 
 	//Margins
-	--header-margin:80px;
+	--header-margin: 80px;
+}
+
+.primary {
+	color: var(--text-primary)
+}
+
+.secondary{
+	color:var(--text-secondary)
 }

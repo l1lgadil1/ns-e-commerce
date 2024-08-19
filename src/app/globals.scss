@@ -106,3 +106,21 @@
 .app {
 	background: var(--bg-main);
 }
+
+img {
+	animation: fadein 1s;
+}
+
+div {
+	transition: background 0.3s ease;
+}
+
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+

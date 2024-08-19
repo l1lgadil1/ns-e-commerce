@@ -27,7 +27,6 @@ export const ProductPage = () => {
     dots: true,
     infinite: false,
   };
-  console.log(product);
   useEffect(() => {
     setProduct(productsArr.find(i => i.id === +(productId)));
     setLoading(false);

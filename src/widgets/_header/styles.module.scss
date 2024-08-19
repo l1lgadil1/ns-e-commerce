@@ -7,7 +7,14 @@
 	top: 0;
 	left: 0;
 	z-index: var(--z-header);
-	&::before{
+	background: transparent;
+	transition: background 0.3s ease-in;
+
+	&.color {
+		background: var(--bg-secondary);
+	}
+
+	&::before {
 		position: absolute;
 		right: 0;
 		bottom: 0;

@@ -115,6 +115,7 @@ export const ProductPage = () => {
         </div>
 
         <img src="https://st.bork.kz/components/product/beauty/fen/f730-gg/gallery/01.jpg?t=1693204811" alt="product" />
+        {/* <img src="/images/products/dryer/dryer1.png" alt="product" /> */}
         <Flex className={styles.name} justify='center' align='center' mode='row'>
           <Flex gap={24} className={styles.info}>
             <H1 color={Colors.White}>NS Superair</H1>

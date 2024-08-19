@@ -19,7 +19,7 @@ export const Footer = (props: IProps) => {
         <Flex gap={24}>
           <Flex justify='center' mode='row'>
             <Link href='tel:+77762918098'>
-              <P fontWeight={500} fontSize={22} lineHeight={30} className='tracking-wide' color={Colors.White}>
+              <P fontWeight={500} fontSize={22} lineHeight={30} className='tracking-wide'>
                 +7 776 291 80 98
               </P>
             </Link>
@@ -28,9 +28,9 @@ export const Footer = (props: IProps) => {
           <Flex justify='center' mode='row'>
             <Flex className='w-full'>
               {menus?.map(i => (
-                <Button variant='ghost' key={i.name} className='py-4 px-0 border-b-[0.5px] h-auto border-[var(--white)] rounded-none flex justify-between'>
-                  <P fontWeight={300} color={Colors.White}>{i.name}</P>
-                  <MoveRight color={Colors.White} />
+                <Button variant='ghost' key={i.name} className='py-4 px-0 border-b-[1px] h-auto border-[var(--text-primary)] rounded-none flex justify-between'>
+                  <P fontWeight={300}>{i.name}</P>
+                  <MoveRight />
                 </Button>
               ))}
             </Flex>
@@ -38,7 +38,7 @@ export const Footer = (props: IProps) => {
         </Flex>
         <Flex gap={24}>
           <Flex mode='row' justify='center'>
-            <H4 size='m' color={Colors.Gray}>NS - Казахстанский бренд, который делает стиль доступнее</H4>
+            <H4 size='m'>NS - Казахстанский бренд, который делает стиль доступнее</H4>
           </Flex>
           <Flex mode='row' className='w-full' justify='center' gap={16}>
             <Link href={URLS.insta}>

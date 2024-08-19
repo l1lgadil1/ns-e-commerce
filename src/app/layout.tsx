@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head />
-      <body className={cn("min-h-screen flex flex-col bg-background font-sans app antialiased", fontSans.variable)}>
+      <body className={cn("min-h-screen flex flex-col bg-background font-sans antialiased", fontSans.variable)}>
         <AppContainer>
           {children}
         </AppContainer>
