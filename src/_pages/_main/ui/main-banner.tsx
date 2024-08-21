@@ -6,7 +6,9 @@ import { Button } from "@/shared/ui/button";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { useIntersection } from "react-use";
-import { useHeaderStore } from "@/shared/lib/store";
+import { useHeaderStore, useThemeStore } from "@/shared/lib/store";
+import { cn } from "@/shared/lib";
+import { Genders } from "@/shared/consts";
 
 interface IProps {
     bannerInfo: {
@@ -25,6 +27,7 @@ export const MainBanner = (props: IProps) => {
     text,
     btnText,
     href } = bannerInfo;
+  const gender = useThemeStore(state => state.theme);
   const intersectionRef = useRef<HTMLDivElement>(null);
   const resetHeaderColor = useHeaderStore(state => state.resetHeaderColor);
   const intersection = useIntersection(intersectionRef, {
@@ -39,7 +42,7 @@ export const MainBanner = (props: IProps) => {
     }
   }, [intersection]);
   return (
-    <Flex className={styles.pictureContainer}>
+    <Flex className={cn(styles.pictureContainer, gender === Genders.Women && styles.women)}>
       <picture className={styles.picture}>
         {/* <img alt='bg-main' src='/images/banner-women.JPG' /> */}
         <img alt='bg-main' src={imgSrc} />
@@ -52,8 +55,9 @@ export const MainBanner = (props: IProps) => {
           </Flex>
           <Flex mode='row' justify='center'>
             <Link href={href}>
-              <Button className='border-[var(--text-primary)]' variant='outline'>
-                <P mode='primary' size='s'>{btnText || "Перейти"}</P>
+              <Button onClick={() => alert('Здесь можно редиректить на целевые товары/специальные предложения')} variant='outline' className='border-[1px] rounded-xl !text-[var(--white)] border-[var(--text-primary)]'>
+                {/* <P mode='primary' fontWeight={500} size='s'>{btnText || "Перейти"}</P> */}
+                {btnText || "Перейти"}
               </Button>
             </Link>
           </Flex>

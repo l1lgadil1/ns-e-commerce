@@ -3,16 +3,18 @@ import { IProps } from './props';
 import { Flex } from "@/shared/ui/flex";
 import Link from "next/link";
 import { P } from "@/shared/ui/p";
-import { Colors, URLS } from "@/shared/consts";
+import { returnColors, URLS } from "@/shared/consts";
 import { Hr } from "@/shared/ui/hr";
 import { Button } from "@/shared/ui/button";
 import { menus } from "@/widgets/_header/lib/mock";
 import { Instagram, MoveRight, Youtube } from "lucide-react";
 import { H4 } from "@/shared/ui/h4";
 import { cn } from "@/shared/lib";
+import { useThemeStore } from "@/shared/lib/store";
 
 export const Footer = (props: IProps) => {
   const { className } = props;
+  const gender = useThemeStore(state => state.theme);
   return (
     <div className={cn(styles.container, className)}>
       <Flex gap={40} className='container !py-10'>
@@ -28,27 +30,29 @@ export const Footer = (props: IProps) => {
           <Flex justify='center' mode='row'>
             <Flex className='w-full'>
               {menus?.map(i => (
-                <Button variant='ghost' key={i.name} className='py-4 px-0 border-b-[1px] h-auto border-[var(--text-primary)] rounded-none flex justify-between'>
-                  <P fontWeight={300}>{i.name}</P>
-                  <MoveRight />
-                </Button>
+                <Link href={`/${gender}/${i.href}`} className=''>
+                  <Button variant='ghost' key={i.name} className='py-4 px-0 w-full border-b-[1px] h-auto border-[var(--text-primary)] rounded-none flex justify-between'>
+                    <P fontWeight={300}>{i.name}</P>
+                    <MoveRight color={returnColors(gender).TextPrimary} />
+                  </Button>
+                </Link>
               ))}
             </Flex>
           </Flex>
         </Flex>
         <Flex gap={24}>
           <Flex mode='row' justify='center'>
-            <H4 size='m'>NS - Казахстанский бренд, который делает стиль доступнее</H4>
+            <H4 size='m' mode='secondary'>NS - Казахстанский бренд, который делает стиль доступнее</H4>
           </Flex>
           <Flex mode='row' className='w-full' justify='center' gap={16}>
             <Link href={URLS.insta}>
-              <Instagram color={Colors.White} />
+              <Instagram color={returnColors(gender).TextPrimary} />
             </Link>
             <Link href={URLS.youtube}>
-              <Youtube color={Colors.White} />
+              <Youtube color={returnColors(gender).TextPrimary} />
             </Link>
             <Link href={URLS.tiktok}>
-              <svg fill="#ffffff" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" stroke="#ffffff">
+              <svg color={returnColors(gender).TextPrimary} width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" stroke={returnColors(gender).TextPrimary}>
                 <g id="SVGRepo_bgCarrier" strokeWidth="0" />
                 <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
                 <g id="SVGRepo_iconCarrier">

@@ -6,17 +6,20 @@ import { P } from "@/shared/ui/p";
 import { cn } from "@/shared/lib";
 import { Button } from "@/shared/ui/button";
 import { Play } from "lucide-react";
+import { useThemeStore } from "@/shared/lib/store";
+import { returnColors } from "@/shared/consts";
 
 export type { CourseCardModel };
 
 export const CourseCard = (props: CourseCardModel) => {
   const { className, imgPreview, title, subtitle, description } = props;
+  const gender = useThemeStore(state => state.theme);
   return (
     <Flex gap={8} className={cn(className, styles.container)}>
       <div className='relative'>
         <img src={imgPreview} alt={title} width={393} height={393} className='h-full w-full' />
-        <Button className='flex items-center gap-2 py-2 px-3 justify-center !bg-[var(--white)] absolute left-[3%] bottom-[3%]' variant='ghost'>
-          <Play />
+        <Button onClick={() => alert('Здесь будет видео')} className='flex items-center gap-2 py-2 px-3 justify-center border border-[var(--text-primary)] absolute left-[3%] bottom-[3%]' variant='ghost'>
+          <Play color={returnColors(gender).TextPrimary} />
           <P>
             Play
           </P>

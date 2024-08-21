@@ -3,5 +3,17 @@ export enum Colors {
     Gray = '#9d9390',
     ProductBtn = '#8f8480',
     TextPrimary = '#333333',
-    TextSecondary = '#777777'
+    TextSecondary = '#777777',
+    Black='black'
 }
+
+export enum MenColors {
+    TextPrimary = '#FFFFFF',
+    TextSecondary = '#D0D0D0',
+}
+export enum WomenColors {
+    TextPrimary = '#333333',
+    TextSecondary = '#777777',
+}
+
+export const returnColors = (gender:'women' | 'men') => (gender === 'women' ? WomenColors : MenColors);

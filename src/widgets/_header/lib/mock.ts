@@ -1,14 +1,18 @@
 export const menus = [
+  // {
+  //   name: 'Красота и здоровье',
+  //   href: '/beauty'
+  // },
+  // {
+  //   name: 'Идеи подарков',
+  //   href: '/ideas'
+  // },
   {
-    name: 'Красота и здоровье',
+    name: 'Видео-уроки',
+    href: 'courses'
   },
   {
-    name: 'Идеи подарков'
-  },
-  {
-    name: 'Видео-уроки'
-  },
-  {
-    name: 'О нас'
+    name: 'О нас',
+    href: 'about-us'
   }
 ];

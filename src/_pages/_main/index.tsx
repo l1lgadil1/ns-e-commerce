@@ -6,6 +6,8 @@ import { ItemsList } from "./ui/items-list";
 import { MainBanner } from "./ui/main-banner";
 import { useThemeStore } from "@/shared/lib/store";
 import { Genders } from "@/shared/consts";
+import { Flex } from "@/shared/ui/flex";
+import { mensItems, womensItems } from "@/shared/mock";
 
 const coursesWomen = [
   {
@@ -37,22 +39,34 @@ const coursesMen = [
 
 ];
 
-const womenItems = [
-  {
-    name: 'NS Super Air',
-    id: '1',
-    imgSrc: "https://st.bork.kz/original/common/1248155/1_1248155.png?1720709244",
-    price: 76000
-  }
-];
-const menItems = [
-  {
-    name: 'NS Super Air',
-    id: '1',
-    imgSrc: "https://st.bork.kz/original/common/1248155/1_1248155.png?1720709244",
-    price: 76000
-  }
-];
+// const womenItems = [
+//   {
+//     name: 'NS Super Air',
+//     id: '1',
+//     imgSrc: "https://st.bork.kz/original/common/1248155/1_1248155.png?1720709244",
+//     price: 76000
+//   }
+// ];
+// const menItems = [
+//   {
+//     name: 'NS 11',
+//     id: 'ns-11',
+//     imgSrc: "/images/products/razor/ns-11/main.png",
+//     price: 13900
+//   },
+//   {
+//     name: 'NS 81',
+//     id: 'ns-81',
+//     imgSrc: "/images/products/razor/ns-81/main.png",
+//     price: 12500
+//   },
+//   {
+//     name: 'NS 4D',
+//     id: 'ns-4d',
+//     imgSrc: "/images/products/razor/ns4d/main.png",
+//     price: 15890
+//   },
+// ];
 const womenBanner = {
   imgSrc: '/images/banner-women.jpg',
   title: 'Новая эра красоты',
@@ -65,14 +79,35 @@ const menBanner = {
   text: 'Новый NS superair позволит вам расширить ваш стиль максимально комфортно',
   href: ''
 };
+const womenSecondBanner = {
+  imgSrc: '/images/banner-women2.jpg',
+  title: 'Новые технологии ',
+  text: 'Исследуйте современные решения от NS',
+  href: ''
+};
+const menSecondBanner = {
+  imgSrc: '/images/banner-men2.jpg',
+  title: 'Новая эра красоты',
+  text: 'Новый NS superair позволит вам расширить ваш стиль максимально комфортно',
+  href: ''
+};
 export const MainPageV2 = () => {
   const gender = useThemeStore(state => state.theme);
   return (
     <div className={styles.container}>
-      <MainBanner bannerInfo={gender === Genders.Women ? womenBanner : menBanner} />
+      <Flex>
+        <MainBanner bannerInfo={gender === Genders.Women ? womenBanner : menBanner} />
+        <MainBanner bannerInfo={gender === Genders.Women ? womenSecondBanner : menSecondBanner} />
+      </Flex>
       {/* {!(intersection && intersection?.intersectionRatio < 1) ? <div>intersected</div> : <div>no</div>} */}
 
-      <ItemsList arrList={gender === Genders?.Women ? womenItems : menItems} />
+      <ItemsList arrList={(gender === Genders?.Women ? womensItems : mensItems).map(i => ({
+        imgSrc: i.images.find(_i => _i.includes('png')) || i.images[0],
+        id: i.id,
+        price: i.price,
+        name: i.name
+      }))}
+      />
       {gender === Genders.Women ? <CoursesList className='py-10 px-4 bg-[var(--bg-secondary)]' list={coursesWomen} title='Уход за волосами' /> : <CoursesList className='py-10 px-4 bg-[var(--bg-secondary)]' list={coursesMen} title='Уход за бородой' />}
     </div>
   );

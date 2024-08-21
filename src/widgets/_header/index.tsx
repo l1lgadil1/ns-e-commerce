@@ -15,15 +15,20 @@ import { useState } from "react";
 import { BurgerMenu } from "./ui/burger";
 import { NavBtn } from "@/widgets/_header/ui/nav-btn";
 import { useHeaderStore, useThemeStore } from "@/shared/lib/store";
+import { usePathname } from "next/navigation";
 
 export const HeaderV2 = (props: IProps) => {
   const { className } = props;
+  const pathname = usePathname();
   const [isBurgerOpen, setBurgerOpen] = useState(false);
   const gender = useThemeStore(state => state.theme);
   const changeGender = useThemeStore(state => state.changeTheme);
-  const onClickGender = (val:Genders) => changeGender(val);
+  const onClickGender = (val:Genders) => {
+    changeGender(val);
+    setBurgerOpen(false);
+  };
 
-  const isHeaderChangeColor = useHeaderStore(state => state.isHeaderChangeColor);
+  const isHeaderChangeColor = useHeaderStore(state => state.isHeaderChangeColor) || (pathname.includes('courses') || pathname.includes('about-us'));
   return (
     <Flex mode='row' justify='space-between' className={cn(styles.container, isHeaderChangeColor && styles.color, className, 'px-4 relative py-3 header')}>
       {isBurgerOpen && (
