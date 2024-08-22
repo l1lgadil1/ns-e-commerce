@@ -93,8 +93,8 @@ export const ProductPage = () => {
           <Flex gap={24} className={styles.info}>
             <H1 color={Colors.White} className='text-center'>{productInfo?.name}</H1>
             <Flex gap={18} align='center'>
-              <H2 size='xs' color={Colors.White} className='opacity-80'>{formatPrice(productInfo?.price)} тг.</H2>
-              <Link href={productInfo?.kaspiUrl}>
+              <H2 size='s' color={Colors.White} className='opacity-80'>{formatPrice(productInfo?.price)} тг.</H2>
+              <Link href={productInfo?.kaspiUrl} target='_blank'>
                 <Button>
                   Купить
                 </Button>
