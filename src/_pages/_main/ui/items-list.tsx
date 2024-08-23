@@ -1,4 +1,3 @@
-import { H2 } from "@/shared/ui/h2";
 import { Flex } from "@/shared/ui/flex";
 import { CardItem, CardItemModel } from "@/entities/card-item";
 import { Hr } from "@/shared/ui/hr";
@@ -30,7 +29,7 @@ export const ItemsList = ({ arrList }:IProps) => {
     <Flex gap={18} className='!pt-10 pb-5 mx-4 container'>
       {/*  Нужно сохранять картинки в соотношение 1:1 с минимальной шириной в 220 и высотой 220 */}
       {/* <CardItem name='NS Super Air' id='1' imgSrc="/images/products/dryer/dryer1.png" price={76000} /> */}
-      <H2 mode='primary' size='m'>Товары</H2>
+      {/* <H2 mode='primary' size='m'>Товары</H2> */}
       <Flex gap={isMobile ? 16 : 32} flexWrap mode='row'>
         {arrList?.map(i => (
           <CardItem

@@ -26,8 +26,8 @@ export const BurgerMenu = (props: IProps) => {
         </Flex>
         <Flex className=''>
           {menus?.map(i => (
-            <Link href={`/${gender}/${i.href}`} className=''>
-              <Button variant='ghost' key={i.name} className='py-4 px-0 w-full border-b-[1px] h-auto border-[var(--text-primary)] rounded-none flex justify-between'>
+            <Link href={!i.href.includes('tel') ? `/${gender}/${i.href}` : i.href} className=''>
+              <Button variant='ghost' onClick={close} key={i.name} className='py-4 px-0 w-full border-b-[1px] h-auto border-[var(--text-primary)] rounded-none flex justify-between'>
                 <P fontWeight={300} mode='primary'>{i.name}</P>
                 <MoveRight color={returnColors(gender).TextPrimary} />
               </Button>

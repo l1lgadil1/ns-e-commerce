@@ -1,7 +1,6 @@
 'use client';
 
 import styles from './styles.module.scss';
-import { CoursesList } from "@/widgets/courses/list";
 import { ItemsList } from "./ui/items-list";
 import { MainBanner } from "./ui/main-banner";
 import { useThemeStore } from "@/shared/lib/store";
@@ -9,6 +8,7 @@ import { Genders } from "@/shared/consts";
 import { Flex } from "@/shared/ui/flex";
 import { mensItems, womensItems } from "@/shared/mock";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const coursesWomen = [
   {
     imgPreview: 'https://dyson-h.assetsadobe2.com/is/image/content/dam/dyson/products/hair-care/airstrait-553-2023/haircare-category-page/styling-guides/553-haircare-category-naturally-straight-blow-out-leap.jpg?cropPathE=mobile&fit=stretch,1&fmt=pjpeg&wid=640',
@@ -29,6 +29,7 @@ const coursesWomen = [
     description: 'Идеальные, прямые волосы'
   },
 ];
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const coursesMen = [
   {
     imgPreview: 'https://mi-home.kz/templates/yootheme/cache/06/Xiaomi_Soocas_Electric_Shaver_S32_2-0662427c.webp',
@@ -108,7 +109,7 @@ export const MainPageV2 = () => {
         name: i.name
       }))}
       />
-      {gender === Genders.Women ? <CoursesList className='py-10 px-4 bg-[var(--bg-secondary)]' list={coursesWomen} title='Уход за волосами' /> : <CoursesList className='py-10 px-4 bg-[var(--bg-secondary)]' list={coursesMen} title='Уход за бородой' />}
+      {/* {gender === Genders.Women ? <CoursesList className='py-10 px-4 bg-[var(--bg-secondary)]' list={coursesWomen} title='Уход за волосами' /> : <CoursesList className='py-10 px-4 bg-[var(--bg-secondary)]' list={coursesMen} title='Уход за бородой' />} */}
     </div>
   );
 };
