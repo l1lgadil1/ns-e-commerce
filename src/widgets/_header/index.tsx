@@ -39,7 +39,7 @@ export const HeaderV2 = (props: IProps) => {
       )}
       <Flex align='center' justify='center'>
         {isBurgerOpen ? <Button variant='ghost' className='p-0'><X color={Colors.White} /></Button> : <Burger onClick={() => setBurgerOpen(p => !p)} color={returnColors(gender).TextPrimary} className='md:hidden' />}
-        <Flex mode='row' gap={24} className='!hidden md:!flex'>
+        <Flex mode='row' gap={24} className='!hidden md:!flex min-w-[60px]'>
           {/* <NavBtn name={GendersRussian.Women} href={`/${Genders?.Women}`} onClick={() => onClickGender(Genders.Women)} isActive={gender === Genders.Women} /> */}
           {/* <NavBtn name={GendersRussian.Men} href={`/${Genders?.Men}`} onClick={() => onClickGender(Genders.Men)} isActive={gender === Genders.Men} /> */}
         </Flex>

@@ -87,19 +87,19 @@ export const MainPageV2 = () => {
     {
       imgSrc: '/images/products/razor/ns4d/_.jpg',
       title: 'NS 4D',
-      text: 'Новый NS superair позволит вам расширить ваш стиль максимально комфортно',
+      text: 'Исследуйте новейшие технологии от NS',
       href: '/men/product/ns-4d'
     },
     {
       imgSrc: '/images/products/razor/ns-11/_-38.jpg',
       title: 'NS 11',
-      text: 'Новый NS superair позволит вам расширить ваш стиль максимально комфортно',
+      text: 'Все бритвы произведены по современным стандартам',
       href: '/men/product/ns-11'
     },
     {
       imgSrc: '/images/products/razor/ns-81/_-42.jpg',
       title: 'NS 81',
-      text: 'Новый NS superair позволит вам расширить ваш стиль максимально комфортно',
+      text: 'Инновационный казахстанский бренд номер один',
       href: '/men/product/ns-81'
     },
   ];
