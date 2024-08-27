@@ -13,7 +13,7 @@ const fontSans = FontSans({
 
 export const metadata: Metadata = {
   title: "NS",
-  description: "Онлайн магазин",
+  description: "NS - инновационный казахстанский бренд номер один. Бытовая техника для красоты. Бритвы, триммеры, станки, насадки для бритв. Фены, фены-стайлеры, выпрямители.",
 };
 
 export default function RootLayout({
