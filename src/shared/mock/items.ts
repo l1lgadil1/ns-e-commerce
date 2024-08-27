@@ -22,17 +22,21 @@ export const mensItems = [
     ],
     features: [
       {
+        value: 'Водонепроницаемый корпус',
+        img: '/images/products/razor/ns4d/main.jpg'
+      },
+      {
         value: 'Роторная система бритья',
         img: '/images/products/razor/ns4d/_.jpg'
+      },
+      {
+        value: '4 насадки в комплекте',
+        img: '/images/products/razor/ns4d/_-21.jpg'
       },
       {
         value: 'Сухой/Влажный способ бритья',
         img: '/images/products/razor/ns4d/_-58.jpg'
       },
-      {
-        value: '4 насадки в комплекте',
-        img: '/images/products/razor/ns4d/_-21.jpg'
-      }
     ],
     characteristics: [
       { title: "Способ бритья", value: "сухое / влажное" },
@@ -76,17 +80,25 @@ export const mensItems = [
     ],
     features: [
       {
-        value: 'Влажный способ бритья',
-        img: '/images/products/razor/ns-81/_-9.jpg'
+        value: '6 насадок в комплекте',
+        img: '/images/products/razor/ns-81/_-7.jpg'
       },
       {
-        value: 'Экранный дисплей',
+        value: 'Комлпектация',
+        img: '/images/products/razor/ns-81/_-2.jpg',
+      },
+      {
+        value: 'Нержваеющая сталь ',
         img: '/images/products/razor/ns-81/_-44.jpg'
       },
       {
-        value: '6 насадок в комплекте',
-        img: '/images/products/razor/ns-81/_-7.jpg'
-      }
+        value: 'Экранный дисплей',
+        img: '/images/products/razor/ns-81/_-47.jpg'
+      },
+      {
+        value: 'Влажный способ бритья',
+        img: '/images/products/razor/ns-81/_-9.jpg'
+      },
     ],
     characteristics: [
       { title: "Тип", value: "набор для стрижки" },
@@ -128,12 +140,16 @@ export const mensItems = [
     ],
     features: [
       {
+        value: '4 насадки в комплекте',
+        img: '/images/products/razor/ns-11/_-6.jpg'
+      },
+      {
         value: 'Сухой/Влажный способ бритья',
         img: '/images/products/razor/ns-11/_-5.jpg'
       },
       {
         value: 'Экранный дисплей',
-        img: '/images/products/razor/ns-11/_-33.jpg'
+        img: '/images/products/razor/ns-11/_-38.jpg'
       },
       {
         value: 'Самозатачивающиеся лезвия',

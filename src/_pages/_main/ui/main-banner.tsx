@@ -55,7 +55,7 @@ export const MainBanner = (props: IProps) => {
           </Flex>
           <Flex mode='row' justify='center'>
             <Link href={href}>
-              <Button onClick={() => alert('Здесь можно редиректить на целевые товары/специальные предложения')} variant='outline' className='border-[1px] rounded-xl !text-[var(--white)] border-[var(--text-primary)]'>
+              <Button variant='outline' className='border-[1px] rounded-xl !text-[var(--white)] border-[var(--text-primary)]'>
                 {/* <P mode='primary' fontWeight={500} size='s'>{btnText || "Перейти"}</P> */}
                 {btnText || "Перейти"}
               </Button>

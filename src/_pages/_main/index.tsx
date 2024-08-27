@@ -1,12 +1,10 @@
 'use client';
 
 import styles from './styles.module.scss';
-import { ItemsList } from "./ui/items-list";
 import { MainBanner } from "./ui/main-banner";
 import { useThemeStore } from "@/shared/lib/store";
 import { Genders } from "@/shared/consts";
 import { Flex } from "@/shared/ui/flex";
-import { mensItems, womensItems } from "@/shared/mock";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const coursesWomen = [
@@ -68,47 +66,60 @@ const coursesMen = [
 //     price: 15890
 //   },
 // ];
-const womenBanner = {
-  imgSrc: '/images/banner-women.jpg',
-  title: 'Новая эра красоты',
-  text: 'Новый NS superair позволит вам расширить ваш стиль максимально комфортно',
-  href: ''
-};
-const menBanner = {
-  imgSrc: '/images/banner-men.jpg',
-  title: 'Новая эра красоты',
-  text: 'Новый NS superair позволит вам расширить ваш стиль максимально комфортно',
-  href: ''
-};
-const womenSecondBanner = {
-  imgSrc: '/images/banner-women2.jpg',
-  title: 'Новые технологии ',
-  text: 'Исследуйте современные решения от NS',
-  href: ''
-};
-const menSecondBanner = {
-  imgSrc: '/images/banner-men2.jpg',
-  title: 'Новая эра красоты',
-  text: 'Новый NS superair позволит вам расширить ваш стиль максимально комфортно',
-  href: ''
-};
+
 export const MainPageV2 = () => {
   const gender = useThemeStore(state => state.theme);
+  const womenBanners = [
+    {
+      imgSrc: '/images/banner-women.jpg',
+      title: 'Новая эра красоты',
+      text: 'Новый NS superair позволит вам расширить ваш стиль максимально комфортно',
+      href: ''
+    },
+    {
+      imgSrc: '/images/banner-women2.jpg',
+      title: 'Новые технологии ',
+      text: 'Исследуйте современные решения от NS',
+      href: ''
+    }
+  ];
+  const menBanner = [
+    {
+      imgSrc: '/images/products/razor/ns4d/_.jpg',
+      title: 'NS 4D',
+      text: 'Новый NS superair позволит вам расширить ваш стиль максимально комфортно',
+      href: '/men/product/ns-4d'
+    },
+    {
+      imgSrc: '/images/products/razor/ns-11/_-38.jpg',
+      title: 'NS 11',
+      text: 'Новый NS superair позволит вам расширить ваш стиль максимально комфортно',
+      href: '/men/product/ns-11'
+    },
+    {
+      imgSrc: '/images/products/razor/ns-81/_-42.jpg',
+      title: 'NS 81',
+      text: 'Новый NS superair позволит вам расширить ваш стиль максимально комфортно',
+      href: '/men/product/ns-81'
+    },
+  ];
+  const currentArr = gender === Genders.Women ? womenBanners : menBanner;
   return (
     <div className={styles.container}>
       <Flex>
-        <MainBanner bannerInfo={gender === Genders.Women ? womenBanner : menBanner} />
-        <MainBanner bannerInfo={gender === Genders.Women ? womenSecondBanner : menSecondBanner} />
+        {currentArr.map(i => (
+          <MainBanner bannerInfo={i} key={i.imgSrc} />
+        ))}
       </Flex>
       {/* {!(intersection && intersection?.intersectionRatio < 1) ? <div>intersected</div> : <div>no</div>} */}
 
-      <ItemsList arrList={(gender === Genders?.Women ? womensItems : mensItems).map(i => ({
-        imgSrc: i.images.find(_i => _i.includes('png')) || i.images[0],
-        id: i.id,
-        price: i.price,
-        name: i.name
-      }))}
-      />
+      {/* <ItemsList arrList={(gender === Genders?.Women ? womensItems : mensItems).map(i => ({ */}
+      {/*  imgSrc: i.images.find(_i => _i.includes('png')) || i.images[0], */}
+      {/*  id: i.id, */}
+      {/*  price: i.price, */}
+      {/*  name: i.name */}
+      {/* }))} */}
+      {/* /> */}
       {/* {gender === Genders.Women ? <CoursesList className='py-10 px-4 bg-[var(--bg-secondary)]' list={coursesWomen} title='Уход за волосами' /> : <CoursesList className='py-10 px-4 bg-[var(--bg-secondary)]' list={coursesMen} title='Уход за бородой' />} */}
     </div>
   );

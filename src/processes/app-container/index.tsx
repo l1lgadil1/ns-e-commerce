@@ -19,7 +19,8 @@ export const AppContainer = (props: PropsWithChildren<IProps>) => {
 
   useEffect(() => () => {
     if (!params.gender || params.gender === Genders.Women) {
-      changeTheme('women');
+      // changeTheme('women');
+      changeTheme('men');
     } else if (params?.gender && params.gender === Genders.Men) {
       changeTheme('men');
     }
