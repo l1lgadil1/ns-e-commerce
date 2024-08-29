@@ -94,9 +94,13 @@ export const ProductPage = () => {
             <H1 color={Colors.White} className='text-center'>{productInfo?.name}</H1>
             <Flex gap={18} align='center'>
               <H2 size='s' color={Colors.White} className='opacity-80'>{formatPrice(productInfo?.price)} тг.</H2>
-              <Link href={productInfo?.kaspiUrl} target='_blank'>
-                <Button>
-                  Купить
+              <Link href={productInfo?.kaspiUrl} className='w-full' target='_blank'>
+                <Button style={{
+                  background: `#8B253E`,
+                  width: '100%'
+                }}
+                >
+                  Оформить заказ
                 </Button>
               </Link>
             </Flex>
@@ -161,6 +165,20 @@ export const ProductPage = () => {
           </Flex>
         ))}
       </Flex>
+      <Flex className='p-4 md:hidden'>
+        <Link href={productInfo?.kaspiUrl} className='flex justify-center' target='_blank'>
+          <Button
+            style={{
+              background: `#8B253E`,
+              width: '100%'
+            }}
+            className='md:max-w-[600px] mx-auto '
+          >
+            Оформить заказ
+          </Button>
+        </Link>
+      </Flex>
+
       <Flex gap={18} className='container !py-6'>
         <H3 size='m' mode='primary' className='underline underline-offset-8 '>
           Характеристики
