@@ -71,17 +71,11 @@ export const MainPageV2 = () => {
   const gender = useThemeStore(state => state.theme);
   const womenBanners = [
     {
-      imgSrc: '/images/banner-women.jpg',
+      imgSrc: `/images/products/dryer/ns-superair/_-24.jpg`,
       title: 'Новая эра красоты',
-      text: 'Новый NS superair позволит вам расширить ваш стиль максимально комфортно',
-      href: ''
+      text: 'Новый NS superair позволит вам расширить ваш стиль',
+      href: '/women/product/ns-superair'
     },
-    {
-      imgSrc: '/images/banner-women2.jpg',
-      title: 'Новые технологии ',
-      text: 'Исследуйте современные решения от NS',
-      href: ''
-    }
   ];
   const menBanner = [
     {
