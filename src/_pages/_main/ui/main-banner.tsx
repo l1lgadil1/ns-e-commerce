@@ -4,9 +4,7 @@ import { H1 } from "@/shared/ui/h1";
 import { P } from "@/shared/ui/p";
 import { Button } from "@/shared/ui/button";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
-import { useIntersection } from "react-use";
-import { useHeaderStore, useThemeStore } from "@/shared/lib/store";
+import { useThemeStore } from "@/shared/lib/store";
 import { cn } from "@/shared/lib";
 import { Genders } from "@/shared/consts";
 
@@ -28,19 +26,7 @@ export const MainBanner = (props: IProps) => {
     btnText,
     href } = bannerInfo;
   const gender = useThemeStore(state => state.theme);
-  const intersectionRef = useRef<HTMLDivElement>(null);
-  const resetHeaderColor = useHeaderStore(state => state.resetHeaderColor);
-  const intersection = useIntersection(intersectionRef, {
-    root: null,
-    rootMargin: '0px',
-    threshold: 1
-  });
 
-  useEffect(() => {
-    if ((intersection && intersection.isIntersecting)) {
-      resetHeaderColor();
-    }
-  }, [intersection]);
   return (
     <Flex className={cn(styles.pictureContainer, gender === Genders.Women && styles.women)}>
       <picture className={styles.picture}>
@@ -63,7 +49,6 @@ export const MainBanner = (props: IProps) => {
           </Flex>
         </Flex>
       </Flex>
-      <div ref={intersectionRef} />
     </Flex>
   );
 };

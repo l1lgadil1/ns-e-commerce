@@ -2,9 +2,11 @@
 
 import styles from './styles.module.scss';
 import { MainBanner } from "./ui/main-banner";
-import { useThemeStore } from "@/shared/lib/store";
+import { useHeaderStore, useThemeStore } from "@/shared/lib/store";
 import { Genders } from "@/shared/consts";
 import { Flex } from "@/shared/ui/flex";
+import { useEffect, useRef } from "react";
+import { useIntersection } from "react-use";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const coursesWomen = [
@@ -98,6 +100,22 @@ export const MainPageV2 = () => {
     },
   ];
   const currentArr = gender === Genders.Women ? womenBanners : menBanner;
+  const intersectionRef = useRef<HTMLDivElement>(null);
+  const changeHeaderColor = useHeaderStore(state => state.changeHeaderColor);
+  const resetHeaderColor = useHeaderStore(state => state.resetHeaderColor);
+  const intersection = useIntersection(intersectionRef, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 1
+  });
+
+  useEffect(() => {
+    if ((intersection && intersection.isIntersecting)) {
+      changeHeaderColor();
+    } else {
+      resetHeaderColor();
+    }
+  }, [intersection]);
   return (
     <div className={styles.container}>
       <Flex>
@@ -105,6 +123,8 @@ export const MainPageV2 = () => {
           <MainBanner bannerInfo={i} key={i.imgSrc} />
         ))}
       </Flex>
+      <div ref={intersectionRef} />
+
       {/* {!(intersection && intersection?.intersectionRatio < 1) ? <div>intersected</div> : <div>no</div>} */}
 
       {/* <ItemsList arrList={(gender === Genders?.Women ? womensItems : mensItems).map(i => ({ */}
