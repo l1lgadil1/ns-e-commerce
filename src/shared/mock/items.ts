@@ -62,7 +62,7 @@ export const mensItems = [
     name: 'Электробритва NS81',
     price: 12500,
     category: 'razor',
-    images: [`/images/products/razor/ns-81/main.jpg`, `/images/products/razor/ns-81/main.png`, `/images/products/razor/ns-11/_-2.jpg`, `/images/products/razor/ns-11/_-7.jpg`, `/images/products/razor/ns-11/_-9.jpg`, `/images/products/razor/ns-11/_-42.jpg`, `/images/products/razor/ns-11/_-44.jpg`, `/images/products/razor/ns-11/_-47.jpg`],
+    images: [`/images/products/razor/ns-81/main.jpg`, `/images/products/razor/ns-81/main.png`, `/images/products/razor/ns-81/_-2.jpg`, `/images/products/razor/ns-81/_-7.jpg`, `/images/products/razor/ns-81/_-9.jpg`, `/images/products/razor/ns-81/_-42.jpg`, `/images/products/razor/ns-81/_-44.jpg`, `/images/products/razor/ns-81/_-47.jpg`],
     kaspiUrl: `https://kaspi.kz/shop/p/ns-nabor-dlja-strizhki-dlja-borody-i-usov-dlja-nosa-dlja-brovei-dlja-okantovki-dlja-intimnyh-zon-ns81-115874448/?c=750000000&m=16272231&sr=4&ref=shared_link`,
     mainFeatures: [
       {
@@ -122,7 +122,7 @@ export const mensItems = [
     name: 'Электробритва NS11',
     price: 13900,
     category: 'razor',
-    images: [`/images/products/razor/ns-11/main.jpg`, `/images/products/razor/ns-11/main.png`, `/images/products/razor/ns-11/_-5.jpg`, `/images/products/razor/ns-11/_-33.jpg`, `/images/products/razor/ns-11/_-31.jpg`, `/images/products/razor/ns-11/_-6.jpg`],
+    images: [`/images/products/razor/ns-11/main.jpg`, `/images/products/razor/ns-11/main.png`, `/images/products/razor/ns-11/_-5.jpg`, `/images/products/razor/ns-11/_-6.jpg`, `/images/products/razor/ns-11/_-31.jpg`, `/images/products/razor/ns-11/_-38.jpg`],
     kaspiUrl: `https://kaspi.kz/shop/p/ns-ns11-rotornaja-ot-seti-akkumuljatora-111974567/?c=750000000&ref=shared_link`,
     mainFeatures: [
       {
@@ -256,17 +256,29 @@ export const womensItems = [
       {
         value: 'Удобный чехол',
         img: `/images/products/dryer/ns-superair/_-36.jpg`,
+      },
+      {
+        value: 'Воздрухозаборник, шнур 360°, воздушный фильтр',
+        img: `/images/products/dryer/ns-superair/_-32.jpg`,
       }
 
     ],
     characteristics: [
-      { title: "В комплекте", value: "насадка-диффузор, насадка-щетка, насадка для бережного высушивания, для выпрямления" },
-      { title: "Конструкция", value: "сменные насадки" },
+      { title: "Кол-во насадок в комплекте", value: "6" },
       { title: "Мощность", value: "1300.0 Вт" },
-      { title: "Дополнительные режимы", value: "ионизация" },
-      { title: "Тип", value: "фен" },
-      { title: "Страна производитель", value: "Китай" },
-      { title: "Цвет", value: "серый" }
+      { title: "Ионизация", value: "Есть" },
+      { title: "Цвет", value: "серый" },
+      { title: "Вохдухозаборник", value: "Есть" },
+      { title: "Функция крутящийся шнур на 360", value: "Есть" },
+      { title: "Насадка для бережного высушивания", value: "Есть" },
+      { title: "Насадка круглая щетка для создания объема", value: "Есть" },
+      { title: "Насадка цилиндрическая для создания локонов (2шт вправо/влево)", value: "Есть" },
+      { title: "Насадка диффузор", value: "Есть" },
+      { title: "Насадка щетка для выпрямления", value: "Есть" },
+      { title: "Воздушный фильтр", value: "Есть" },
+      { title: "Количество скоростей обдува", value: "3" },
+      { title: "Количество режимов температуры", value: "3" },
+      { title: "Инструкция (на 2х языках, казахский и русский)", value: "Есть" },
     ]
   },
 ];

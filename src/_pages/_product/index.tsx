@@ -18,6 +18,7 @@ import { ProductModel } from "@/entities/product";
 import { allItems } from "@/shared/mock";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import { ImageGallery } from "@/entities/image-gallery";
 
 export const ProductPage = () => {
   const gender = useThemeStore(state => state.theme);
@@ -178,7 +179,7 @@ export const ProductPage = () => {
           </Button>
         </Link>
       </Flex>
-
+      <ImageGallery images={productInfo?.images.filter(i => !i.includes('png'))} />
       <Flex gap={18} className='container !py-6'>
         <H3 size='m' mode='primary' className='underline underline-offset-8 '>
           Характеристики

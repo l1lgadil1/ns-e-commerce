@@ -5,7 +5,6 @@ interface IThemeStore{
     changeTheme:(val:'men' | 'women')=>void;
 }
 export const useThemeStore = create<IThemeStore>((set) => ({
-  // theme: 'women',
-  theme: 'men',
+  theme: 'women',
   changeTheme: (val) => set(() => ({ theme: val }))
 }));
