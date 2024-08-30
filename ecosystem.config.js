@@ -1,10 +1,13 @@
 module.exports = {
   apps: [
     {
-      name: 'NS e-commerse',
-      script: 'node_modules/next/dist/bin/next',
-      args: '-p 3000',
+      name: 'NS e-commerce',
+      script: 'npm',
+      args: 'run start',
       exec_mode: 'cluster',
+      env: {
+        PORT: 3000,
+      },
     },
   ],
   deploy: {
