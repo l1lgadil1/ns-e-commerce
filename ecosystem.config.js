@@ -9,12 +9,12 @@ module.exports = {
   ],
   deploy: {
     production: {
-      user: process.env.REMOTE_SERVER_USERNAME,
-      host: process.env.REMOTE_SERVER_IP,
-      path: process.env.PROJECT_PATH,
+      user: "almalinux",
+      host: "77.240.39.55",
+      path: "cd ns-e-commerce/",
       repo: "git@github.com:T410/pm2-deploy",
       ref: "origin/main",
-      key: process.env.SSH_KEY_PATH,
+      key: "cat .ssh/id_rsa",
       "post-deploy": "npm i; pm2 reload ecosystem.config.js --env production",
     },
   },

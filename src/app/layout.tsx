@@ -32,7 +32,7 @@ export default function RootLayout({
    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(98173635, "init", {
+   ym(98204484, "init", {
         clickmap:true,
         trackLinks:true,
         accurateTrackBounce:true,
@@ -40,7 +40,7 @@ export default function RootLayout({
         ecommerce:"dataLayer"
    });`}
         </Script>
-        <noscript><div><img src="https://mc.yandex.ru/watch/98173635" style={{ position: 'absolute', left: '-9999px' }} alt="" /></div></noscript>
+        <noscript><div><img src="https://mc.yandex.ru/watch/98204484" style={{ position: 'absolute', left: '-9999px' }} alt="" /></div></noscript>
         <AppContainer>
           {children}
         </AppContainer>
