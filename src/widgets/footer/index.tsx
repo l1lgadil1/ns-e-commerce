@@ -30,7 +30,7 @@ export const Footer = (props: IProps) => {
           <Flex justify='center' mode='row'>
             <Flex className='w-full'>
               {menus?.map(i => (
-                <Link href={!i.href.includes('tel') ? `/${gender}/${i.href}` : i.href} className=''>
+                <Link key={i.href} href={!i.href.includes('tel') ? `/${gender}/${i.href}` : i.href} className=''>
                   <Button variant='ghost' key={i.name} className='py-4 px-0 w-full border-b-[1px] h-auto border-[var(--text-primary)] rounded-none flex justify-between'>
                     <P fontWeight={300}>{i.name}</P>
                     <MoveRight color={returnColors(gender).TextPrimary} />

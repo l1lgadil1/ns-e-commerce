@@ -39,7 +39,7 @@ export const HeaderV2 = (props: IProps) => {
         />
       )}
       <Flex align='center' justify='center'>
-        {isBurgerOpen ? <Button variant='ghost' className='p-0'><X color={Colors.White} /></Button> : <Burger onClick={() => setBurgerOpen(p => !p)} color={returnColors(gender).TextPrimary} className='md:hidden' />}
+        {isBurgerOpen ? <Button variant='ghost' className='p-0'><X color={Colors.White} /></Button> : <Burger onClick={() => setBurgerOpen(p => !p)} color={returnColors(gender).TextPrimary} className='p-3 md:hidden' />}
         <Flex mode='row' gap={24} className='!hidden md:!flex min-w-[60px]'>
           <NavBtn name={GendersRussian.Women} href={`/${Genders?.Women}`} onClick={() => onClickGender(Genders.Women)} isActive={gender === Genders.Women} />
           <NavBtn name={GendersRussian.Men} href={`/${Genders?.Men}`} onClick={() => onClickGender(Genders.Men)} isActive={gender === Genders.Men} />
@@ -53,7 +53,7 @@ export const HeaderV2 = (props: IProps) => {
       </Flex>
       <Flex align='center' justify='center'>
         <Button className='p-0 hover:bg-transparent' variant='ghost'>
-          <Link href="tel:+77762918098">
+          <Link href="tel:+77762918098" className='p-3'>
             <Phone color={returnColors(gender).TextPrimary} className='md:hidden' />
             <P className='md:block hidden' color={returnColors(gender).TextPrimary} fontWeight={400}>+7 776 291 80 98</P>
           </Link>

@@ -7,6 +7,7 @@ import { Genders } from "@/shared/consts";
 import { Flex } from "@/shared/ui/flex";
 import { useEffect, useRef } from "react";
 import { useIntersection } from "react-use";
+import { H1 } from "@/shared/ui/h1";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const coursesWomen = [
@@ -119,6 +120,7 @@ export const MainPageV2 = () => {
   return (
     <div className={styles.container}>
       <Flex>
+        <H1 className='hidden'>NS</H1>
         {currentArr.map(i => (
           <MainBanner bannerInfo={i} key={i.imgSrc} />
         ))}

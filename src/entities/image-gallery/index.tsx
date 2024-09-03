@@ -34,9 +34,9 @@ export const ImageGallery = ({ images }:IProps) => {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div className="relative w-full max-w-3xl mx-auto">
+    <div className="relative w-full max-w-3xl mx-auto overflow-auto">
       <div
-        className="relative aspect-[4/3] overflow-hidden rounded-lg bg-gray-200 cursor-pointer"
+        className="relative aspect-[4/3] md:aspect-[1/1] overflow-hidden rounded-lg bg-gray-200 cursor-pointer"
         onClick={openModal}
       >
         {images.map((src, index) => (
@@ -73,13 +73,13 @@ export const ImageGallery = ({ images }:IProps) => {
       </Button>
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-[90vw] max-h-[90vh] p-0">
+        <DialogContent className="max-w-[90vw] md:max-h-[50vh] md:max-w-[50vw] max-h-[90vh] p-0">
           <div className="relative w-full h-full">
             <NextImage
               src={images[currentIndex]}
               alt={`Image ${currentIndex + 1}`}
               layout="responsive"
-              className='h-[100vh] !w-[100vw]'
+              className='h-[100vh] !w-[100vw] md:!h-auto md:!w-auto'
               width={1600}
               height={1200}
               objectFit="contain"

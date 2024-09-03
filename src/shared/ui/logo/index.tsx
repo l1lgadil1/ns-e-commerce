@@ -11,15 +11,12 @@ export const Logo = ({ color }:IProps) => {
     return (
       <Link href={`/${gender}`} className='flex w-full justify-center'>
         <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert aspect-[96/120]"
           src="/images/ns-logo.png"
           alt="Next.js Logo"
           width={42}
           height={42}
           priority
-          style={{
-            height: 42, width: 42
-          }}
         />
       </Link>
     );
@@ -27,15 +24,12 @@ export const Logo = ({ color }:IProps) => {
   return (
     <Link href={`/${gender}`} className='flex w-full justify-center'>
       <Image
-        className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
+        className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert aspect-[96/120]"
         src="/images/logo-white.png"
         alt="Next.js Logo"
         width={42}
         height={42}
         priority
-        style={{
-          height: 42, width: 42
-        }}
       />
     </Link>
   );

@@ -15,14 +15,16 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useHeaderStore, useThemeStore } from "@/shared/lib/store";
 import { useIntersection } from "react-use";
 import { ProductModel } from "@/entities/product";
-import { allItems } from "@/shared/mock";
-import { useParams } from "next/navigation";
 import Link from "next/link";
 import { ImageGallery } from "@/entities/image-gallery";
+import Image from 'next/image';
 
-export const ProductPage = () => {
+interface IProps{
+  product:ProductModel
+}
+export const ProductPage = ({ product }:IProps) => {
   const gender = useThemeStore(state => state.theme);
-  const params = useParams();
+  // const params = useParams();
   const returnIcon = (type:string) => {
     switch (type) {
       case 'system':
@@ -35,9 +37,8 @@ export const ProductPage = () => {
         return null;
     }
   };
-  const [productInfo, setProductInfo] = useState<ProductModel>();
   const [isCharacteristicsFull, setCharacteristicsFull] = useState(false);
-  const characteristicsArr = useMemo(() => (isCharacteristicsFull ? productInfo?.characteristics : productInfo?.characteristics?.slice(0, 4)), [isCharacteristicsFull, productInfo]);
+  const characteristicsArr = useMemo(() => (isCharacteristicsFull ? product?.characteristics : product?.characteristics?.slice(0, 4)), [isCharacteristicsFull, product]);
   const handleCharacteristics = () => setCharacteristicsFull(p => !p);
 
   const headerChangeColor = useHeaderStore(state => state.changeHeaderColor);
@@ -69,15 +70,15 @@ export const ProductPage = () => {
     }
   }, [intersection]);
 
-  useEffect(() => {
-    const foundItem = allItems.find(i => i.id === params.id);
-    if (foundItem) {
-      setProductInfo(foundItem);
-      console.log(foundItem);
-    }
-  }, [params]);
+  // useEffect(() => {
+  //   const foundItem = allItems.find(i => i.id === params.id);
+  //   if (foundItem) {
+  //     // setProductInfo(foundItem);
+  //     console.log(foundItem);
+  //   }
+  // }, [params]);
 
-  if (!productInfo) {
+  if (!product) {
     return <div>Загрузка...</div>;
   }
   return (
@@ -87,15 +88,16 @@ export const ProductPage = () => {
           {/* asd */}
         </div>
 
-        <img src={productInfo?.images.find(i => i.includes('main'))} alt="product" />
+        {/* <img src={product?.images.find(i => i.includes('main'))} alt="product" /> */}
+        <Image priority unoptimized width={256} height={384} className={styles.mainImage} src={product?.images.find(i => i.includes('main')) || ''} alt="product" />
 
         {/* <img src="/images/products/dryer/dryer1.png" alt="product" /> */}
         <Flex className={styles.name} justify='center' align='center' mode='row'>
           <Flex gap={24} className={styles.info}>
-            <H1 color={Colors.White} className='text-center'>{productInfo?.name}</H1>
+            <H1 color={Colors.White} className='text-center'>{product?.name}</H1>
             <Flex gap={18} align='center'>
-              <H2 size='s' color={Colors.White} className='opacity-80'>{formatPrice(productInfo?.price)} тг.</H2>
-              <Link href={productInfo?.kaspiUrl} className='w-full' target='_blank'>
+              <H2 size='s' color={Colors.White} className='opacity-80'>{formatPrice(product?.price)} тг.</H2>
+              <Link href={product?.kaspiUrl} className='w-full' target='_blank'>
                 <Button style={{
                   background: `#8B253E`,
                   width: '100%'
@@ -126,7 +128,7 @@ export const ProductPage = () => {
                 Казахстанский бренд
               </P>
             </Flex>
-            {productInfo?.mainFeatures.map(i => (
+            {product?.mainFeatures.map(i => (
               <Flex key={i.value} mode='row' gap={4} align='center'>
                 {returnIcon(i.type)}
                 <P size='m' mode='primary'>
@@ -146,7 +148,7 @@ export const ProductPage = () => {
               Казахстанский бренд
             </P>
           </Flex>
-          {productInfo?.mainFeatures.map(i => (
+          {product?.mainFeatures.map(i => (
             <Flex key={i.value} mode='row' gap={4} align='center'>
               {returnIcon(i.type)}
               <P size='m' mode='primary'>
@@ -159,15 +161,16 @@ export const ProductPage = () => {
       {/* Features details */}
       <div ref={intersectionRef} />
       <Flex gap={24} className='!py-6 container bg-[var(--bg-secondary)] md:bg-transparent'>
-        {productInfo?.features?.map((i) => (
+        {product?.features?.map((i) => (
           <Flex key={i.img} gap={18} className={styles.featureCard}>
-            <img src={i.img} alt={i.value} />
+            {/* <img src={i.img} alt={i.value} /> */}
+            <Image src={i.img} alt={i.value} width={256} height={384} className='!h-full !w-full' />
             <H3 size='s' mode='secondary' className='opacity-80'>{i?.value}</H3>
           </Flex>
         ))}
       </Flex>
       <Flex className='p-4 md:hidden'>
-        <Link href={productInfo?.kaspiUrl} className='flex justify-center' target='_blank'>
+        <Link href={product?.kaspiUrl} className='flex justify-center' target='_blank'>
           <Button
             style={{
               background: `#8B253E`,
@@ -179,14 +182,14 @@ export const ProductPage = () => {
           </Button>
         </Link>
       </Flex>
-      <ImageGallery images={productInfo?.images.filter(i => !i.includes('png'))} />
+      <ImageGallery images={product?.images.filter(i => !i.includes('png'))} />
       <Flex gap={18} className='container !py-6'>
         <H3 size='m' mode='primary' className='underline underline-offset-8 '>
           Характеристики
         </H3>
         <Flex gap={24}>
           {characteristicsArr?.map(i => (
-            <Flex mode='row' className='w-full border-b-[1px] border-[var(--text-primary)] py-[10px]' justify='flex-start'>
+            <Flex key={i.value + i.title} mode='row' className='w-full border-b-[1px] border-[var(--text-primary)] py-[10px]' justify='flex-start'>
               <Flex gap={4}>
                 <P mode='secondary' size='m' className='opacity-40'>{i.title}</P>
                 <P mode='secondary' size='m'>{i.value}</P>
