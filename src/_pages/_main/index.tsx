@@ -75,8 +75,8 @@ export const MainPageV2 = () => {
   const womenBanners = [
     {
       imgSrc: `/images/products/dryer/ns-superair/_-24.jpg`,
-      title: 'Новая эра красоты',
-      text: 'Новый NS superair позволит вам расширить ваш стиль',
+      title: 'Новая Эра Стиля и Ухода',
+      text: 'NS Superair — это ваш ключ к безупречному стилю. Откройте для себя возможности для создания идеальных укладок и заботы о волосах.',
       href: '/women/product/ns-superair'
     },
   ];
@@ -84,19 +84,19 @@ export const MainPageV2 = () => {
     {
       imgSrc: '/images/products/razor/ns4d/_.jpg',
       title: 'NS 4D',
-      text: 'Исследуйте новейшие технологии от NS',
+      text: 'Испытайте революцию в уходе за собой с NS 4D. Передовые технологии для идеального бритья.',
       href: '/men/product/ns-4d'
     },
     {
       imgSrc: '/images/products/razor/ns-11/_-38.jpg',
       title: 'NS 11',
-      text: 'Все бритвы произведены по современным стандартам',
+      text: 'NS 11 — это сочетание точности и комфорта. Наслаждайтесь современными технологиями бритья с каждым использованием.',
       href: '/men/product/ns-11'
     },
     {
       imgSrc: '/images/products/razor/ns-81/_-42.jpg',
       title: 'NS 81',
-      text: 'Инновационный казахстанский бренд номер один',
+      text: 'NS 81 сочетает в себе новейшие технологии и элегантный дизайн. Отличный выбор для тех, кто ищет максимальный комфорт и эффективность.',
       href: '/men/product/ns-81'
     },
   ];
