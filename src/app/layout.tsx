@@ -5,6 +5,7 @@ import { cn } from "@/shared/lib";
 import { ReactNode } from "react";
 import { AppContainer } from "@/processes/app-container";
 import Script from "next/script";
+import { seo } from "@/shared/consts";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -13,11 +14,11 @@ const fontSans = FontSans({
 
 export const metadata: Metadata = {
   title: "NS - Инновационный Казахстанский Бренд техники для красоты",
-  description: "NS - ведущий казахстанский бренд в области бытовой техники для красоты. Мы предлагаем широкий ассортимент продукции, включая бритвы, триммеры, фены, фен-стайлеры и выпрямители. Откройте для себя качественные и инновационные решения для ухода за собой.",
+  description: seo.description,
   openGraph: {
     images: ['/ns-logo.png'],
     title: 'NS - Инновационный Казахстанский Бренд для Красоты',
-    description: 'NS - ведущий казахстанский бренд в области бытовой техники для красоты. Мы предлагаем широкий ассортимент продукции, включая бритвы, триммеры, фены, фен-стайлеры и выпрямители. Откройте для себя качественные и инновационные решения для ухода за собой.'
+    description: seo.description
   },
   icons: {
     icon: './favicon.ico',
@@ -55,7 +56,7 @@ export default function RootLayout({
     children: ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ru">
       <head>
         <meta name="google-site-verification" content="hXFSxnvkMSxVsui7oNIG15bFKflq1qQye6osGFLJ7vA" />
       </head>

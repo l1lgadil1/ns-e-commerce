@@ -2,13 +2,14 @@
 import { MainPageV2 } from "@/_pages/_main";
 import { allItems } from "@/shared/mock";
 import Script from "next/script";
+import { seo } from "@/shared/consts";
 
 export default async function Page() {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'OfferCatalog',
     name: `NS - товары`,
-    description: `NS - ведущий казахстанский бренд в области бытовой техники для красоты. Мы предлагаем широкий ассортимент продукции, включая бритвы, триммеры, фены, фен-стайлеры и выпрямители. Откройте для себя качественные и инновационные решения для ухода за собой.`,
+    description: seo.description,
     itemListElement: allItems.map(i => ({
       "@type": "Offer",
       name: i.name,
