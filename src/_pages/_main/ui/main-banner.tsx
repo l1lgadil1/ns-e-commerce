@@ -33,7 +33,7 @@ export const MainBanner = (props: IProps) => {
       <picture className={styles.picture}>
         {/* <img alt='bg-main' src='/images/banner-women.JPG' /> */}
         {/* <img alt='bg-main' src={imgSrc} /> */}
-        <Image alt='bg-main' src={imgSrc} height={450} width={300} priority />
+        <Image alt='bg-main' src={imgSrc} height={450} width={300} unoptimized priority />
       </picture>
       <Flex mode='row' justify='center' className={styles.text}>
         <Flex gap={12} className={styles.center}>
