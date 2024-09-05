@@ -97,7 +97,7 @@ export const ProductPage = ({ product }:IProps) => {
             <H1 color={Colors.White} className='text-center'>{product?.name}</H1>
             <Flex gap={18} align='center'>
               <H2 size='s' color={Colors.White} className='opacity-80'>{formatPrice(product?.price)} тг.</H2>
-              <Link href={product?.kaspiUrl} className='w-full' target='_blank'>
+              <Link href={product?.kaspiUrl} className='w-full' target='_blank' rel='noreferrer'>
                 <Button style={{
                   background: `#8B253E`,
                   width: '100%'
@@ -170,7 +170,7 @@ export const ProductPage = ({ product }:IProps) => {
         ))}
       </Flex>
       <Flex className='p-4 md:hidden'>
-        <Link href={product?.kaspiUrl} className='flex justify-center' target='_blank'>
+        <Link href={product?.kaspiUrl} className='flex justify-center' target='_blank' rel='noreferrer'>
           <Button
             style={{
               background: `#8B253E`,

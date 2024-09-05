@@ -45,13 +45,13 @@ export const Footer = (props: IProps) => {
             <H4 size='m' mode='secondary'>NS - Казахстанский бренд, который делает стиль доступнее</H4>
           </Flex>
           <Flex mode='row' className='w-full' justify='center' gap={16}>
-            <Link target='_blank' href={URLS.insta}>
+            <Link target='_blank' href={URLS.insta} rel='noreferrer'>
               <Instagram color={returnColors(gender).TextPrimary} />
             </Link>
-            <Link target='_blank' href={URLS.youtube}>
+            <Link target='_blank' href={URLS.youtube} rel='noreferrer'>
               <Youtube color={returnColors(gender).TextPrimary} />
             </Link>
-            <Link target='_blank' href={URLS.tiktok}>
+            <Link target='_blank' href={URLS.tiktok} rel='noreferrer'>
               <svg color={returnColors(gender).TextPrimary} width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" stroke={returnColors(gender).TextPrimary}>
                 <g id="SVGRepo_bgCarrier" strokeWidth="0" />
                 <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
