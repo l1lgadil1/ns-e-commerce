@@ -14,7 +14,13 @@ export const ItemCard = (props: ItemCardModel) => {
     >
       <div className='flex flex-col gap-3'>
         <div className='bg-secondary relative'>
-          <Image src={images[0]} alt={name} width={180} height={220} className={cn(styles.image)} objectFit='cover' />
+          <Image
+            src={images[0]}
+            alt={name}
+            // width={180} height={220}
+            className={cn(styles.image)}
+            objectFit='cover'
+          />
           <div className='absolute left-0 bottom-4 flex justify-center w-full'>
             <div className='flex gap-1 items-center overflow-hidden '>
               {/* eslint-disable-next-line no-unsafe-optional-chaining */}

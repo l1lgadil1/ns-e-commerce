@@ -18,12 +18,14 @@ import { ProductModel } from "@/entities/product";
 import Link from "next/link";
 import { ImageGallery } from "@/entities/image-gallery";
 import Image from 'next/image';
+import { CheckoutButton } from "@/_pages/_product/ui/checkout-button";
 
 interface IProps{
   product:ProductModel
 }
 export const ProductPage = ({ product }:IProps) => {
   const gender = useThemeStore(state => state.theme);
+  const isMobile = window.innerWidth <= 768;
   // const params = useParams();
   const returnIcon = (type:string) => {
     switch (type) {
@@ -57,18 +59,34 @@ export const ProductPage = ({ product }:IProps) => {
     }
   }, [refreshIntersection]);
 
-  const intersectionRef = useRef<HTMLDivElement>(null);
-  const intersection = useIntersection(intersectionRef, {
+  const featuresIntersectionRef = useRef<HTMLDivElement>(null);
+  const featuresIntersection = useIntersection(featuresIntersectionRef, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 1
+  });
+
+  const [isCheckoutBtnVisible, setCheckoutBtnVisible] = useState(false);
+  const mainImgIntersectionRef = useRef<HTMLDivElement>(null);
+  const mainImgIntersection = useIntersection(mainImgIntersectionRef, {
     root: null,
     rootMargin: '0px',
     threshold: 1
   });
 
   useEffect(() => {
-    if ((intersection && intersection.isIntersecting)) {
+    if ((featuresIntersection && featuresIntersection.isIntersecting)) {
       headerChangeColor();
     }
-  }, [intersection]);
+  }, [featuresIntersection]);
+
+  useEffect(() => {
+    if ((mainImgIntersection && mainImgIntersection.isIntersecting)) {
+      setCheckoutBtnVisible(false);
+    } else {
+      setCheckoutBtnVisible(true);
+    }
+  }, [mainImgIntersection]);
 
   // useEffect(() => {
   //   const foundItem = allItems.find(i => i.id === params.id);
@@ -83,13 +101,21 @@ export const ProductPage = ({ product }:IProps) => {
   }
   return (
     <div className={styles.container}>
-      <div className={styles.imageContainer}>
+      <div className={styles.imageContainer} ref={mainImgIntersectionRef}>
         <div className={styles.progress}>
           {/* asd */}
         </div>
 
         {/* <img src={product?.images.find(i => i.includes('main'))} alt="product" /> */}
-        <Image priority unoptimized width={256} height={384} className={styles.mainImage} src={product?.images.find(i => i.includes('main')) || ''} alt="product" />
+        <Image
+          priority
+          unoptimized={!isMobile}
+          width={256}
+          height={384}
+          className={styles.mainImage}
+          src={product?.images.find(i => i.includes('main')) || ''}
+          alt="product"
+        />
 
         {/* <img src="/images/products/dryer/dryer1.png" alt="product" /> */}
         <Flex className={styles.name} justify='center' align='center' mode='row'>
@@ -97,7 +123,7 @@ export const ProductPage = ({ product }:IProps) => {
             <H1 color={Colors.White} className='text-center'>{product?.name}</H1>
             <Flex gap={18} align='center'>
               <H2 size='s' color={Colors.White} className='opacity-80'>{formatPrice(product?.price)} тг.</H2>
-              <Link href={product?.kaspiUrl} className='w-full' target='_blank' rel='noreferrer'>
+              <Link href={product?.kaspiUrl} className={cn(('w-full'))} target='_blank' rel='noreferrer'>
                 <Button style={{
                   background: `#8B253E`,
                   width: '100%'
@@ -159,7 +185,7 @@ export const ProductPage = ({ product }:IProps) => {
         </Flex>
       </Flex>
       {/* Features details */}
-      <div ref={intersectionRef} />
+      <div ref={featuresIntersectionRef} />
       <Flex gap={24} className='!py-6 container bg-[var(--bg-secondary)] md:bg-transparent'>
         {product?.features?.map((i) => (
           <Flex key={i.img} gap={18} className={styles.featureCard}>
@@ -169,19 +195,7 @@ export const ProductPage = ({ product }:IProps) => {
           </Flex>
         ))}
       </Flex>
-      <Flex className='p-4 md:hidden'>
-        <Link href={product?.kaspiUrl} className='flex justify-center' target='_blank' rel='noreferrer'>
-          <Button
-            style={{
-              background: `#8B253E`,
-              width: '100%'
-            }}
-            className='md:max-w-[600px] mx-auto '
-          >
-            Оформить заказ
-          </Button>
-        </Link>
-      </Flex>
+      <CheckoutButton isVisible={isCheckoutBtnVisible} href={product?.kaspiUrl} />
       <ImageGallery images={product?.images.filter(i => !i.includes('png'))} />
       <Flex gap={18} className='container !py-6'>
         <H3 size='m' mode='primary' className='underline underline-offset-8 '>
