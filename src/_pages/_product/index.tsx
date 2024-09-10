@@ -25,7 +25,7 @@ interface IProps{
 }
 export const ProductPage = ({ product }:IProps) => {
   const gender = useThemeStore(state => state.theme);
-  const isMobile = window.innerWidth <= 768;
+  // const isMobile = window.innerWidth <= 768;
   // const params = useParams();
   const returnIcon = (type:string) => {
     switch (type) {
@@ -108,7 +108,8 @@ export const ProductPage = ({ product }:IProps) => {
 
         <Image
           priority
-          unoptimized={!isMobile}
+          // unoptimized={!isMobile}
+          unoptimized
           width={256}
           height={384}
           className={styles.mainImage}
