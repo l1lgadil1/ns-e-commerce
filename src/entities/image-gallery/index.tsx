@@ -45,12 +45,13 @@ export const ImageGallery = ({ images }:IProps) => {
             src={src}
             alt={`Image ${index + 1}`}
             layout="fill"
+            loading='lazy'
             objectFit="cover"
             className={`absolute top-0 left-0 transition-opacity duration-300 ${
               index === currentIndex ? 'opacity-100' : 'opacity-0'
             }`}
             onLoadingComplete={() => setLoading(false)}
-            priority={index === currentIndex}
+            // priority={index === currentIndex}
           />
         ))}
 
@@ -82,6 +83,8 @@ export const ImageGallery = ({ images }:IProps) => {
               className='h-[100vh] !w-[100vw] md:!h-auto md:!w-auto'
               width={1600}
               height={1200}
+              placeholder='blur'
+              blurDataURL="/blank.svg"
               objectFit="contain"
             />
             <Button

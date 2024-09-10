@@ -106,7 +106,6 @@ export const ProductPage = ({ product }:IProps) => {
           {/* asd */}
         </div>
 
-        {/* <img src={product?.images.find(i => i.includes('main'))} alt="product" /> */}
         <Image
           priority
           unoptimized={!isMobile}
@@ -115,9 +114,10 @@ export const ProductPage = ({ product }:IProps) => {
           className={styles.mainImage}
           src={product?.images.find(i => i.includes('main')) || ''}
           alt="product"
+          placeholder='blur'
+          blurDataURL="/blank.svg"
         />
 
-        {/* <img src="/images/products/dryer/dryer1.png" alt="product" /> */}
         <Flex className={styles.name} justify='center' align='center' mode='row'>
           <Flex gap={24} className={styles.info}>
             <H1 color={Colors.White} className='text-center'>{product?.name}</H1>
@@ -189,8 +189,7 @@ export const ProductPage = ({ product }:IProps) => {
       <Flex gap={24} className='!py-6 container bg-[var(--bg-secondary)] md:bg-transparent'>
         {product?.features?.map((i) => (
           <Flex key={i.img} gap={18} className={styles.featureCard}>
-            {/* <img src={i.img} alt={i.value} /> */}
-            <Image src={i.img} alt={i.value} width={256} height={384} className='!h-full !w-full' />
+            <Image loading='lazy' src={i.img} alt={i.value} width={256} height={384} className='!h-full !w-full' placeholder='blur' blurDataURL="/blank.svg" />
             <H3 size='s' mode='secondary' className='opacity-80'>{i?.value}</H3>
           </Flex>
         ))}
