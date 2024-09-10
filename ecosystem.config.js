@@ -14,11 +14,11 @@ module.exports = {
     production: {
       user: "almalinux",
       host: "77.240.39.55",
-      path: "cd ns-e-commerce/",
-      repo: "git@github.com:T410/pm2-deploy",
       ref: "origin/main",
-      key: "cat .ssh/id_rsa",
-      "post-deploy": "npm i; pm2 reload ecosystem.config.js --env production",
+      repo: "git@github.com:T410/pm2-deploy",
+      path: "/home/almalinux/ns-e-commerce", // Путь на сервере
+      key: "~/.ssh/id_rsa", // Путь до приватного ключа
+      "post-deploy": "npm i && npm run build && pm2 reload ecosystem.config.js --env production"
     },
   },
 };
