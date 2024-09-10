@@ -1,11 +1,16 @@
 module.exports = {
   apps: [
     {
-      name: 'NS E-commerce',
-      script: 'node_modules/next/dist/bin/next',
-      args: '-p 3000',
+      name: 'NS e-commerce',
+      script: 'npm',
+      args: 'start',
       exec_mode: 'cluster',
-      instances: 'max'
-    }
-  ]
+      env: {
+        PORT: 3000,
+        NODE_ENV: 'production', // Убедитесь, что NODE_ENV установлен в 'production'
+      },
+      // Пост-запусковые команды
+      post_deploy: 'npm install && npm run build'
+    },
+  ],
 };
