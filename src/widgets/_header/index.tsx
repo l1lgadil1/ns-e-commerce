@@ -11,10 +11,10 @@ import { Burger } from "@/shared/ui/burger";
 import { P } from "@/shared/ui/p";
 import Link from "next/link";
 import { Colors, Genders, GendersRussian, returnColors } from "@/shared/consts";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BurgerMenu } from "./ui/burger";
 import { useHeaderStore, useThemeStore } from "@/shared/lib/store";
-import { usePathname } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { NavBtn } from "@/widgets/_header/ui/nav-btn";
 
 export const HeaderV2 = (props: IProps) => {
@@ -29,6 +29,19 @@ export const HeaderV2 = (props: IProps) => {
   };
 
   const isHeaderChangeColor = useHeaderStore(state => state.isHeaderChangeColor) || (pathname.includes('courses') || pathname.includes('about-us'));
+  const changeTheme = useThemeStore(state => state.changeTheme);
+  const params = useParams();
+
+  useEffect(() => () => {
+    console.log(params, 'first render');
+    if (!params.gender || params.gender === Genders.Women) {
+      changeTheme('women');
+      console.log('changetheme women');
+    } else if (params?.gender && params.gender === Genders.Men) {
+      changeTheme('men');
+      console.log('changetheme men');
+    }
+  }, []);
   return (
     <Flex mode='row' justify='space-between' className={cn(styles.container, isHeaderChangeColor && styles.color, className, 'px-4 relative py-3 header')}>
       {isBurgerOpen && (
