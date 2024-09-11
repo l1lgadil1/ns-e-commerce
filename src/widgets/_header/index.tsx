@@ -24,6 +24,7 @@ export const HeaderV2 = (props: IProps) => {
   const gender = useThemeStore(state => state.theme);
   const changeGender = useThemeStore(state => state.changeTheme);
   const onClickGender = (val:Genders) => {
+    console.log(val);
     changeGender(val);
     setBurgerOpen(false);
   };
@@ -31,17 +32,17 @@ export const HeaderV2 = (props: IProps) => {
   const isHeaderChangeColor = useHeaderStore(state => state.isHeaderChangeColor) || (pathname.includes('courses') || pathname.includes('about-us'));
   const changeTheme = useThemeStore(state => state.changeTheme);
   const params = useParams();
-
-  useEffect(() => () => {
-    console.log(params, 'first render');
+  const setGender = () => {
     if (!params.gender || params.gender === Genders.Women) {
       changeTheme('women');
-      console.log('changetheme women');
     } else if (params?.gender && params.gender === Genders.Men) {
       changeTheme('men');
-      console.log('changetheme men');
     }
+  };
+  useEffect(() => {
+    // setGender()
   }, []);
+  setGender();
   return (
     <Flex mode='row' justify='space-between' className={cn(styles.container, isHeaderChangeColor && styles.color, className, 'px-4 relative py-3 header')}>
       {isBurgerOpen && (
