@@ -18,10 +18,13 @@ export const AppContainer = (props: PropsWithChildren<IProps>) => {
   const changeTheme = useThemeStore(state => state.changeTheme);
 
   useEffect(() => () => {
+    console.log(params, 'first render');
     if (!params.gender || params.gender === Genders.Women) {
       changeTheme('women');
+      console.log('changetheme women');
     } else if (params?.gender && params.gender === Genders.Men) {
       changeTheme('men');
+      console.log('changetheme men');
     }
   }, []);
 
