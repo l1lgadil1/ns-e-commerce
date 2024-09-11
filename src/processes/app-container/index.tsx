@@ -25,7 +25,7 @@ export const AppContainer = (props: PropsWithChildren<IProps>) => {
     }
   }, []);
 
-  console.log(theme);
+  console.log(theme, params);
   return (
     <div className={cn(theme, 'app')}>
       <HeaderV2 />
