@@ -125,7 +125,7 @@ export const MainPageV2 = () => {
           <MainBanner bannerInfo={i} key={i.imgSrc} />
         ))}
       </Flex>
-      <div ref={intersectionRef} />
+      {currentArr?.length > 1 && <div ref={intersectionRef} />}
 
       {/* {!(intersection && intersection?.intersectionRatio < 1) ? <div>intersected</div> : <div>no</div>} */}
 
