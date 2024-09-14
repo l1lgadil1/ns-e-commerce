@@ -1,12 +1,18 @@
 export type ProductModel = {
     id: string;
     name: string;
+    sellContent:{
+        imageUrl:string;
+        text:string;
+        title:string;
+    }[]
     price: number;
     category: string;
     images: string[];
     kaspiUrl: string;
     mainFeatures: Feature[];
     features: ImageFeature[];
+    bottomArr:Feature[]
     characteristics: Characteristic[];
 }
 

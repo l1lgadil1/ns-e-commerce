@@ -1,83 +1,12 @@
 'use client';
 
 import styles from './styles.module.scss';
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-
-const IMG_PADDING = 12;
-const StickyImage = ({ imgUrl }:any) => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["end end", "end start"],
-  });
-
-  // const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
-  const opacity = useTransform(scrollYProgress, [0, 0, 1], [0, 0, 1]);
-
-  return (
-    <motion.div
-      style={{
-        backgroundImage: `url(${imgUrl})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        height: `calc(100vh - ${IMG_PADDING * 2}px)`,
-        // top: IMG_PADDING,
-        // scale,
-      }}
-      ref={targetRef}
-      className="sticky z-0 overflow-hidden"
-    >
-      <motion.div
-        className="absolute inset-0 bg-neutral-950/70"
-        style={{
-          opacity,
-        }}
-      />
-    </motion.div>
-  );
-};
-
-const OverlayCopy = ({ subheading, heading }:any) => {
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [250, -250]);
-  const opacity = useTransform(scrollYProgress, [0.25, 0.5, 0.75], [0, 1, 0]);
-
-  return (
-    <motion.div
-      style={{
-        y,
-        opacity,
-      }}
-      ref={targetRef}
-      className="absolute left-0 top-0 flex h-screen w-full flex-col items-center justify-center text-white"
-    >
-      <p className="mb-2 text-center text-xl md:mb-4 md:text-3xl">
-        {subheading}
-      </p>
-      <p className="text-center text-4xl font-bold md:text-7xl">{heading}</p>
-    </motion.div>
-  );
-};
-const TextParallaxContent = ({ imgUrl, subheading, heading, children }:any) => (
-  <div
-    style={{
-      // paddingLeft: IMG_PADDING,
-      // paddingRight: IMG_PADDING,
-    }}
-  >
-    <div className="relative">
-      <StickyImage imgUrl={imgUrl} />
-      <OverlayCopy heading={heading} subheading={subheading} />
-    </div>
-    {children}
-  </div>
-);
+import { TextParallaxContent } from "./ui/text-parallax-content";
+import { ProductModel } from "@/entities/product";
+import { CheckoutButton } from "./ui/checkout-button";
+import { FeaturesSection } from "@/_pages/test/ui/features-section";
+import { useIntersection } from "react-use";
+import { useEffect, useRef, useState } from "react";
 
 // const ExampleContent = () => (
 //   <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
@@ -101,38 +30,78 @@ const TextParallaxContent = ({ imgUrl, subheading, heading, children }:any) => (
 //     </div>
 //   </div>
 // );
+interface IProps {
+    product: ProductModel
+}
 
-export const TestPage = () =>
-  // const { scrollYProgress } = useScroll();
-  // const scaleX = useSpring(scrollYProgress);
-  (
+export const TestPage = ({ product }: IProps) => {
+// const { scrollYProgress } = useScroll();
+// const scaleX = useSpring(scrollYProgress);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [isCheckoutVisible, setCheckoutVisible] = useState(true);
+  const intersectionRef = useRef<HTMLDivElement>(null);
+  const intersection = useIntersection(intersectionRef, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 1
+  });
+  useEffect(() => {
+    if ((intersection && intersection.isIntersecting)) {
+      setCheckoutVisible(false);
+    } else {
+      setCheckoutVisible(true);
+    }
+  }, [intersection]);
+
+  return (
     <div className={styles.container}>
       {/* <div className='fixed z-10 bottom-0 left-0 w-full bg-white h-[10px]'> */}
       {/*  <motion.div style={{ scaleX }} className='bg-red-800 h-full' /> */}
       {/* </div> */}
-      <div>
-        <TextParallaxContent
-          imgUrl="/images/products/razor/ns-11/_-5.jpg"
-          subheading="NS 11"
-          heading="Все самое лучшее собрано в одном месте"
-        >
+      <div className='relative'>
+        {product?.sellContent.map((i, index) => (
+          <>
+            {(index === product.sellContent.length - 1) && <div ref={intersectionRef} />}
 
-          {/* <ExampleContent /> */}
-        </TextParallaxContent>
-        <TextParallaxContent
-          imgUrl="/images/products/razor/ns-11/_-6.jpg"
-          subheading="Для всех типов кожи"
-          heading="Бритва NS 11 идеально подойдет под любой тип кожи"
-        >
-          {/* <ExampleContent /> */}
-        </TextParallaxContent>
-        <TextParallaxContent
-          imgUrl="/images/products/razor/ns-11/_-31.jpg"
-          subheading="Долгая работа"
-          heading="NS 11 может проработать 120 мин от аккумулятора"
-        >
-          {/* <ExampleContent /> */}
-        </TextParallaxContent>
+            <TextParallaxContent
+              imgUrl={i.imageUrl}
+              subheading={i.title}
+              key={i.imageUrl}
+              heading={i.text}
+              isLast={index === product.sellContent.length - 1}
+            />
+          </>
+        ))}
+        {/* {isCheckoutVisible && */}
+        <CheckoutButton href={product.kaspiUrl} />
+        {/* // } */}
+        <FeaturesSection mainFeatures={product.bottomArr} />
+
       </div>
+      {/* <div> */}
+      {/*  <TextParallaxContent */}
+      {/*    imgUrl="/images/products/razor/ns-11/_-5.jpg" */}
+      {/*    subheading="NS 11" */}
+      {/*    heading="Все самое лучшее собрано в одном месте" */}
+      {/*  > */}
+
+      {/*    /!* <ExampleContent /> *!/ */}
+      {/*  </TextParallaxContent> */}
+      {/*  <TextParallaxContent */}
+      {/*    imgUrl="/images/products/razor/ns-11/_-6.jpg" */}
+      {/*    subheading="Для всех типов кожи" */}
+      {/*    heading="Бритва NS 11 идеально подойдет под любой тип кожи" */}
+      {/*  > */}
+      {/*    /!* <ExampleContent /> *!/ */}
+      {/*  </TextParallaxContent> */}
+      {/*  <TextParallaxContent */}
+      {/*    imgUrl="/images/products/razor/ns-11/_-31.jpg" */}
+      {/*    subheading="Долгая работа" */}
+      {/*    heading="NS 11 может проработать 120 мин от аккумулятора" */}
+      {/*  > */}
+      {/*    /!* <ExampleContent /> *!/ */}
+      {/*  </TextParallaxContent> */}
+      {/* </div> */}
     </div>
   );
+};

@@ -3,8 +3,8 @@
 
 import type { Metadata } from 'next';
 import { allItems } from "@/shared/mock";
-import { ProductPage } from "@/_pages/_product";
 import Script from "next/script";
+import { TestPage } from "@/_pages/test";
 
 type Props = {
     params: { id: string }
@@ -60,7 +60,7 @@ export default function Page({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <ProductPage product={product} />
+      <TestPage product={product} />
     </>
   );
 }
