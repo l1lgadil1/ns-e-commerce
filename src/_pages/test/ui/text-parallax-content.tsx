@@ -1,7 +1,15 @@
 import { StickyImage } from "./sticky-image";
 import { OverlayCopy } from "./overlay-copy";
+import { ReactNode } from "react";
 
-export const TextParallaxContent = ({ imgUrl, subheading, isLast, heading, children }:any) => (
+interface IProps{
+  imgUrl:string;
+  subheading:string;
+  isLast?:boolean;
+  heading:string;
+  children?:ReactNode;
+}
+export const TextParallaxContent = ({ imgUrl, subheading, isLast, heading, children }:IProps) => (
   <div
     style={{
       // paddingLeft: IMG_PADDING,

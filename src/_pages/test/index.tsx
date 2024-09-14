@@ -54,7 +54,7 @@ export const TestPage = ({ product }: IProps) => {
   }, [intersection]);
 
   return (
-    <Suspense>
+    <Suspense fallback={<>...</>}>
       <div className={styles.container}>
         {/* <div className='fixed z-10 bottom-0 left-0 w-full bg-white h-[10px]'> */}
         {/*  <motion.div style={{ scaleX }} className='bg-red-800 h-full' /> */}
