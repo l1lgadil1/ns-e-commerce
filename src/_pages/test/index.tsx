@@ -6,7 +6,7 @@ import { ProductModel } from "@/entities/product";
 import { CheckoutButton } from "./ui/checkout-button";
 import { FeaturesSection } from "@/_pages/test/ui/features-section";
 import { useIntersection } from "react-use";
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 
 // const ExampleContent = () => (
 //   <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
@@ -54,54 +54,56 @@ export const TestPage = ({ product }: IProps) => {
   }, [intersection]);
 
   return (
-    <div className={styles.container}>
-      {/* <div className='fixed z-10 bottom-0 left-0 w-full bg-white h-[10px]'> */}
-      {/*  <motion.div style={{ scaleX }} className='bg-red-800 h-full' /> */}
-      {/* </div> */}
-      <div className='relative'>
-        {product?.sellContent.map((i, index) => (
-          <>
-            {(index === product.sellContent.length - 1) && <div ref={intersectionRef} />}
+    <Suspense>
+      <div className={styles.container}>
+        {/* <div className='fixed z-10 bottom-0 left-0 w-full bg-white h-[10px]'> */}
+        {/*  <motion.div style={{ scaleX }} className='bg-red-800 h-full' /> */}
+        {/* </div> */}
+        <div className='relative'>
+          {product?.sellContent.map((i, index) => (
+            <>
+              {(index === product.sellContent.length - 1) && <div ref={intersectionRef} />}
 
-            <TextParallaxContent
-              imgUrl={i.imageUrl}
-              subheading={i.title}
-              key={i.imageUrl}
-              heading={i.text}
-              isLast={index === product.sellContent.length - 1}
-            />
-          </>
-        ))}
-        {/* {isCheckoutVisible && */}
-        <CheckoutButton href={product.kaspiUrl} />
-        {/* // } */}
-        <FeaturesSection mainFeatures={product.bottomArr} />
+              <TextParallaxContent
+                imgUrl={i.imageUrl}
+                subheading={i.title}
+                key={i.imageUrl}
+                heading={i.text}
+                isLast={index === product.sellContent.length - 1}
+              />
+            </>
+          ))}
+          {/* {isCheckoutVisible && */}
+          <CheckoutButton href={product.kaspiUrl} />
+          {/* // } */}
+          <FeaturesSection mainFeatures={product.bottomArr} />
 
+        </div>
+        {/* <div> */}
+        {/*  <TextParallaxContent */}
+        {/*    imgUrl="/images/products/razor/ns-11/_-5.jpg" */}
+        {/*    subheading="NS 11" */}
+        {/*    heading="Все самое лучшее собрано в одном месте" */}
+        {/*  > */}
+
+        {/*    /!* <ExampleContent /> *!/ */}
+        {/*  </TextParallaxContent> */}
+        {/*  <TextParallaxContent */}
+        {/*    imgUrl="/images/products/razor/ns-11/_-6.jpg" */}
+        {/*    subheading="Для всех типов кожи" */}
+        {/*    heading="Бритва NS 11 идеально подойдет под любой тип кожи" */}
+        {/*  > */}
+        {/*    /!* <ExampleContent /> *!/ */}
+        {/*  </TextParallaxContent> */}
+        {/*  <TextParallaxContent */}
+        {/*    imgUrl="/images/products/razor/ns-11/_-31.jpg" */}
+        {/*    subheading="Долгая работа" */}
+        {/*    heading="NS 11 может проработать 120 мин от аккумулятора" */}
+        {/*  > */}
+        {/*    /!* <ExampleContent /> *!/ */}
+        {/*  </TextParallaxContent> */}
+        {/* </div> */}
       </div>
-      {/* <div> */}
-      {/*  <TextParallaxContent */}
-      {/*    imgUrl="/images/products/razor/ns-11/_-5.jpg" */}
-      {/*    subheading="NS 11" */}
-      {/*    heading="Все самое лучшее собрано в одном месте" */}
-      {/*  > */}
-
-      {/*    /!* <ExampleContent /> *!/ */}
-      {/*  </TextParallaxContent> */}
-      {/*  <TextParallaxContent */}
-      {/*    imgUrl="/images/products/razor/ns-11/_-6.jpg" */}
-      {/*    subheading="Для всех типов кожи" */}
-      {/*    heading="Бритва NS 11 идеально подойдет под любой тип кожи" */}
-      {/*  > */}
-      {/*    /!* <ExampleContent /> *!/ */}
-      {/*  </TextParallaxContent> */}
-      {/*  <TextParallaxContent */}
-      {/*    imgUrl="/images/products/razor/ns-11/_-31.jpg" */}
-      {/*    subheading="Долгая работа" */}
-      {/*    heading="NS 11 может проработать 120 мин от аккумулятора" */}
-      {/*  > */}
-      {/*    /!* <ExampleContent /> *!/ */}
-      {/*  </TextParallaxContent> */}
-      {/* </div> */}
-    </div>
+    </Suspense>
   );
 };
