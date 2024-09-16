@@ -21,9 +21,9 @@ export const FeaturesSection = ({ mainFeatures }:any) => {
     <div className='w-full absolute bottom-[8%] bg-black/50 flex items-center flex-col justify-center py-8 px-3 z-1'>
       <Flex gap={8} className='w-full'>
         {mainFeatures.map((i:any) => (
-          <Flex key={i.value} mode='row' gap={8} align='center' justify='flex-start' className='w-full'>
+          <Flex key={i.value} mode='row' gap={8} align='center' justify='center' className='w-full'>
             {returnIcon(i.type)}
-            <P size='m' mode='primary' color='white'>
+            <P className='md:!text-2xl !text-xl ' fontWeight={500} mode='primary' color='white'>
               {i.value}
             </P>
           </Flex>
