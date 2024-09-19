@@ -10,17 +10,34 @@
 		//height: 25vh;
 	}
 
+	//TODO везде air сделать красным
+	&.women {
+		.highlightText {
+			color: var(--btn-main) !important;
+		}
 
-	&.women{
-		.text{
-			background: rgba(0,0,0,0.5);
+		.text {
+			bottom: 0 !important;
+			top: 0 !important;
+			//background: rgba(0, 0, 0, 0.5);
 
-			& p, & h1, & button{
-				color: var(--white);
+			.center {
+				justify-content: space-around !important;
+
 			}
 
-			& button{
-				border-color: var(--white);
+			.between {
+			}
+
+			& p, & h1, & button {
+				//color: var(--white);
+				color: var(--text-secondary)
+			}
+
+			& button {
+				color: var(--text-primary) !important;
+
+				//border-color: var(--white);
 			}
 		}
 	}
@@ -37,16 +54,18 @@
 			object-position: center !important;
 		}
 	}
-	.text{
+
+	.text {
 		position: absolute;
-		bottom: 15%;
+		//bottom: 15%;
+		bottom: 25%;
 		left: 0;
 		width: 100%;
 		text-align: center;
 		padding: 0 16px;
 
 
-		.center{
+		.center {
 			padding: 16px;
 			border-radius: var(--border-l);
 			//background-color:transparentize(#FFF, 0.2);

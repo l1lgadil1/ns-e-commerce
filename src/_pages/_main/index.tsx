@@ -74,9 +74,12 @@ export const MainPageV2 = () => {
   const gender = useThemeStore(state => state.theme);
   const womenBanners = [
     {
-      imgSrc: `/images/products/dryer/ns-superair/_-24.jpg`,
-      title: 'Новая Эра Стиля и Ухода',
-      text: 'NS Superair — это ваш ключ к безупречному стилю. Откройте для себя возможности для создания идеальных укладок и заботы о волосах.',
+      // imgSrc: `/images/products/dryer/ns-superair/_-24.jpg`,
+      imgSrc: `/images/products/dryer/ns-superair/_-31.jpg`,
+      // imgSrc: `/images/products/dryer/ns-superair/test.png`,
+      title: 'SUPER',
+      highlightText: 'AIR',
+      text: 'Высокотехнологическое устройство для создания профессиональных укладок',
       href: '/women/product/ns-superair'
     },
   ];

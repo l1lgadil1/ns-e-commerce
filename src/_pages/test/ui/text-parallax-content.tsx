@@ -8,8 +8,9 @@ interface IProps{
   isLast?:boolean;
   heading:string;
   children?:ReactNode;
+  isFirst?:boolean;
 }
-export const TextParallaxContent = ({ imgUrl, subheading, isLast, heading, children }:IProps) => (
+export const TextParallaxContent = ({ imgUrl, subheading, isLast, isFirst, heading, children }:IProps) => (
   <div
     style={{
       // paddingLeft: IMG_PADDING,
@@ -17,7 +18,7 @@ export const TextParallaxContent = ({ imgUrl, subheading, isLast, heading, child
     }}
   >
     <div className="relative">
-      <StickyImage isLast={isLast} imgUrl={imgUrl} />
+      <StickyImage isFirst={isFirst} isLast={isLast} imgUrl={imgUrl} />
       <OverlayCopy heading={heading} subheading={subheading} />
     </div>
     {children}

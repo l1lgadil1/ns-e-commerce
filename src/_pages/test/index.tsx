@@ -1,12 +1,11 @@
 'use client';
 
 import styles from './styles.module.scss';
-import { TextParallaxContent } from "./ui/text-parallax-content";
 import { ProductModel } from "@/entities/product";
 import { CheckoutButton } from "./ui/checkout-button";
-import { FeaturesSection } from "@/_pages/test/ui/features-section";
 import { useIntersection } from "react-use";
 import { Suspense, useEffect, useRef, useState } from "react";
+import { ParallaxBox } from "@/_pages/test/ui/parallax-box";
 
 // const ExampleContent = () => (
 //   <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
@@ -63,20 +62,29 @@ export const TestPage = ({ product }: IProps) => {
           {product?.sellContent.map((i, index) => (
             <>
               {(index === product.sellContent.length - 1) && <div ref={intersectionRef} />}
-
-              <TextParallaxContent
+              <ParallaxBox
+                isFirst={index === 0}
                 imgUrl={i.imageUrl}
-                subheading={i.title}
-                key={i.imageUrl}
+                subHeading={i.title}
                 heading={i.text}
-                isLast={index === product.sellContent.length - 1}
+                href={product.kaspiUrl}
               />
+              {/* <TextParallaxContent */}
+              {/*  isFirst={index === 0} */}
+              {/*  // && product.id === 'ns-superair' */}
+              {/*  imgUrl={i.imageUrl} */}
+              {/*  subheading={i.title} */}
+              {/*  key={i.imageUrl} */}
+              {/*  heading={i.text} */}
+              {/*  isLast={index === product.sellContent.length - 1} */}
+              {/* /> */}
             </>
           ))}
           {/* {isCheckoutVisible && */}
           <CheckoutButton href={product.kaspiUrl} />
-          {/* // } */}
-          <FeaturesSection mainFeatures={product.bottomArr} />
+          {/* } */}
+          {/* TODO BOTTOM SECTION */}
+          {/* <FeaturesSection mainFeatures={product.bottomArr} /> */}
 
         </div>
         {/* <div> */}

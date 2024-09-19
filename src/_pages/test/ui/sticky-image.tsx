@@ -1,7 +1,8 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { cn } from "@/shared/lib";
 
-export const StickyImage = ({ imgUrl, isLast }:any) => {
+export const StickyImage = ({ imgUrl, isLast, isFirst }:any) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -27,7 +28,7 @@ export const StickyImage = ({ imgUrl, isLast }:any) => {
       className="sticky z-0 overflow-hidden"
     >
       <motion.div
-        className="absolute inset-0 bg-neutral-950/70"
+        className={cn("absolute inset-0", !isFirst && "bg-neutral-950/70")}
         style={{
           opacity,
         }}
