@@ -1,8 +1,20 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/shared/lib";
+import styles from './styles.module.scss';
 
 const IMG_PADDING = 12;
+
+const highlightedText = (text:string) => text.split(/(air)/gi).map((part, index) =>
+  (part.toLowerCase() === "air" ? (
+    <span key={index} className='text-[var(--btn-main)]'>
+      {part}
+    </span>
+  ) : (
+    part
+  ))
+);
+
 const StickyImage = ({ imgUrl, isFirst }:any) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -14,11 +26,13 @@ const StickyImage = ({ imgUrl, isFirst }:any) => {
   // const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
-    <div style={{
-      height: `calc(100vh - ${IMG_PADDING * 2}px)`,
-      maxHeight: `calc(100vh - ${IMG_PADDING * 2}px)`,
-      overflow: 'hidden'
-    }}
+    <div
+      style={{
+        height: `calc(100vh - ${IMG_PADDING * 2}px)`,
+        maxHeight: `calc(100vh - ${IMG_PADDING * 2}px)`,
+        overflow: 'hidden'
+      }}
+      className={styles.img}
     >
       <motion.div
         style={{
@@ -101,13 +115,15 @@ const ExampleContent = ({ title, text, href }:{title:string, href:string, text:s
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
 
   return (
-    <motion.div ref={targetRef} className="mx-auto !bg-[var(--bg-main)] gap-8 px-4 pb-12 pt-12 flex flex-col md:flex-row">
-      <motion.h2 className="col-span-1 text-2xl md:text-3xl text-[var(--text-primary)] font-bold md:col-span-4">
-        {title}
+    <motion.div ref={targetRef} className={cn("mx-auto md:py-22 gap-8 px-4 pb-12 pt-12 flex flex-col md:flex-row", styles.textContainer)}>
+      <div className="absolute bottom-0 left-0 top-[-1%] right-0 h-[10px] bg-gradient-to-t from-[var(--gradient)] to-transparent" />
+      {/* <div className="absolute bottom-[-20%] left-0 right-0 h-[20%] bg-gradient-to-b  from-[var(--gradient)] to-transparent" /> */}
+      <motion.h2 className="col-span-1 text-2xl m text-[var(--text-primary)] font-bold md:col-span-4">
+        {highlightedText(title)}
       </motion.h2>
       <div className="col-span-1 md:col-span-8 flex flex-col ">
-        <motion.p className="mb-4 text-xl  text-[var(--text-secondary)] md:text-2xl">
-          {text}
+        <motion.p className="mb-4 text-xl  text-[var(--text-secondary)] ">
+          {highlightedText(text)}
         </motion.p>
         {/* <p className="mb-8 text-xl text-neutral-600 md:text-2xl"> */}
         {/*  Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium */}

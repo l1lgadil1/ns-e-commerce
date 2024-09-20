@@ -58,6 +58,7 @@ export const TestPage = ({ product }: IProps) => {
         {/* <div className='fixed z-10 bottom-0 left-0 w-full bg-white h-[10px]'> */}
         {/*  <motion.div style={{ scaleX }} className='bg-red-800 h-full' /> */}
         {/* </div> */}
+        {/* MAIN CONTENT LIST */}
         <div className='relative'>
           {product?.sellContent.map((i, index) => (
             <>
@@ -85,8 +86,8 @@ export const TestPage = ({ product }: IProps) => {
           {/* } */}
           {/* TODO BOTTOM SECTION */}
           {/* <FeaturesSection mainFeatures={product.bottomArr} /> */}
-
         </div>
+        {/* <ReviewGallery href={product.kaspiUrl} /> */}
         {/* <div> */}
         {/*  <TextParallaxContent */}
         {/*    imgUrl="/images/products/razor/ns-11/_-5.jpg" */}
