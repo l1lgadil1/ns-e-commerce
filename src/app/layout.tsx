@@ -59,7 +59,7 @@ export default function RootLayout({
     <html lang="ru">
       <head>
         <meta name="google-site-verification" content="hXFSxnvkMSxVsui7oNIG15bFKflq1qQye6osGFLJ7vA" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
+        <meta name='viewport' content='minimum-scale=1,maximum-scale=1, initial-scale=1, width=device-width' />
       </head>
       <body className={cn("min-h-screen flex flex-col bg-background font-sans antialiased", fontSans.variable)}>
         <Script>
