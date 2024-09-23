@@ -74,13 +74,13 @@ export const ImageGallery = ({ images }:IProps) => {
       </Button>
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-[90vw] md:max-h-[50svh] md:max-w-[50vw] max-h-[90vh] p-0">
+        <DialogContent className="max-w-[90dvw] md:max-h-[50svh] md:max-w-[50vw] max-h-[90vh] p-0">
           <div className="relative w-full h-full">
             <NextImage
               src={images[currentIndex]}
               alt={`Image ${currentIndex + 1}`}
               layout="responsive"
-              className='h-[100svh] !w-[100vw] md:!h-auto md:!w-auto'
+              className='h-[100svh] !w-[100dvw] md:!h-auto md:!w-auto'
               width={1600}
               height={1200}
               placeholder='blur'
