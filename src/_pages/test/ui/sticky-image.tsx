@@ -20,7 +20,7 @@ export const StickyImage = ({ imgUrl, isLast, isFirst }:any) => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         // height: `calc(100svh - ${12 * 2}px)`,
-        height: isLast ? '150vh' : `100svh`,
+        height: isLast ? '150svh' : `100svh`,
         // top: IMG_PADDING,
         // scale,
       }}

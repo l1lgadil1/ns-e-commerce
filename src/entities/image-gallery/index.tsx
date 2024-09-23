@@ -74,7 +74,7 @@ export const ImageGallery = ({ images }:IProps) => {
       </Button>
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-[90vw] md:max-h-[50vh] md:max-w-[50vw] max-h-[90vh] p-0">
+        <DialogContent className="max-w-[90vw] md:max-h-[50svh] md:max-w-[50vw] max-h-[90vh] p-0">
           <div className="relative w-full h-full">
             <NextImage
               src={images[currentIndex]}
