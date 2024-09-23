@@ -80,7 +80,7 @@ export const ImageGallery = ({ images }:IProps) => {
               src={images[currentIndex]}
               alt={`Image ${currentIndex + 1}`}
               layout="responsive"
-              className='h-[100vh] !w-[100vw] md:!h-auto md:!w-auto'
+              className='h-[100svh] !w-[100vw] md:!h-auto md:!w-auto'
               width={1600}
               height={1200}
               placeholder='blur'

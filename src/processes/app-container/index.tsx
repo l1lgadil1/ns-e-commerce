@@ -1,7 +1,7 @@
 'use client';
 
 import { IProps } from './props';
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useEffect } from "react";
 import { HeaderV2 } from "@/widgets/_header";
 import { cn } from "@/shared/lib";
 import { Footer } from "@/widgets/footer";
@@ -17,6 +17,21 @@ export const AppContainer = (props: PropsWithChildren<IProps>) => {
 
   const theme = useThemeStore(state => state.theme);
   const isHideFooter = excludePages.some(i => pathname.includes(i));
+  // const [advertising, setAdvertisings] = useState<AdvertisingModel>(null);
+
+  const fetchAdvertising = async () => {
+    // const res = await getAdvertisings();
+    // if (res) {
+    //   if (res[0]) {
+    //     setAdvertisings(res[0]);
+    //   }
+    // }
+  };
+
+  useEffect(() => {
+    fetchAdvertising();
+  }, []);
+
   return (
     <div className={cn(theme, 'app')}>
       <HeaderV2 />
