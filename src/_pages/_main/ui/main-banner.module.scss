@@ -2,8 +2,8 @@
 	position: relative;
 	//height: calc(75vh - 138px);
 	min-height: 412px;
-	//max-height: 700px;
-	height: 100svh;
+	//max-height: 100%;
+	height: var(--app-height);
 	overflow: hidden;
 	@media (max-width: 768px) {
 		min-height: 320px;

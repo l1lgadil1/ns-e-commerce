@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/shared/lib";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const StickyImage = ({ imgUrl, isLast, isFirst }:any) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -20,12 +21,12 @@ export const StickyImage = ({ imgUrl, isLast, isFirst }:any) => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         // height: `calc(100svh - ${12 * 2}px)`,
-        height: isLast ? '150svh' : `100svh`,
+        // height: isLast ? '150svh' : `100svh`,
         // top: IMG_PADDING,
         // scale,
       }}
       ref={targetRef}
-      className="sticky z-0 overflow-hidden"
+      className="sticky z-0 overflow-hidden h-[var(--app-height)]"
     >
       <motion.div
         className={cn("absolute inset-0", !isFirst && "bg-neutral-950/70")}

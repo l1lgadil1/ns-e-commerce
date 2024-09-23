@@ -28,8 +28,8 @@ const StickyImage = ({ imgUrl, isFirst }:any) => {
   return (
     <div
       style={{
-        height: `calc(100svh - ${IMG_PADDING * 2}px)`,
-        maxHeight: `calc(100svh - ${IMG_PADDING * 2}px)`,
+        height: `calc(var(--app-height) - ${IMG_PADDING * 2}px)`,
+        maxHeight: `calc(var(--app-height) - ${IMG_PADDING * 2}px)`,
         overflow: 'hidden'
       }}
       className={styles.img}

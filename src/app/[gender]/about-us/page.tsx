@@ -7,7 +7,7 @@ import { Flex } from "@/shared/ui/flex";
 
 export default function Component() {
   return (
-    <div className="flex flex-col min-h-[100svh]">
+    <div className="flex flex-col min-h-[var(--app-height)]">
       <section className="w-full mt-[var(--header-height)] pt-12 md:pt-24 lg:pt-32 bg-[var(--bg-main)] bg-cover bg-center">
         <div className="container px-4 md:px-6 space-y-10 xl:space-y-16">
           <div className="grid max-w-[1300px] mx-auto gap-4 px-4 sm:px-6 md:px-10 md:grid-cols-2 md:gap-16">
