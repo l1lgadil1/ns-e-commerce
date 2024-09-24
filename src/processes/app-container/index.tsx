@@ -29,7 +29,7 @@ export const AppContainer = (props: PropsWithChildren<IProps>) => {
   };
   const appHeight = () => {
     const doc = document?.documentElement;
-    doc?.style?.setProperty('--app-height', `${window.innerHeight}px`);
+    doc?.style?.setProperty('--100svh', `${window.innerHeight}px`);
   };
   useEffect(() => {
     fetchAdvertising();

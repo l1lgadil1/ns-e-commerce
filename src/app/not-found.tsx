@@ -5,7 +5,7 @@ import { Button } from "@/shared/ui/button";
 
 export default function NotFound() {
   return (
-    <Flex className='h-[var(--app-height)]' justify='center' align='center' gap={24}>
+    <Flex className='h-[100svh]' justify='center' align='center' gap={24}>
       <H1>404 - Страница не найдена :(</H1>
       <Link href="/">
         <Button>
