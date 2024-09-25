@@ -124,6 +124,11 @@ img {
 	background: var(--bg-main);
 }
 
+.slick-track{
+	display: flex !important;
+	gap: 16px;
+	overflow-x: hidden !important;
+}
 
 div {
 	transition: background 0.3s ease;

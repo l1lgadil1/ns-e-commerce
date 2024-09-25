@@ -99,6 +99,8 @@ export const ProductPage = ({ product }:IProps) => {
   if (!product) {
     return <div>Загрузка...</div>;
   }
+  // @ts-ignore
+  // @ts-ignore
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer} ref={mainImgIntersectionRef}>
@@ -113,7 +115,7 @@ export const ProductPage = ({ product }:IProps) => {
           width={256}
           height={384}
           className={styles.mainImage}
-          src={product?.images.find(i => i.includes('main')) || ''}
+          src={product?.images.find(i => i?.includes('main')) || ''}
           alt="product"
           placeholder='blur'
           blurDataURL="/blank.svg"
@@ -196,7 +198,8 @@ export const ProductPage = ({ product }:IProps) => {
         ))}
       </Flex>
       <CheckoutButton isVisible={isCheckoutBtnVisible} href={product?.kaspiUrl} />
-      <ImageGallery images={product?.images.filter(i => !i.includes('png'))} />
+      {/* @ts-ignore */}
+      <ImageGallery images={product?.images.filter(i => !i?.src.includes('png'))} />
       <Flex gap={18} className='container !py-6'>
         <H3 size='m' mode='primary' className='underline underline-offset-8 '>
           Характеристики

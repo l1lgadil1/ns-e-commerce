@@ -66,6 +66,7 @@ export const TestPage = ({ product }: IProps) => {
               <ParallaxBox
                 isFirst={index === 0}
                 imgUrl={i.imageUrl}
+                images={i?.images || []}
                 subHeading={i.title}
                 heading={i.text}
                 href={product.kaspiUrl}

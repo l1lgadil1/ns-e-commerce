@@ -6,6 +6,9 @@ import { ReactNode } from "react";
 import { AppContainer } from "@/processes/app-container";
 import Script from "next/script";
 import { seo } from "@/shared/consts";
+// React slick
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const fontSans = FontSans({
   subsets: ["latin"],
