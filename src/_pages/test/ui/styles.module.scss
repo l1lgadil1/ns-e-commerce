@@ -3,6 +3,11 @@
 }
 
 .img{
+	height: var(--app-height);
+	//height: calc(var(--app-height) - 24);
+	//max-height: calc(var(--app-height) - 24);
+//maxHeight: `calc(var(--app-height) - ${IMG_PADDING * 2}px)`,
+
 }
 
 .img, .textContainer{

@@ -26,7 +26,7 @@ export const StickyImage = ({ imgUrl, isLast, isFirst }:any) => {
         // scale,
       }}
       ref={targetRef}
-      className="sticky z-0 overflow-hidden h-[100svh]"
+      className="sticky z-0 overflow-hidden h-[var(--app-height)]"
     >
       <motion.div
         className={cn("absolute inset-0", !isFirst && "bg-neutral-950/70")}

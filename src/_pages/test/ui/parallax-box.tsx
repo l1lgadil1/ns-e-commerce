@@ -29,8 +29,8 @@ const StickyImage = ({ imgUrl, isFirst }:any) => {
   return (
     <div
       style={{
-        height: `calc(100svh - ${IMG_PADDING * 2}px)`,
-        maxHeight: `calc(100svh - ${IMG_PADDING * 2}px)`,
+        // height: `calc(var(--app-height) - ${IMG_PADDING * 2}px)`,
+        // maxHeight: `calc(var(--app-height) - ${IMG_PADDING * 2}px)`,
         overflow: 'hidden'
       }}
       className={styles.img}
@@ -41,7 +41,7 @@ const StickyImage = ({ imgUrl, isFirst }:any) => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           height: '100%',
-          // height: `calc(100svh)`,
+          // height: `calc(var(--app-height))`,
           top: !isFirst ? IMG_PADDING : 0,
           scale,
         }}
@@ -157,8 +157,8 @@ const ExampleContent = ({ title, text, href, images }:{title:string, href:string
                   bottom: i?.bottom || 'unset'
                 }}
               >
-                {i.title && <h3 className='text-2xl font-bold'>{i.title}</h3>}
-                {i.text && <h4 className='text-xl text-[rgb(29, 29, 31)]'>{i.text}</h4>}
+                {i.title && <h3 className='text-xl font-bold'>{i.title}</h3>}
+                {i.text && <h4 className='text-lg leading-[18px] text-[rgb(29, 29, 31)]'>{i.text}</h4>}
               </div>
             </picture>
           ))}

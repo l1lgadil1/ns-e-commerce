@@ -7,7 +7,7 @@ import { Suspense } from "react";
 export default function NotFound() {
   return (
     <Suspense fallback={<>...</>}>
-      <Flex className='h-[100svh]' justify='center' align='center' gap={24}>
+      <Flex className='h-[var(--app-height)]' justify='center' align='center' gap={24}>
         <H1>404 - Страница не найдена :(</H1>
         <Link href="/">
           <Button>

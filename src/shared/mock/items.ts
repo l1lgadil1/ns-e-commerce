@@ -410,40 +410,40 @@ export const womensItems = [
           {
             src: `/images/products/dryer/ns-superair/dryer-1.png`,
             title: 'Диффузор с регулировкой высоты зубьев',
-            top: '20%',
+            top: '12%',
             left: '12%'
           },
           {
             src: `/images/products/dryer/ns-superair/dryer-2.png`,
             title: 'Брашинг с ворсом',
             text: 'Ворс помогает создать наилучший объём распутав волосы',
-            left: '11%',
-            bottom: '6%'
+            left: '5%',
+            bottom: '2%'
           },
           {
             src: `/images/products/dryer/ns-superair/dryer-3.png`,
             title: 'Расческа для выпрямления волос с ворсом',
-            left: '11%',
-            bottom: '7%'
+            left: '7%',
+            bottom: '2%'
           },
           {
             src: `/images/products/dryer/ns-superair/dryer-4.png`,
             title: 'Цилиндрическая насадка для создания идеальных локонов',
-            top: '9%',
+            top: '6%',
             left: '7%'
           },
           {
             src: `/images/products/dryer/ns-superair/dryer-5.png`,
             title: 'Насадка для высушивания с термозащитой от ожогов',
             left: '5%',
-            top: '20%'
+            top: '15%'
           },
 
           {
             src: `/images/products/dryer/ns-superair/dryer-7.png`,
             title: 'Металлический \n корпус',
             left: '11%',
-            top: '36%'
+            top: '10%'
           },
         ],
         text: 'SUPERAIR продуман до мелочей',
