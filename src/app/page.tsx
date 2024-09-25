@@ -4,6 +4,7 @@ import { allItems } from "@/shared/mock";
 import Script from "next/script";
 import { seo } from "@/shared/consts";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "NS - Инновационный Казахстанский Бренд техники для красоты",
@@ -60,12 +61,12 @@ export default async function Page() {
   };
 
   return (
-    <>
+    <Suspense fallback={<>...</>}>
       <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <MainPageV2 />
-    </>
+    </Suspense>
   );
 }

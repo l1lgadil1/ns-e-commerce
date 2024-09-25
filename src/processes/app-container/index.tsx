@@ -7,6 +7,9 @@ import { cn } from "@/shared/lib";
 import { Footer } from "@/widgets/footer";
 import { useThemeStore } from "@/shared/lib/store";
 import { useParams, usePathname } from "next/navigation";
+import dynamic from "next/dynamic";
+
+const CountryModal = dynamic(() => import("@/features/country-modal"));
 
 export const AppContainer = (props: PropsWithChildren<IProps>) => {
   const { children } = props;
@@ -39,6 +42,7 @@ export const AppContainer = (props: PropsWithChildren<IProps>) => {
   return (
     <div className={cn(theme, 'app')}>
       <HeaderV2 />
+      <CountryModal />
       <div
         // style={{ paddingTop: headerMargins }}
         className={cn('w-full h-full flex-1 flex flex-col')}

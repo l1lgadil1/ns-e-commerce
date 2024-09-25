@@ -3,3 +3,4 @@ export * from './genders';
 export * from './urls';
 export { seo } from './seo';
 export { YmIds } from './ym';
+export { StorageIds } from './storage';
