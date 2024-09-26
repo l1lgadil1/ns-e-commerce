@@ -359,47 +359,28 @@ export const womensItems = [
         imageUrl: `/images/products/dryer/ns-superair/main.jpg`,
         images: [
           {
-            src: `/images/products/dryer/ns-superair/_-46.jpg`,
+            src: `/images/products/dryer/ns-superair/_-19.jpg`
           },
           {
             src: `/images/products/dryer/ns-superair/_-2.jpg`
+          },
+          {
+            src: `/images/products/dryer/ns-superair/_-46.jpg`,
+          },
+          {
+            src: `/images/products/dryer/ns-superair/_-37.jpg`,
           }
         ],
         text: 'NS SUPERAIR - Сочетает в себе премиум качество и передовые технологии, обеспечивая доступную цену',
-        // text: '',
         title: 'Продукт мирового качества'
-        // title: ''
       },
       {
-        imageUrl: `/images/products/dryer/ns-superair/_-19.jpg`,
-        // images: [
-        // `/images/products/dryer/ns-superair/_-19.jpg`, `/images/products/dryer/ns-superair/_-24.jpg`, `/images/products/dryer/ns-superair/_-25.jpg`
-        // ],
+        imageUrl: `/images/products/dryer/ns-superair/_-31.jpg`,
         text: 'SUPERAIR - контролирует выходящую температуру воздуха с помощью NTC датчиков и бережно относится к вашим волосам, сохраняя их натуральный блеск',
         title: 'Сохраняйте здоровье вашим волосам'
       },
 
       {
-        imageUrl: `/images/products/dryer/ns-superair/_-26.jpg`,
-        // images: [{ src: `/images/products/dryer/ns-superair/_-26.jpg` }],
-        text: 'Каждая отдельная деталь SUPERAIR была тщательно проверена и протестирована. \n' +
-                    'Для того чтобы обеспечить надежность и использование продукта на долгие годы.',
-        title: 'Долговечность продукта'
-      },
-      {
-        imageUrl: `/images/products/dryer/ns-superair/_-31.jpg`,
-        // images: [`/images/products/dryer/ns-superair/_-31.jpg`],
-        text: 'Вместе с казахстанскими институтом КазНу Аль-Фараби, мы провели несколько опытов на термоустойчивость пластика, выделение токсичных веществ при нагревании насадок, а также стабильность выходящего воздуха.\n' +
-                    'Мы используем только премиум пластик, который не повредит вашему здоровью и мы доказали это научным методом.',
-        title: 'Научно доказано качество',
-        extraContent: {
-          // ... photos
-        }
-
-      },
-      {
-        imageUrl: `/images/products/dryer/ns-superair/_-33.jpg`,
-        // 356 /540
         images: [
           {
             src: `/images/products/dryer/ns-superair/dryer-6.png`,
@@ -446,14 +427,24 @@ export const womensItems = [
             top: '10%'
           },
         ],
-        text: 'SUPERAIR продуман до мелочей',
-        title: 'Идеально продуманный дизайн',
-        extraContent: {
-          // ... photos
-        }
+        text: 'Каждая отдельная деталь SUPERAIR была тщательно проверена и протестирована. \n' +
+                    'Для того чтобы обеспечить надежность и использование продукта на долгие годы.',
+        title: 'Долговечность продукта'
+      },
+      {
+        imageUrl: `/images/products/dryer/ns-superair/_-26.jpg`,
+        text: 'Вместе с казахстанскими институтом КазНу Аль-Фараби, мы провели несколько опытов на термоустойчивость пластика, выделение токсичных веществ при нагревании насадок, а также стабильность выходящего воздуха.\n' +
+                    'Мы используем только премиум пластик, который не повредит вашему здоровью и мы доказали это научным методом.',
+        title: 'Научно доказано качество',
       },
       {
         imageUrl: `/images/products/dryer/ns-superair/_-36.jpg`,
+        text: 'SUPERAIR продуман до мелочей',
+        title: 'Идеально продуманный дизайн',
+
+      },
+      {
+        imageUrl: `/images/products/dryer/ns-superair/_-33.jpg`,
         // images: [`/images/products/dryer/ns-superair/_-36.jpg`],
         text: 'SUPERAIR - имеет 4 режима температуры и 3 режима мощности',
         title: 'ИНДИВИДУАЛЬНАЯ НАСТРОЙКА ПОД КАЖДЫЙ ТИП ВОЛОС'

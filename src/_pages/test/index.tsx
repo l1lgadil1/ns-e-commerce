@@ -64,8 +64,9 @@ export const TestPage = ({ product }: IProps) => {
             <>
               {(index === product.sellContent.length - 1) && <div ref={intersectionRef} />}
               <ParallaxBox
+                isLast={index === product.sellContent.length - 1}
                 isFirst={index === 0}
-                imgUrl={i.imageUrl}
+                imgUrl={i?.imageUrl || ''}
                 images={i?.images || []}
                 subHeading={i.title}
                 heading={i.text}

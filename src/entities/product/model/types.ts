@@ -2,11 +2,12 @@ export type ProductModel = {
     id: string;
     name: string;
     sellContent: {
-        imageUrl: string;
+        imageUrl?: string;
         text: string;
         title: string;
-        images?: { src: string, title: string; text?: string, left?: string, top?: string; bottom?: string }[]
-    }[]
+        images?:
+            { src: string, title?: string; text?: string, left?: string, top?: string; bottom?: string }[]
+    }[];
     price: number;
     category: string;
     images: string[]

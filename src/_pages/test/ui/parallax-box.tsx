@@ -84,7 +84,12 @@ const TextParallaxContent = ({ imgUrl, subheading, heading, images, children, is
         {/*    <StickyImage imgUrl={img} key={img} isFirst={isFirst} /> */}
         {/*  ))} */}
         {/* </Slider> */}
-        <StickyImage imgUrl={imgUrl} isFirst={isFirst} />
+        {!isFirst && (
+          <h2 className="col-span-1 text-2xl mb-8 px-4 text-[var(--text-primary)] font-bold md:col-span-4">
+            {highlightedText(subheading)}
+          </h2>
+        )}
+        {imgUrl && <StickyImage imgUrl={imgUrl} isFirst={isFirst} />}
         {/* <OverlayCopy heading={heading} subheading={subheading} /> */}
       </div>
       {children}
@@ -120,7 +125,7 @@ const TextParallaxContent = ({ imgUrl, subheading, heading, images, children, is
 // };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const ExampleContent = ({ title, text, href, images }:{title:string, href:string, text:string, images:{src:string, title:string;text?:string, left?:string, top?:string;bottom?:string}[]}) => {
+const ExampleContent = ({ title, text, href, images, isFirst }:{title:string, isFirst:boolean, href:string, text:string, images:{src:string, title?:string;text?:string, left?:string, top?:string;bottom?:string}[]}) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -133,9 +138,11 @@ const ExampleContent = ({ title, text, href, images }:{title:string, href:string
     <motion.div ref={targetRef} className={cn("mx-auto md:py-22 gap-8 px-4 pt-4 md:pt-8 flex flex-col ", styles.textContainer)}>
       <div className="absolute bottom-0 left-0 top-[-1%] right-0 h-[10px] bg-gradient-to-t from-[var(--gradient)] to-transparent" />
       {/* <div className="absolute bottom-[-20%] left-0 right-0 h-[20%] bg-gradient-to-b  from-[var(--gradient)] to-transparent" /> */}
-      <motion.h2 className="col-span-1 text-2xl m text-[var(--text-primary)] font-bold md:col-span-4">
-        {highlightedText(title)}
-      </motion.h2>
+      {isFirst && (
+        <motion.h2 className="col-span-1 text-2xl m text-[var(--text-primary)] font-bold md:col-span-4">
+          {highlightedText(title)}
+        </motion.h2>
+      )}
       {images && images.length > 1 && (
         <div className='flex overflow-x-scroll md:hidden w-full pb-5 gap-3 '>
           {images.map(i => (
@@ -190,9 +197,10 @@ const ExampleContent = ({ title, text, href, images }:{title:string, href:string
     </motion.div>
   );
 };
-export const ParallaxBox = ({ imgUrl, subHeading, heading, isFirst, images, href }:{imgUrl:string, href:string, subHeading:string, heading:string, images:{src:string, title:string;text?:string, left?:string, top?:string;bottom?:string}[], isFirst:boolean}) => (
+// TODO добавить общие модели везде
+export const ParallaxBox = ({ imgUrl, subHeading, isLast, heading, isFirst, images, href }:{imgUrl:string, isLast:boolean, href:string, subHeading:string, heading:string, images:{src:string, title?:string;text?:string, left?:string, top?:string;bottom?:string}[], isFirst:boolean}) => (
   <>
-    <div className='pt-12 pb-5'>
+    <div className={cn('pt-8 pb-5', isLast && 'pb-[100px]')}>
       <TextParallaxContent
         imgUrl={imgUrl}
         images={images}
@@ -200,7 +208,7 @@ export const ParallaxBox = ({ imgUrl, subHeading, heading, isFirst, images, href
         heading={heading}
         isFirst={isFirst}
       >
-        {heading && subHeading && <ExampleContent images={images} href={href} text={heading} title={subHeading} />}
+        {heading && subHeading && <ExampleContent isFirst={isFirst} images={images} href={href} text={heading} title={subHeading} />}
       </TextParallaxContent>
     </div>
     <hr className={styles.hr} />
