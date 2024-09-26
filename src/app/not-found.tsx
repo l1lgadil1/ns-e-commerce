@@ -2,19 +2,16 @@ import Link from 'next/link';
 import { Flex } from "@/shared/ui/flex";
 import { H1 } from "@/shared/ui/h1";
 import { Button } from "@/shared/ui/button";
-import { Suspense } from "react";
 
 export default function NotFound() {
   return (
-    <Suspense fallback={<>...</>}>
-      <Flex className='h-[var(--app-height)]' justify='center' align='center' gap={24}>
-        <H1>404 - Страница не найдена :(</H1>
-        <Link href="/">
-          <Button>
-            Вернуться на главную
-          </Button>
-        </Link>
-      </Flex>
-    </Suspense>
+    <Flex className='h-[var(--app-height)]' justify='center' align='center' gap={24}>
+      <H1>404 - Страница не найдена :(</H1>
+      <Link href="/">
+        <Button>
+          Вернуться на главную
+        </Button>
+      </Link>
+    </Flex>
   );
 }

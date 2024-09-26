@@ -5,9 +5,10 @@ import type { Metadata } from 'next';
 import { allItems } from "@/shared/mock";
 import Script from "next/script";
 import { TestPage } from "@/_pages/test";
+import { getItemsByLocale } from "@/shared/lib";
 
 type Props = {
-    params: { id: string }
+    params: { id: string, locale:string }
 }
 
 export async function generateMetadata(
@@ -39,8 +40,9 @@ export async function generateMetadata(
 }
 
 export default function Page({ params }: Props) {
-  const { id } = params;
-  const product = allItems.find(i => i.id === id);
+  const { id, locale } = params;
+  const items = getItemsByLocale(locale);
+  const product = items.find(i => i.id === id);
 
   if (!product) {
     return {

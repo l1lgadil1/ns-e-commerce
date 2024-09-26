@@ -4,7 +4,7 @@ import styles from './styles.module.scss';
 import { ProductModel } from "@/entities/product";
 import { CheckoutButton } from "./ui/checkout-button";
 import { useIntersection } from "react-use";
-import { Suspense, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ParallaxBox } from "@/_pages/test/ui/parallax-box";
 
 // const ExampleContent = () => (
@@ -53,68 +53,66 @@ export const TestPage = ({ product }: IProps) => {
   }, [intersection]);
 
   return (
-    <Suspense fallback={<>...</>}>
-      <div className={styles.container}>
-        {/* <div className='fixed z-10 bottom-0 left-0 w-full bg-white h-[10px]'> */}
-        {/*  <motion.div style={{ scaleX }} className='bg-red-800 h-full' /> */}
-        {/* </div> */}
-        {/* MAIN CONTENT LIST */}
-        <div className='relative'>
-          {product?.sellContent.map((i, index) => (
-            <>
-              {(index === product.sellContent.length - 1) && <div ref={intersectionRef} />}
-              <ParallaxBox
-                isLast={index === product.sellContent.length - 1}
-                isFirst={index === 0}
-                imgUrl={i?.imageUrl || ''}
-                images={i?.images || []}
-                subHeading={i.title}
-                heading={i.text}
-                href={product.kaspiUrl}
-              />
-              {/* <TextParallaxContent */}
-              {/*  isFirst={index === 0} */}
-              {/*  // && product.id === 'ns-superair' */}
-              {/*  imgUrl={i.imageUrl} */}
-              {/*  subheading={i.title} */}
-              {/*  key={i.imageUrl} */}
-              {/*  heading={i.text} */}
-              {/*  isLast={index === product.sellContent.length - 1} */}
-              {/* /> */}
-            </>
-          ))}
-          {/* {isCheckoutVisible && */}
-          <CheckoutButton href={product.kaspiUrl} />
-          {/* } */}
-          {/* TODO BOTTOM SECTION */}
-          {/* <FeaturesSection mainFeatures={product.bottomArr} /> */}
-        </div>
-        {/* <ReviewGallery href={product.kaspiUrl} /> */}
-        {/* <div> */}
-        {/*  <TextParallaxContent */}
-        {/*    imgUrl="/images/products/razor/ns-11/_-5.jpg" */}
-        {/*    subheading="NS 11" */}
-        {/*    heading="Все самое лучшее собрано в одном месте" */}
-        {/*  > */}
-
-        {/*    /!* <ExampleContent /> *!/ */}
-        {/*  </TextParallaxContent> */}
-        {/*  <TextParallaxContent */}
-        {/*    imgUrl="/images/products/razor/ns-11/_-6.jpg" */}
-        {/*    subheading="Для всех типов кожи" */}
-        {/*    heading="Бритва NS 11 идеально подойдет под любой тип кожи" */}
-        {/*  > */}
-        {/*    /!* <ExampleContent /> *!/ */}
-        {/*  </TextParallaxContent> */}
-        {/*  <TextParallaxContent */}
-        {/*    imgUrl="/images/products/razor/ns-11/_-31.jpg" */}
-        {/*    subheading="Долгая работа" */}
-        {/*    heading="NS 11 может проработать 120 мин от аккумулятора" */}
-        {/*  > */}
-        {/*    /!* <ExampleContent /> *!/ */}
-        {/*  </TextParallaxContent> */}
-        {/* </div> */}
+    <div className={styles.container}>
+      {/* <div className='fixed z-10 bottom-0 left-0 w-full bg-white h-[10px]'> */}
+      {/*  <motion.div style={{ scaleX }} className='bg-red-800 h-full' /> */}
+      {/* </div> */}
+      {/* MAIN CONTENT LIST */}
+      <div className='relative'>
+        {product?.sellContent.map((i, index) => (
+          <>
+            {(index === product.sellContent.length - 1) && <div ref={intersectionRef} />}
+            <ParallaxBox
+              isLast={index === product.sellContent.length - 1}
+              isFirst={index === 0}
+              imgUrl={i?.imageUrl || ''}
+              images={i?.images || []}
+              subHeading={i.title}
+              heading={i.text}
+              href={product.kaspiUrl}
+            />
+            {/* <TextParallaxContent */}
+            {/*  isFirst={index === 0} */}
+            {/*  // && product.id === 'ns-superair' */}
+            {/*  imgUrl={i.imageUrl} */}
+            {/*  subheading={i.title} */}
+            {/*  key={i.imageUrl} */}
+            {/*  heading={i.text} */}
+            {/*  isLast={index === product.sellContent.length - 1} */}
+            {/* /> */}
+          </>
+        ))}
+        {/* {isCheckoutVisible && */}
+        <CheckoutButton href={product.kaspiUrl} />
+        {/* } */}
+        {/* TODO BOTTOM SECTION */}
+        {/* <FeaturesSection mainFeatures={product.bottomArr} /> */}
       </div>
-    </Suspense>
+      {/* <ReviewGallery href={product.kaspiUrl} /> */}
+      {/* <div> */}
+      {/*  <TextParallaxContent */}
+      {/*    imgUrl="/images/products/razor/ns-11/_-5.jpg" */}
+      {/*    subheading="NS 11" */}
+      {/*    heading="Все самое лучшее собрано в одном месте" */}
+      {/*  > */}
+
+      {/*    /!* <ExampleContent /> *!/ */}
+      {/*  </TextParallaxContent> */}
+      {/*  <TextParallaxContent */}
+      {/*    imgUrl="/images/products/razor/ns-11/_-6.jpg" */}
+      {/*    subheading="Для всех типов кожи" */}
+      {/*    heading="Бритва NS 11 идеально подойдет под любой тип кожи" */}
+      {/*  > */}
+      {/*    /!* <ExampleContent /> *!/ */}
+      {/*  </TextParallaxContent> */}
+      {/*  <TextParallaxContent */}
+      {/*    imgUrl="/images/products/razor/ns-11/_-31.jpg" */}
+      {/*    subheading="Долгая работа" */}
+      {/*    heading="NS 11 может проработать 120 мин от аккумулятора" */}
+      {/*  > */}
+      {/*    /!* <ExampleContent /> *!/ */}
+      {/*  </TextParallaxContent> */}
+      {/* </div> */}
+    </div>
   );
 };

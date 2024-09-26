@@ -77,6 +77,7 @@ export const MainPageV2 = () => {
       // imgSrc: `/images/products/dryer/ns-superair/_-24.jpg`,
       imgSrc: `/images/products/dryer/ns-superair/_-31.jpg`,
       // imgSrc: `/images/products/dryer/ns-superair/test.png`,
+      id: 'superair',
       title: 'SUPER',
       highlightText: 'AIR',
       text: 'Высокотехнологическое устройство для создания профессиональных укладок',
@@ -85,21 +86,24 @@ export const MainPageV2 = () => {
   ];
   const menBanner = [
     {
+      id: 'ns4d',
       imgSrc: '/images/products/razor/ns4d/_.jpg',
       title: 'NS 4D',
-      text: 'Испытайте революцию в уходе за собой с NS 4D. Передовые технологии для идеального бритья.',
+      text: 'Испытайте революцию в уходе за собой с NS 4D. Передовые технологии для идеального бритья',
       href: '/men/product/ns-4d'
     },
     {
+      id: 'ns11',
       imgSrc: '/images/products/razor/ns-11/_-38.jpg',
       title: 'NS 11',
-      text: 'NS 11 — это сочетание точности и комфорта. Наслаждайтесь современными технологиями бритья с каждым использованием.',
+      text: 'NS 11 — это сочетание точности и комфорта. Наслаждайтесь современными технологиями бритья с каждым использованием',
       href: '/men/product/ns-11'
     },
     {
+      id: 'ns81',
       imgSrc: '/images/products/razor/ns-81/_-42.jpg',
       title: 'NS 81',
-      text: 'NS 81 сочетает в себе новейшие технологии и элегантный дизайн. Отличный выбор для тех, кто ищет максимальный комфорт и эффективность.',
+      text: 'NS 81 сочетает в себе новейшие технологии и элегантный дизайн. Отличный выбор для тех, кто ищет максимальный комфорт и эффективность',
       href: '/men/product/ns-81'
     },
   ];

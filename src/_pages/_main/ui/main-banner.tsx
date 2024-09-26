@@ -2,13 +2,14 @@ import { Flex } from "@/shared/ui/flex";
 import styles from "./main-banner.module.scss";
 import { P } from "@/shared/ui/p";
 import { Button } from "@/shared/ui/button";
-import Link from "next/link";
 import { useThemeStore } from "@/shared/lib/store";
 import { cn } from "@/shared/lib";
 import { Genders } from "@/shared/consts";
 import { H2 } from "@/shared/ui/h2";
 import Image from 'next/image';
 import { ChevronRight } from "lucide-react";
+import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 interface IProps {
     bannerInfo: {
@@ -18,6 +19,7 @@ interface IProps {
         text: string;
         btnText?: string;
         href: string;
+        id:string;
     }
 }
 
@@ -25,11 +27,11 @@ export const MainBanner = (props: IProps) => {
   const { bannerInfo } = props;
   const { imgSrc,
     title,
-    text,
     btnText,
+    id,
     href, highlightText } = bannerInfo;
+  const t = useTranslations('home');
   const gender = useThemeStore(state => state.theme);
-
   return (
     <Flex className={cn(styles.pictureContainer, gender === Genders.Women && styles.women)}>
       <picture className={styles.picture}>
@@ -52,13 +54,13 @@ export const MainBanner = (props: IProps) => {
               <H2 mode='primary' fontSize={22} lineHeight={28}>{title}</H2>
               {highlightText && <H2 mode='primary' fontSize={22} lineHeight={28} className={styles.highlightText}>{highlightText}</H2>}
             </Flex>
-            <P mode='secondary'>{text}</P>
+            <P mode='secondary'>{t(id)}</P>
           </Flex>
           <Flex mode='row' justify='center'>
             <Link prefetch href={href}>
               <Button variant='outline' className='border-[1px] rounded-xl !text-[var(--white)] border-[var(--text-primary)]'>
                 {/* <P mode='primary' fontWeight={500} size='s'>{btnText || "Перейти"}</P> */}
-                {btnText || "Перейти"}
+                {btnText || t("Перейти")}
                 <ChevronRight />
               </Button>
             </Link>

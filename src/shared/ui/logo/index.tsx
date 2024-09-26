@@ -1,12 +1,13 @@
-import Link from "next/link";
 import Image from "next/image";
 import { useThemeStore } from "@/shared/lib/store";
+import { Link } from "@/i18n/routing";
 
 interface IProps{
     color?:'black' | 'white';
 }
 export const Logo = ({ color }:IProps) => {
   const gender = useThemeStore(state => state.theme);
+
   if (color === 'black') {
     return (
       <Link href={`/${gender}`} className='flex w-full justify-center'>

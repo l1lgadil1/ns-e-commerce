@@ -12,10 +12,12 @@ import { H4 } from "@/shared/ui/h4";
 import { cn } from "@/shared/lib";
 import { useThemeStore } from "@/shared/lib/store";
 import { Advertising } from "./ui/advertising";
+import { useTranslations } from "next-intl";
 
 export const Footer = (props: IProps) => {
   const { className, advertising } = props;
   const gender = useThemeStore(state => state.theme);
+  const t = useTranslations('common');
   return (
     <footer>
       {advertising && <Advertising advertising={advertising} />}
@@ -23,7 +25,7 @@ export const Footer = (props: IProps) => {
         <Flex gap={40} className='container !py-10'>
           <Flex gap={24}>
             <Flex justify='center' mode='row'>
-              <Link href='tel:+77762918098'>
+              <Link href='https://api.whatsapp.com/send?phone=7762918098' target='_blank'>
                 <P fontWeight={500} fontSize={22} lineHeight={30} className='tracking-wide'>
                   +7 776 291 80 98
                 </P>
@@ -35,7 +37,7 @@ export const Footer = (props: IProps) => {
                 {menus?.map(i => (
                   <Link key={i.href} href={!i.href.includes('tel') ? `/${gender}/${i.href}` : i.href} className=''>
                     <Button variant='ghost' key={i.name} className='py-4 px-0 w-full border-b-[1px] h-auto border-[var(--text-primary)] rounded-none flex justify-between'>
-                      <P fontWeight={300}>{i.name}</P>
+                      <P fontWeight={300}>{t(i.name)}</P>
                       <MoveRight color={returnColors(gender).TextPrimary} />
                     </Button>
                   </Link>
@@ -45,7 +47,7 @@ export const Footer = (props: IProps) => {
           </Flex>
           <Flex gap={24}>
             <Flex mode='row' justify='center'>
-              <H4 size='m' mode='secondary'>NS - Казахстанский бренд, который делает стиль доступнее</H4>
+              <H4 size='m' mode='secondary'>{t('NS - Казахстанский бренд, который делает стиль доступнее')}</H4>
             </Flex>
             <Flex mode='row' className='w-full' justify='center' gap={16}>
               <Link target='_blank' href={URLS.insta} rel='noreferrer'>
