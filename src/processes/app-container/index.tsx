@@ -13,10 +13,12 @@ export const AppContainer = (props: PropsWithChildren<IProps>) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const params = useParams();
   const pathname = usePathname();
-  const excludePages = ['product', 'test'];
+  const excludePagesFooter = ['product', 'test', 'qr'];
+  const excludePagesHeader = ['qr'];
 
   const theme = useThemeStore(state => state.theme);
-  const isHideFooter = excludePages.some(i => pathname.includes(i));
+  const isHideHeader = excludePagesHeader.some(i => pathname.includes(i));
+  const isHideFooter = excludePagesFooter.some(i => pathname.includes(i));
   // const [advertising, setAdvertisings] = useState<AdvertisingModel>(null);
 
   const fetchAdvertising = async () => {
@@ -38,7 +40,7 @@ export const AppContainer = (props: PropsWithChildren<IProps>) => {
 
   return (
     <div className={cn(theme, 'app')}>
-      <HeaderV2 />
+      {!isHideHeader && <HeaderV2 />}
       <section>
         {children}
       </section>
