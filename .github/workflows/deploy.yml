@@ -18,16 +18,16 @@ jobs:
         with:
           node-version: '22'  # Убедись, что здесь версия Node.js совпадает с версией, которую ты используешь
 
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
-      - name: Debug Secrets
-        run: |
-          echo "Host: ${{ secrets.SERVER_HOST }}"
-          echo "User: ${{ secrets.SERVER_USER }}"
-          # Do not print the password or key for security reasons.
+#      - name: Install dependencies
+#        run: npm install
+#
+#      - name: Build project
+#        run: npm run build
+#      - name: Debug Secrets
+#        run: |
+#          echo "Host: ${{ secrets.SERVER_HOST }}"
+#          echo "User: ${{ secrets.SERVER_USER }}"
+#          # Do not print the password or key for security reasons.
 
       - name: Deploy to server
         uses: appleboy/ssh-action@master
