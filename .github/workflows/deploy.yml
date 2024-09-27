@@ -23,6 +23,11 @@ jobs:
 
       - name: Build project
         run: npm run build
+      - name: Debug Secrets
+        run: |
+          echo "Host: ${{ secrets.SERVER_HOST }}"
+          echo "User: ${{ secrets.SERVER_USER }}"
+          # Do not print the password or key for security reasons.
 
       - name: Deploy to server
         uses: appleboy/ssh-action@master
