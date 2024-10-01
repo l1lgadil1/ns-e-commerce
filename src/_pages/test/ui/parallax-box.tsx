@@ -172,7 +172,7 @@ const ExampleContent = ({ title, text, href, images, isFirst }:{title:string, is
         </div>
       )}
       <div className="col-span-1 md:col-span-8 flex flex-col ">
-        <motion.p className="mb-4 text-xl  text-[var(--text-secondary)] ">
+        <motion.p className="mb-4 whitespace-pre-wrap text-xl  text-[var(--text-secondary)] ">
           {highlightedText(text)}
         </motion.p>
       </div>

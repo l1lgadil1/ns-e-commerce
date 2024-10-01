@@ -8,34 +8,36 @@ import { Button } from "@/shared/ui/button";
 import { Flex } from "@/shared/ui/flex";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
-const reviews = [
-  {
-    id: 1,
-    name: "Анна С.",
-    avatar: "/placeholder.svg?height=40&width=40",
-    rating: 5,
-    comment: "Отличный продукт! Мои волосы выглядят потрясающе после использования."
-  },
-  {
-    id: 2,
-    name: "Михаил Д.",
-    avatar: "/placeholder.svg?height=40&width=40",
-    rating: 4,
-    comment: "Очень удобно использовать дома. Экономит время и деньги на салоны."
-  },
-  {
-    id: 3,
-    name: "Елена П.",
-    avatar: "/placeholder.svg?height=40&width=40",
-    rating: 5,
-    comment: "Профессиональное качество укладки в домашних условиях. Рекомендую!"
-  }
-];
+// const reviews = [
+//   {
+//     id: 1,
+//     name: "Анна С.",
+//     avatar: "/placeholder.svg?height=40&width=40",
+//     rating: 5,
+//     comment: "Отличный продукт! Мои волосы выглядят потрясающе после использования."
+//   },
+//   {
+//     id: 2,
+//     name: "Михаил Д.",
+//     avatar: "/placeholder.svg?height=40&width=40",
+//     rating: 4,
+//     comment: "Очень удобно использовать дома. Экономит время и деньги на салоны."
+//   },
+//   {
+//     id: 3,
+//     name: "Елена П.",
+//     avatar: "/placeholder.svg?height=40&width=40",
+//     rating: 5,
+//     comment: "Профессиональное качество укладки в домашних условиях. Рекомендую!"
+//   }
+// ];
 
-export function ReviewGallery({ href }:{href:string}) {
+export function ReviewGallery({ href, reviews }:{href:string, reviews:{author:string, review:string, stars:number}[]}) {
   const [currentReview, setCurrentReview] = useState(0);
   const [direction, setDirection] = useState(0);
+  const t = useTranslations('common');
 
   const nextReview = () => {
     setDirection(1);
@@ -77,9 +79,18 @@ export function ReviewGallery({ href }:{href:string}) {
   return (
     <Flex className="w-full max-w-md mx-auto overflow-hidden bg-white !pb-24">
       <Flex className="p-6" {...handlers} gap={20}>
-        <h2 className="text-2xl font-bold  text-center">Отзывы клиентов</h2>
-        <div className="relative h-[100px]">
-
+        <h2 className="text-2xl font-bold  text-center">{t('Отзывы клиентов')}</h2>
+        <div className="relative h-[300px]">
+          <div className="flex justify-between my-5">
+            <Button variant="outline" size="icon" onClick={prevReview}>
+              <ChevronLeft className="h-4 w-4" />
+              <span className="sr-only">Previous review</span>
+            </Button>
+            <Button variant="outline" size="icon" onClick={nextReview}>
+              <ChevronRight className="h-4 w-4" />
+              <span className="sr-only">Next review</span>
+            </Button>
+          </div>
           <AnimatePresence initial={false} custom={direction}>
             <motion.div
               key={currentReview}
@@ -107,34 +118,24 @@ export function ReviewGallery({ href }:{href:string}) {
                   {[...Array(5)].map((_, i) => (
                     <Star
                       key={i}
-                      className={i < reviews[currentReview].rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"}
+                      className={(i < reviews[currentReview]?.stars && reviews && reviews[currentReview]) ? "text-yellow-400 fill-yellow-400" : "text-gray-300"}
                     />
                   ))}
                 </div>
               </div>
-              <p className="text-gray-700 mb-2">{reviews[currentReview].comment}</p>
-              <p className="text-right font-semibold">{reviews[currentReview].name}</p>
+              <p className="text-gray-700 mb-2">{reviews[currentReview]?.review}</p>
+              <p className="text-right font-semibold">{reviews[currentReview]?.author}</p>
             </motion.div>
           </AnimatePresence>
         </div>
-        <div className="mt-6">
+        <div className="">
           <Link className='w-full' href={href} target='_blank'>
             <Button className="w-full bg-[var(--btn-main)]">
-              Прочитать все отзывы
+              {t('Прочитать все отзывы')}
             </Button>
           </Link>
         </div>
 
-        <div className="flex justify-between">
-          <Button variant="outline" size="icon" onClick={prevReview}>
-            <ChevronLeft className="h-4 w-4" />
-            <span className="sr-only">Previous review</span>
-          </Button>
-          <Button variant="outline" size="icon" onClick={nextReview}>
-            <ChevronRight className="h-4 w-4" />
-            <span className="sr-only">Next review</span>
-          </Button>
-        </div>
       </Flex>
     </Flex>
   );

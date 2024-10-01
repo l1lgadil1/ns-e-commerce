@@ -16,6 +16,7 @@ export type ProductModel = {
     features: ImageFeature[];
     bottomArr: Feature[]
     characteristics: Characteristic[];
+    reviews?:{author:string, review:string, stars:number}[]
 }
 
 interface Feature {

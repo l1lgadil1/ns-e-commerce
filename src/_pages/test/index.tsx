@@ -6,6 +6,7 @@ import { CheckoutButton } from "./ui/checkout-button";
 import { useIntersection } from "react-use";
 import { useEffect, useRef, useState } from "react";
 import { ParallaxBox } from "@/_pages/test/ui/parallax-box";
+import { ReviewGallery } from "@/_pages/test/ui/feedbacks";
 
 // const ExampleContent = () => (
 //   <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
@@ -88,7 +89,7 @@ export const TestPage = ({ product }: IProps) => {
         {/* TODO BOTTOM SECTION */}
         {/* <FeaturesSection mainFeatures={product.bottomArr} /> */}
       </div>
-      {/* <ReviewGallery href={product.kaspiUrl} /> */}
+      {product?.reviews && product?.reviews?.length > 0 && <ReviewGallery reviews={product.reviews} href={product.kaspiUrl} />}
       {/* <div> */}
       {/*  <TextParallaxContent */}
       {/*    imgUrl="/images/products/razor/ns-11/_-5.jpg" */}
