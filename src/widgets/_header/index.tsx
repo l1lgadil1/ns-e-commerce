@@ -46,6 +46,7 @@ export const HeaderV2 = (props: IProps) => {
   }, []);
   setGender();
   return (
+    //   TODO cкрывать хэдер при скролле
     <Flex mode='row' justify='space-between' className={cn(styles.container, isHeaderChangeColor && styles.color, className, 'px-4 relative py-3 header')}>
       {isBurgerOpen && (
         <BurgerMenu

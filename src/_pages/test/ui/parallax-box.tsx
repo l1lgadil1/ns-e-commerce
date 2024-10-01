@@ -135,7 +135,7 @@ const ExampleContent = ({ title, text, href, images, isFirst }:{title:string, is
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
 
   return (
-    <motion.div ref={targetRef} className={cn("mx-auto md:py-22 gap-8 px-4 pt-4 md:pt-8 flex flex-col ", styles.textContainer)}>
+    <motion.div ref={targetRef} className={cn("mx-auto md:py-22 gap-8 px-4 pt-4 md:pt-8 flex flex-col", styles.textContainer)}>
       <div className="absolute bottom-0 left-0 top-[-1%] right-0 h-[10px] bg-gradient-to-t from-[var(--gradient)] to-transparent" />
       {/* <div className="absolute bottom-[-20%] left-0 right-0 h-[20%] bg-gradient-to-b  from-[var(--gradient)] to-transparent" /> */}
       {isFirst && (
@@ -200,7 +200,7 @@ const ExampleContent = ({ title, text, href, images, isFirst }:{title:string, is
 // TODO добавить общие модели везде
 export const ParallaxBox = ({ imgUrl, subHeading, isLast, heading, isFirst, images, href }:{imgUrl:string, isLast:boolean, href:string, subHeading:string, heading:string, images:{src:string, title?:string;text?:string, left?:string, top?:string;bottom?:string}[], isFirst:boolean}) => (
   <>
-    <div className={cn('pt-8 pb-5', isLast && 'pb-[100px]')}>
+    <div className={cn('pt-8 pb-5', isLast && 'pb-[100px]', styles.container)}>
       <TextParallaxContent
         imgUrl={imgUrl}
         images={images}

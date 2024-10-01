@@ -2,11 +2,12 @@
 
 import styles from './styles.module.scss';
 import { ProductModel } from "@/entities/product";
-import { CheckoutButton } from "./ui/checkout-button";
 import { useIntersection } from "react-use";
 import { useEffect, useRef, useState } from "react";
 import { ParallaxBox } from "@/_pages/test/ui/parallax-box";
 import { ReviewGallery } from "@/_pages/test/ui/feedbacks";
+import { getProduct } from "@/_pages/test/api";
+import { TestBtn } from "@/_pages/test/ui/test-btn";
 
 // const ExampleContent = () => (
 //   <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 pb-24 pt-12 md:grid-cols-12">
@@ -34,12 +35,31 @@ interface IProps {
     product: ProductModel
 }
 
+interface Product {
+    id: number
+    name: string
+    price: number
+    previousPrice?:number
+    count?: number
+}
+
 export const TestPage = ({ product }: IProps) => {
 // const { scrollYProgress } = useScroll();
 // const scaleX = useSpring(scrollYProgress);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isCheckoutVisible, setCheckoutVisible] = useState(true);
   const intersectionRef = useRef<HTMLDivElement>(null);
+  const [productInfo, setProductInfo] = useState<Product | null>(null);
+  const fetchProductInfo = async () => {
+    try {
+      const res = await getProduct(product.id);
+      if (res) {
+        setProductInfo(res);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const intersection = useIntersection(intersectionRef, {
     root: null,
     rootMargin: '0px',
@@ -53,12 +73,15 @@ export const TestPage = ({ product }: IProps) => {
     }
   }, [intersection]);
 
+  useEffect(() => {
+    if (product) {
+      fetchProductInfo();
+    }
+  }, [product]);
+
   return (
     <div className={styles.container}>
-      {/* <div className='fixed z-10 bottom-0 left-0 w-full bg-white h-[10px]'> */}
-      {/*  <motion.div style={{ scaleX }} className='bg-red-800 h-full' /> */}
-      {/* </div> */}
-      {/* MAIN CONTENT LIST */}
+
       <div className='relative'>
         {product?.sellContent.map((i, index) => (
           <>
@@ -72,48 +95,27 @@ export const TestPage = ({ product }: IProps) => {
               heading={i.text}
               href={product.kaspiUrl}
             />
-            {/* <TextParallaxContent */}
-            {/*  isFirst={index === 0} */}
-            {/*  // && product.id === 'ns-superair' */}
-            {/*  imgUrl={i.imageUrl} */}
-            {/*  subheading={i.title} */}
-            {/*  key={i.imageUrl} */}
-            {/*  heading={i.text} */}
-            {/*  isLast={index === product.sellContent.length - 1} */}
-            {/* /> */}
+
           </>
         ))}
         {/* {isCheckoutVisible && */}
-        <CheckoutButton href={product.kaspiUrl} />
+        {/* <CheckoutButton price={productInfo?.price} href={product.kaspiUrl} /> */}
+        {productInfo?.price && (
+          <TestBtn
+            href={product?.kaspiUrl}
+            count={productInfo?.count}
+            // currentPrice={79900}
+            currentPrice={productInfo?.price}
+            oldPrice={productInfo?.previousPrice}
+          />
+        )}
         {/* } */}
         {/* TODO BOTTOM SECTION */}
         {/* <FeaturesSection mainFeatures={product.bottomArr} /> */}
       </div>
-      {product?.reviews && product?.reviews?.length > 0 && <ReviewGallery reviews={product.reviews} href={product.kaspiUrl} />}
-      {/* <div> */}
-      {/*  <TextParallaxContent */}
-      {/*    imgUrl="/images/products/razor/ns-11/_-5.jpg" */}
-      {/*    subheading="NS 11" */}
-      {/*    heading="Все самое лучшее собрано в одном месте" */}
-      {/*  > */}
+      {product?.reviews && product?.reviews?.length > 0 &&
+      <ReviewGallery reviews={product.reviews} href={product.kaspiUrl} />}
 
-      {/*    /!* <ExampleContent /> *!/ */}
-      {/*  </TextParallaxContent> */}
-      {/*  <TextParallaxContent */}
-      {/*    imgUrl="/images/products/razor/ns-11/_-6.jpg" */}
-      {/*    subheading="Для всех типов кожи" */}
-      {/*    heading="Бритва NS 11 идеально подойдет под любой тип кожи" */}
-      {/*  > */}
-      {/*    /!* <ExampleContent /> *!/ */}
-      {/*  </TextParallaxContent> */}
-      {/*  <TextParallaxContent */}
-      {/*    imgUrl="/images/products/razor/ns-11/_-31.jpg" */}
-      {/*    subheading="Долгая работа" */}
-      {/*    heading="NS 11 может проработать 120 мин от аккумулятора" */}
-      {/*  > */}
-      {/*    /!* <ExampleContent /> *!/ */}
-      {/*  </TextParallaxContent> */}
-      {/* </div> */}
     </div>
   );
 };
