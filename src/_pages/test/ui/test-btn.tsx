@@ -5,15 +5,17 @@ import { ShoppingCart } from 'lucide-react';
 import { cn } from "@/shared/lib";
 import { formatPrice } from "@/shared/helpers";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 interface OrderButtonProps {
-  currentPrice: number
-  oldPrice?: number
-  count?:number;
-  href:string
+    currentPrice: number
+    oldPrice?: number
+    count?: number;
+    href: string
 }
 
 export function TestBtn({ currentPrice, href, oldPrice, count }: OrderButtonProps) {
+  const t = useTranslations('product');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isVisible, setIsVisible] = useState(true);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
@@ -43,7 +45,7 @@ export function TestBtn({ currentPrice, href, oldPrice, count }: OrderButtonProp
     const header = document.querySelector('header');
     if (header) {
       if (isHeaderVisible) {
-      // isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
+        // isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
         header.style.transform = `translateY(0px)`;
       } else {
         header.style.transform = `translateY(100%)`;
@@ -82,11 +84,18 @@ export function TestBtn({ currentPrice, href, oldPrice, count }: OrderButtonProp
           <div className="flex items-center space-x-1">
             <div className='flex flex-col gap-1'>
               <div className="text-m font-bold whitespace-nowrap">{formatPrice(currentPrice)} ₸</div>
-              {oldPrice && <div className="text-s line-through opacity-75 whitespace-nowrap">{formatPrice(oldPrice)} ₸</div>}
+              {oldPrice && (
+                <div
+                  className="text-s line-through opacity-75 whitespace-nowrap"
+                >{formatPrice(oldPrice)} ₸
+                </div>
+              )}
             </div>
             <div className='flex flex-col gap-1'>
               {oldPrice && (
-                <div className="bg-[#FFCDD2] text-[#CB1243] px-2 py-1 rounded-full text-xs font-semibold whitespace-nowrap">
+                <div
+                  className="bg-[#FFCDD2] text-[#CB1243] px-2 py-1 rounded-full text-xs font-semibold whitespace-nowrap"
+                >
                   -{discountPercentage}%
                 </div>
               )}
@@ -95,7 +104,7 @@ export function TestBtn({ currentPrice, href, oldPrice, count }: OrderButtonProp
           <div className='flex flex-col-reverse w-full items-center justify-center gap-1'>
             {count && (
               <div className="text-xs font-bold whitespace-nowrap">
-                Осталось: {count} шт.
+                {t('left')}: {count} {t('count')}
               </div>
             )}
             <Link className='w-full' href={href} target='_blank'>
@@ -105,7 +114,7 @@ export function TestBtn({ currentPrice, href, oldPrice, count }: OrderButtonProp
                 aria-label="Оформить заказ"
               >
                 <ShoppingCart size={20} />
-                <span className='text-xs font-bold'>Оформить заказ</span>
+                <span className='text-xs font-bold'>{`${t('checkout')}`}</span>
               </button>
             </Link>
           </div>
