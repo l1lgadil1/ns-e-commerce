@@ -79,6 +79,7 @@ export const TestPage = ({ product }: IProps) => {
     }
   }, [product]);
 
+  console.log('test');
   return (
     <div className={styles.container}>
 

@@ -51,4 +51,4 @@ jobs:
             git pull origin main
             npm install
             npm run build
-            npx pm2 restart ecosystem.config.js
+            npx pm2 restart 0
