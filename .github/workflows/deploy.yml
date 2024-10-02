@@ -23,12 +23,15 @@ jobs:
 
       - name: Build project
         run: npm run build
-#      - name: Debug Secrets
-#        run: |
-#          echo "Host: ${{ secrets.SERVER_HOST }}"
-#          echo "User: ${{ secrets.SERVER_USER }}"
-#          # Do not print the password or key for security reasons.
-
+      #      - name: Debug Secrets
+      #        run: |
+      #          echo "Host: ${{ secrets.SERVER_HOST }}"
+      #          echo "User: ${{ secrets.SERVER_USER }}"
+      #          # Do not print the password or key for security reasons.
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '22.x'  # Убедись, что здесь версия Node.js совпадает с версией, которую ты используешь
       - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
