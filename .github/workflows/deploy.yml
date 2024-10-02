@@ -18,11 +18,11 @@ jobs:
         with:
           node-version: '22.x'  # Убедись, что здесь версия Node.js совпадает с версией, которую ты используешь
 
-#      - name: Install dependencies
-#        run: npm install
+      - name: Install dependencies
+        run: npm install
 
-#      - name: Build project
-#        run: npm run build
+      - name: Build project
+        run: npm run build
 #      - name: Debug Secrets
 #        run: |
 #          echo "Host: ${{ secrets.SERVER_HOST }}"
