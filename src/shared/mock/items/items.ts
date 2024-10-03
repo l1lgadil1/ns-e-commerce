@@ -439,11 +439,20 @@ export const womensItems = [
           {
             src: `/images/products/dryer/ns-superair/_-19.jpg`
           },
+          // {
+          //   src: `/images/products/dryer/ns-superair/_-2.jpg`
+          // },
+          // {
+          //   src: `/images/products/dryer/ns-superair/_-46.jpg`,
+          // },
           {
-            src: `/images/products/dryer/ns-superair/_-2.jpg`
+            src: `/images/products/dryer/ns-superair/karina-5.jpg`,
           },
           {
-            src: `/images/products/dryer/ns-superair/_-46.jpg`,
+            src: `/images/products/dryer/ns-superair/kamila-2.jpg`,
+          },
+          {
+            src: `/images/products/dryer/ns-superair/karina-3.jpg`,
           },
           {
             src: `/images/products/dryer/ns-superair/_-37.jpg`,
@@ -510,8 +519,10 @@ export const womensItems = [
       },
       {
         imageUrl: `/images/products/dryer/ns-superair/_-26.jpg`,
-        text: 'Вместе с казахстанским институтом КазНу Аль-Фараби, мы провели несколько анализов на термоустойчивость пластика, выделение токсичных веществ при нагревании насадок, а также стабильность выходящего воздуха.\n' +
-                    'Мы используем только премиум пластик, который не повредит вашему здоровью и мы доказали это лабораторным методом.',
+        // text: 'Вместе с казахстанским институтом КазНу Аль-Фараби, мы провели несколько анализов на термоустойчивость пластика, выделение токсичных веществ при нагревании насадок, а также стабильность выходящего воздуха.\n' +
+        //             'Мы используем только премиум пластик, который не повредит вашему здоровью и мы доказали это лабораторным методом.',
+        text: 'Вместе с казахстанским центром химических исследований КазНу Аль-Фараби, мы провели ряд лабораторных анализов, изучающих влияние нашего продукта на здоровье.' +
+                    ' В нашем продукте используются материалы премиум качества, которые не вредят вашему здоровью.',
         title: 'Научно доказано качество',
       },
       {
@@ -521,10 +532,30 @@ export const womensItems = [
         title: 'Долговечность продукта'
       },
       {
-        imageUrl: `/images/products/dryer/ns-superair/_-33.jpg`,
+        // imageUrl: `/images/products/dryer/ns-superair/_-33.jpg`,
         // images: [`/images/products/dryer/ns-superair/_-36.jpg`],
         text: 'SUPERAIR - имеет 4 режима температуры и 3 режима мощности',
-        title: 'ИНДИВИДУАЛЬНАЯ НАСТРОЙКА ПОД КАЖДЫЙ ТИП ВОЛОС'
+        title: 'ИНДИВИДУАЛЬНАЯ НАСТРОЙКА ПОД КАЖДЫЙ ТИП ВОЛОС',
+        images: [
+          {
+            src: '/images/products/dryer/ns-superair/_-33.jpg'
+          },
+          {
+            src: `/images/products/dryer/ns-superair/karina-1.png`
+          },
+          {
+            src: `/images/products/dryer/ns-superair/kamila-1.jpg`
+          },
+          {
+            src: `/images/products/dryer/ns-superair/karina-4.jpg`
+          },
+          {
+            src: `/images/products/dryer/ns-superair/kamila-3.jpg`
+          },
+          {
+            src: `/images/products/dryer/ns-superair/karina-3.jpg`
+          },
+        ]
       },
       // {
       //   imageUrl: `/images/products/dryer/ns-superair/_-2.jpg`,
