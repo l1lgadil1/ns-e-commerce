@@ -1,7 +1,7 @@
 import { Button } from "@/shared/ui/button";
 import { useRef, useState } from "react";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { ymReachGoal } from "@/shared/lib";
 import { YmIds } from "@/shared/consts";
 import { useTranslations } from "next-intl";

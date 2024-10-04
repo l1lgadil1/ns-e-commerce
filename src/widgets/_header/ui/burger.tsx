@@ -5,7 +5,7 @@ import { P } from "@/shared/ui/p";
 import { Genders, GendersRussian, returnColors } from "@/shared/consts";
 import { MoveRight } from "lucide-react";
 import { menus } from "@/widgets/_header/lib/mock";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { NavBtn } from "@/widgets/_header/ui/nav-btn";
 import { useTranslations } from "next-intl";
 
@@ -28,7 +28,7 @@ export const BurgerMenu = (props: IProps) => {
         </Flex>
         <Flex className=''>
           {menus?.map(i => (
-            <Link key={i.href} href={!i.href.includes('tel') ? `/${gender}/${i.href}` : i.href} className=''>
+            <Link target='_blank' key={i.href} href={!i.href.includes('api') ? `/${gender}/${i.href}` : i.href} className=''>
               <Button variant='ghost' onClick={close} key={i.name} className='py-4 px-0 w-full border-b-[1px] h-auto border-[var(--text-primary)] rounded-none flex justify-between'>
                 <P fontWeight={300} mode='primary'>{t(i.name)}</P>
                 <MoveRight color={returnColors(gender).TextPrimary} />

@@ -1,6 +1,6 @@
 'use client';
 
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { Genders } from "@/shared/consts";
 import { useThemeStore } from "@/shared/lib/store";
 

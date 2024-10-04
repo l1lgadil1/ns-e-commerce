@@ -2,7 +2,7 @@ import styles from './styles.module.scss';
 import { cn } from "@/shared/lib";
 import { Flex } from "@/shared/ui/flex";
 import { CardItemModel } from "./model/types";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { H3 } from "@/shared/ui/h3";
 import { H4 } from "@/shared/ui/h4";
 import { formatPrice } from "@/shared/helpers";

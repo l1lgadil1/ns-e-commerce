@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { H3 } from "@/shared/ui/h3";
 import { FiArrowUpRight } from "react-icons/fi";
 import { useThemeStore } from "@/shared/lib/store";

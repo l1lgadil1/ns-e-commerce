@@ -1,5 +1,5 @@
 import { Flex } from "@/shared/ui/flex";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { Button } from "@/shared/ui/button";
 import { cn } from "@/shared/lib";
 

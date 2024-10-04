@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { Button } from "@/shared/ui/button";
 import { Flex } from "@/shared/ui/flex";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 
 // const reviews = [

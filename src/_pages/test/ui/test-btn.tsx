@@ -4,9 +4,10 @@ import { useState, useEffect } from 'react';
 import { ShoppingCart } from 'lucide-react';
 import { cn, ymReachGoal } from "@/shared/lib";
 import { formatPrice } from "@/shared/helpers";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
+import { useHeaderStore } from "@/shared/lib/store";
 
 interface OrderButtonProps {
     currentPrice: number
@@ -20,19 +21,22 @@ export function TestBtn({ currentPrice, href, oldPrice, count }: OrderButtonProp
   const params = useParams();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isVisible, setIsVisible] = useState(true);
-  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  // const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-
+  const hideHeader = useHeaderStore(state => state.hideHeader);
+  const resetHideHeader = useHeaderStore(state => state.resetHideHeader);
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY < lastScrollY) {
         setIsVisible(false);
-        setIsHeaderVisible(false);
+        // setIsHeaderVisible(false);
+        hideHeader();
       } else {
+        resetHideHeader();
         setIsVisible(true);
-        setIsHeaderVisible(true);
+        // setIsHeaderVisible(true);
       }
 
       setLastScrollY(currentScrollY);
@@ -49,17 +53,17 @@ export function TestBtn({ currentPrice, href, oldPrice, count }: OrderButtonProp
     }
   };
 
-  useEffect(() => {
-    const header = document.querySelector('header');
-    if (header) {
-      if (isHeaderVisible) {
-        // isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
-        header.style.transform = `translateY(0px)`;
-      } else {
-        header.style.transform = `translateY(100%)`;
-      }
-    }
-  }, [isHeaderVisible]);
+  // useEffect(() => {
+  //   const header = document.querySelector('header');
+  //   if (header) {
+  //     if (isHeaderVisible) {
+  //       // isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
+  //       header.style.transform = `translateY(0px)`;
+  //     } else {
+  //       header.style.transform = `translateY(100%)`;
+  //     }
+  //   }
+  // }, [isHeaderVisible]);
 
   const discount = oldPrice ? oldPrice - currentPrice : null;
   const discountPercentage = (oldPrice && discount) ? Math.round((discount / oldPrice) * 100) : null;
@@ -84,8 +88,8 @@ export function TestBtn({ currentPrice, href, oldPrice, count }: OrderButtonProp
       {/* </header> */}
 
       <div
-        className={cn('fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-r from-[#CB1243] to-[#E91E63] text-white transition-all duration-300 z-10 ease-in-out'
-          // , isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
+        className={cn('fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-r from-[#CB1243] to-[#E91E63] text-white transition-all duration-300 z-10 ease-in-out',
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
         )}
       >
         <div className="max-w-4xl mx-auto flex items-center justify-between gap-4">

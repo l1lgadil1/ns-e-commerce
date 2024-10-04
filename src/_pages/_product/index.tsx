@@ -15,7 +15,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useHeaderStore, useThemeStore } from "@/shared/lib/store";
 import { useIntersection } from "react-use";
 import { ProductModel } from "@/entities/product";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { ImageGallery } from "@/entities/image-gallery";
 import Image from 'next/image';
 import { CheckoutButton } from "@/_pages/_product/ui/checkout-button";

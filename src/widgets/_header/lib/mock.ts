@@ -17,6 +17,7 @@ export const menus = [
   },
   {
     name: 'Связаться с нами',
-    href: 'tel:+77762918098'
+    // href: 'tel:+77762918098'
+    href: 'https://api.whatsapp.com/send?phone=7762918098'
   }
 ];

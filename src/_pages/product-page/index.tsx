@@ -13,7 +13,7 @@ import { cn } from "@/shared/lib";
 import { containerStyles } from "@/shared/styles";
 import { formatPrice } from "@/shared/helpers";
 import { Button } from "@/shared/ui/button";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 export const ProductPage = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

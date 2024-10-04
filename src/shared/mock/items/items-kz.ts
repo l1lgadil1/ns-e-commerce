@@ -430,95 +430,120 @@ export const womensItems = [
     category: 'dryer',
     sellContent: [
       {
-        imageUrl: "/images/products/dryer/ns-superair/main.jpg",
+        imageUrl: `/images/products/dryer/ns-superair/main.jpg`,
         images: [
           {
-            src: "/images/products/dryer/ns-superair/_-19.jpg"
+            src: `/images/products/dryer/ns-superair/_-19.jpg`
           },
           {
-            src: "/images/products/dryer/ns-superair/_-2.jpg"
+            src: `/images/products/dryer/ns-superair/karina-5.jpg`,
           },
           {
-            src: "/images/products/dryer/ns-superair/_-46.jpg"
+            src: `/images/products/dryer/ns-superair/kamila-2.jpg`,
           },
           {
-            src: "/images/products/dryer/ns-superair/_-37.jpg"
+            src: `/images/products/dryer/ns-superair/karina-3.jpg`,
+          },
+          {
+            src: `/images/products/dryer/ns-superair/_-37.jpg`,
           }
         ],
-        text: "NS SUPERAIR - Премиум сапа мен заманауи технологияларды үйлестіріп, қолжетімді бағаны қамтамасыз етеді",
-        title: "Әлемдік сападағы өнім"
+        text: 'NS SUPERAIR - Премиум сапа мен озық технологиялардың үйлесімі, қолжетімді бағаны қамтамасыз етеді',
+        title: 'Әлемдік сападағы өнім'
       },
       {
-        imageUrl: "/images/products/dryer/ns-superair/_-31.jpg",
-        text: "SUPERAIR - NTC датчиктері арқылы шығып жатқан ауаның температурасын бақылайды және шашыңыздың табиғи жылтырын сақтап, оларға ұқыпты қарайды",
-        title: "Шашыңыздың саулығын сақтаңыз"
+        imageUrl: `/images/products/dryer/ns-superair/_-31.jpg`,
+        text: 'SUPERAIR - NTC датчиктері арқылы шығып жатқан ауаның температурасын бақылайды және шашыңыздың табиғи жылтырлығын сақтайды',
+        title: 'Шашыңыздың денсаулығын сақтаңыз'
       },
+
       {
         images: [
           {
-            src: "/images/products/dryer/ns-superair/dryer-6.png",
-            title: "Барлық жиынтықты сақтауға арналған сөмке",
-            left: "14%",
-            top: "17%"
+            src: `/images/products/dryer/ns-superair/dryer-7.png`,
+            title: 'Металл \n корпус',
+            left: '11%',
+            top: '10%'
           },
           {
-            src: "/images/products/dryer/ns-superair/dryer-1.png",
-            title: "Тістерінің биіктігін реттейтін диффузор",
-            top: "12%",
-            left: "12%"
+            src: `/images/products/dryer/ns-superair/dryer-6.png`,
+            title: 'Барлық жинақты сақтауға арналған сөмке',
+            left: '14%',
+            top: '17%'
           },
           {
-            src: "/images/products/dryer/ns-superair/dryer-2.png",
-            title: "Брашинг щеткасы",
-            text: "Щетканың қылшықтары шашты тарқатып, ең жақсы көлем жасайды",
-            left: "5%",
-            bottom: "2%"
+            src: `/images/products/dryer/ns-superair/dryer-1.png`,
+            title: 'Тісті биіктікті реттейтін диффузор',
+            top: '12%',
+            left: '12%'
           },
           {
-            src: "/images/products/dryer/ns-superair/dryer-3.png",
-            title: "Қылшықты шаш түзейтін тарақ",
-            left: "7%",
-            bottom: "2%"
+            src: `/images/products/dryer/ns-superair/dryer-2.png`,
+            title: 'Қылшықты брашинг',
+            text: 'Қылшықтар шашты тарқатып, ең жақсы көлем жасайды',
+            left: '5%',
+            bottom: '2%'
           },
           {
-            src: "/images/products/dryer/ns-superair/dryer-4.png",
-            title: "Идеалды бұйралар жасауға арналған цилиндрлік қондырма",
-            top: "6%",
-            left: "7%"
+            src: `/images/products/dryer/ns-superair/dryer-3.png`,
+            title: 'Қылшықты түзеткіш тарақ',
+            left: '7%',
+            bottom: '2%'
           },
           {
-            src: "/images/products/dryer/ns-superair/dryer-5.png",
-            title: "Күйіктерден қорғайтын термоқорғаныс қондырмасы",
-            left: "5%",
-            top: "15%"
+            src: `/images/products/dryer/ns-superair/dryer-4.png`,
+            title: 'Керемет бұйра жасауға арналған цилиндрлі насадка',
+            top: '6%',
+            left: '7%'
           },
           {
-            src: "/images/products/dryer/ns-superair/dryer-7.png",
-            title: "Металл корпусы",
-            left: "11%",
-            top: "10%"
-          }
+            src: `/images/products/dryer/ns-superair/dryer-5.png`,
+            title: 'Күйіп қалудан қорғайтын термозащиталы насадка',
+            left: '5%',
+            top: '15%'
+          },
+
         ],
-        text: "SUPERAIR-дің әрбір бөлігі мұқият тексеріліп, сынақтан өтті.\nӨнімнің ұзақ жылдар бойы сенімді қолданылуын қамтамасыз ету үшін.",
-        title: "Өнімнің ұзақ мерзімділігі"
+        text: 'SUPERAIR барлық детальдарға дейін ойластырылған',
+        title: 'Керемет ойластырылған дизайн',
       },
       {
-        imageUrl: "/images/products/dryer/ns-superair/_-26.jpg",
-        text: "Қазақ ұлттық университеті Әл-Фараби институтымен бірлесіп, біз бірнеше сынақтар жүргіздік: пластиктің термиялық төзімділігі, қондырмаларды қыздыру кезінде токсиндердің бөлінуі, сондай-ақ шыққан ауаның тұрақтылығы.\n" +
-            "Біз денсаулығыңызға зиян келтірмейтін тек премиум пластикті пайдаланамыз және бұл ғылыми жолмен дәлелденген.",
-        title: "Ғылыми дәлелденген сапа"
+        imageUrl: `/images/products/dryer/ns-superair/_-26.jpg`,
+        text: 'ҚазҰУ химиялық зерттеулер орталығымен бірге, өніміміздің денсаулыққа әсерін зерттейтін зертханалық талдаулар жүргіздік. Біздің өнім денсаулыққа зиян келтірмейтін премиум материалдардан жасалған.',
+        title: 'Сапасы ғылыми дәлелденген'
       },
       {
-        imageUrl: "/images/products/dryer/ns-superair/_-36.jpg",
-        text: "SUPERAIR егжей-тегжейлі ойластырылған",
-        title: "Идеалды ойластырылған дизайн"
+        imageUrl: `/images/products/dryer/ns-superair/_-36.jpg`,
+        text: 'SUPERAIR-дің әрбір деталі мұқият тексеріліп, сынақтан өтеді,\n' +
+            'өнімнің ұзақ уақыт пайдаланылуын қамтамасыз ету үшін.',
+        title: 'Өнімнің ұзақмерзімділігі'
       },
       {
-        imageUrl: "/images/products/dryer/ns-superair/_-33.jpg",
-        text: "SUPERAIR - 4 температура режимі мен 3 қуат режиміне ие",
-        title: "ӘР ТҮРЛІ ШАШ ТҮРІНЕ АРНАЛҒАН ЖЕКЕ БАПТАУЛАР"
+        text: 'SUPERAIR - 4 температура режимі және 3 қуат режимі бар',
+        title: 'Әрбір шаш түріне арналған жеке реттеу',
+        images: [
+          {
+            src: '/images/products/dryer/ns-superair/_-33.jpg'
+          },
+          {
+            src: `/images/products/dryer/ns-superair/karina-1.png`
+          },
+          {
+            src: `/images/products/dryer/ns-superair/kamila-1.jpg`
+          },
+          {
+            src: `/images/products/dryer/ns-superair/karina-4.jpg`
+          },
+          {
+            src: `/images/products/dryer/ns-superair/kamila-3.jpg`
+          },
+          {
+            src: `/images/products/dryer/ns-superair/karina-3.jpg`
+          },
+        ]
       }
     ],
+
     images: [
       `/images/products/dryer/ns-superair/main.jpg`,
       `/images/products/dryer/ns-superair/_-2.jpg`,

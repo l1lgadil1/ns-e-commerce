@@ -25,6 +25,8 @@ export const HeaderV2 = (props: IProps) => {
   const [isBurgerOpen, setBurgerOpen] = useState(false);
   const gender = useThemeStore(state => state.theme);
   const changeGender = useThemeStore(state => state.changeTheme);
+  // const isHideHeader = useHeaderStore(state => state.isHideHeader);
+
   const onClickGender = (val:Genders) => {
     console.log(val);
     changeGender(val);
@@ -47,7 +49,13 @@ export const HeaderV2 = (props: IProps) => {
   setGender();
   return (
     //   TODO cкрывать хэдер при скролле
-    <Flex mode='row' justify='space-between' className={cn(styles.container, isHeaderChangeColor && styles.color, className, 'px-4 relative py-3 header')}>
+    <Flex
+      mode='row'
+      justify='space-between'
+      className={cn(styles.container, isHeaderChangeColor && styles.color, className, 'px-4 relative py-3 header transition-all ease-in',
+      // !isHideHeader ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
+      )}
+    >
       {isBurgerOpen && (
         <BurgerMenu
           gender={gender as Genders}

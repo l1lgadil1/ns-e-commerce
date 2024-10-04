@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { ItemCardModel } from "./model";
 import Image from 'next/image';
 import { cn } from "@/shared/lib";
