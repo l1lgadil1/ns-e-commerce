@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { ShoppingCart } from 'lucide-react';
-import { cn } from "@/shared/lib";
+import { cn, ymReachGoal } from "@/shared/lib";
 import { formatPrice } from "@/shared/helpers";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
 
 interface OrderButtonProps {
     currentPrice: number
@@ -16,6 +17,7 @@ interface OrderButtonProps {
 
 export function TestBtn({ currentPrice, href, oldPrice, count }: OrderButtonProps) {
   const t = useTranslations('product');
+  const params = useParams();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isVisible, setIsVisible] = useState(true);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
@@ -40,6 +42,12 @@ export function TestBtn({ currentPrice, href, oldPrice, count }: OrderButtonProp
 
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
+
+  const handleCheckout = () => {
+    if (params?.id) {
+      ymReachGoal(params.id as string);
+    }
+  };
 
   useEffect(() => {
     const header = document.querySelector('header');
@@ -107,7 +115,7 @@ export function TestBtn({ currentPrice, href, oldPrice, count }: OrderButtonProp
                 {t('left')}: {count} {t('count')}
               </div>
             )}
-            <Link className='w-full' href={href} target='_blank'>
+            <Link className='w-full' onClick={handleCheckout} href={href} target='_blank'>
               <button
                 type='button'
                 className="bg-white text-[#CB1243] px-3 py-2 rounded-full w-full font-semibold flex items-center justify-center space-x-2 hover:bg-[#FFCDD2] transition-colors duration-300 whitespace-nowrap"
