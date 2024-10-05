@@ -144,7 +144,7 @@ const ExampleContent = ({ title, text, href, images, isFirst }:{title:string, is
         </motion.h2>
       )}
       {images && images.length > 1 && (
-        <div className='flex overflow-x-scroll md:hidden w-full pb-5 gap-3 '>
+        <div className='flex overflow-x-scroll w-full pb-5 gap-3 '>
           {images.map(i => (
             // <Image src={i.src} alt='gallery image' className='w-[95%] !h-full rounded-md' width={220} height={340} />
             <picture className={cn('relative w-full aspect-[357/535]', styles.picture)}>
@@ -200,7 +200,7 @@ const ExampleContent = ({ title, text, href, images, isFirst }:{title:string, is
 // TODO добавить общие модели везде
 export const ParallaxBox = ({ imgUrl, subHeading, isLast, heading, isFirst, images, href }:{imgUrl:string, isLast:boolean, href:string, subHeading:string, heading:string, images:{src:string, title?:string;text?:string, left?:string, top?:string;bottom?:string}[], isFirst:boolean}) => (
   <>
-    <div className={cn('pt-8 pb-5', isLast && 'pb-[100px]', styles.container)}>
+    <div className={cn('pb-5', !isFirst && 'pt-8', isLast && 'pb-[100px]', styles.container)}>
       <TextParallaxContent
         imgUrl={imgUrl}
         images={images}

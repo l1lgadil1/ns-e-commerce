@@ -43,4 +43,10 @@
 
 .picture{
 	flex: 0 0 90%;
+
+	@media (min-width: 768px) {
+		width: 300px;
+		height: 400px;
+		flex: unset;
+	}
 }
