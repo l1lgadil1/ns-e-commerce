@@ -38,7 +38,7 @@ export const QrWomens = () => (
       <MenuCard href='https://api.whatsapp.com/send?phone=7762918098' title='Тех. поддержка' description='Если у вас возникли проблемы,то пишите сюда. Мы с радостью ответим на все ваши вопросы' />
       <MenuCard href='https://www.instagram.com/nshair.w/' title='Instagram' description='Здесь мы регулярно делимся уникальными советами по уходу за волосами, простыми и стильными прическами, а также полезными гайдами для создания вашего идеального образа!' iconSrc='/images/instagram.svg' />
       <MenuCard href='https://nsbeauty.kz' title='Наш сайт -&gt;' />
-      <MenuCard href='https://nsbeauty.kz/ru/women/course' title='Курс по укладкам' description='Авторский курс от профессионального стилиста' />
+      <MenuCard href='https://nsbeauty.kz/ru/women/courses' title='Курс по укладкам' description='Авторский курс от профессионального стилиста' />
     </div>
   </main>
 );

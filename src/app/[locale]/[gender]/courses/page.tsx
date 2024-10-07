@@ -54,7 +54,7 @@ const Page = () => {
           {arr.map(i => (
             <div key={i.title} className="relative overflow-hidden rounded-lg group">
               {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-              <Link href="src/app/[locale]/[gender]/courses#" className="absolute inset-0 z-10" prefetch={false}>
+              <Link href="#" className="absolute inset-0 z-10" prefetch={false}>
                 <span className="sr-only">View Course</span>
               </Link>
               <img
