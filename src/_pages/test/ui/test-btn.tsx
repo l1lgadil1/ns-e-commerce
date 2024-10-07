@@ -50,6 +50,7 @@ export function TestBtn({ currentPrice, href, oldPrice, count }: OrderButtonProp
   const handleCheckout = () => {
     if (params?.id) {
       ymReachGoal(params.id as string);
+      console.log(params.id);
     }
   };
 

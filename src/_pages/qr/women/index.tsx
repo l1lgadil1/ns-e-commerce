@@ -32,11 +32,13 @@ export const QrWomens = () => (
       </a>
     </div>
 
-    <div className="px-4 py-5 md:p-0 grid text-center gap-4 lg:mb-0 w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left ">
-      <MenuCard href='https://kaspi.kz/shop/info/merchant/17533621/address-tab/?merchantId=17533621' title='Kaspi магазин' iconSrc='/images/kaspi-logo.svg' />
-      <MenuCard href='https://kaspi.kz/shop/search/?q=%3AallMerchants%3A16272231' title='Все товары' description='Все наши товары в Kaspi магазине' iconSrc='/images/kaspi-logo.svg' />
-      <MenuCard href='https://www.instagram.com/ns.kazakhstan/' title='Instagram' iconSrc='/images/instagram.svg' />
+    <div className="px-4 mt-[100px] py-5 md:p-0 grid text-center gap-4 lg:mb-0 w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left ">
+      {/* <MenuCard href='https://kaspi.kz/shop/info/merchant/17533621/address-tab/?merchantId=17533621' title='Kaspi магазин' iconSrc='/images/kaspi-logo.svg' /> */}
+      {/* <MenuCard href='https://kaspi.kz/shop/search/?q=%3AallMerchants%3A16272231' title='Все товары' description='Все наши товары в Kaspi магазине' iconSrc='/images/kaspi-logo.svg' /> */}
+      <MenuCard href='https://api.whatsapp.com/send?phone=7762918098' title='Тех. поддержка' description='Если у вас возникли проблемы,то пишите сюда. Мы с радостью ответим на все ваши вопросы' />
+      <MenuCard href='https://www.instagram.com/nshair.w/' title='Instagram' description='Здесь мы регулярно делимся уникальными советами по уходу за волосами, простыми и стильными прическами, а также полезными гайдами для создания вашего идеального образа!' iconSrc='/images/instagram.svg' />
       <MenuCard href='https://nsbeauty.kz' title='Наш сайт -&gt;' />
+      <MenuCard href='https://nsbeauty.kz/ru/women/course' title='Курс по укладкам' description='Авторский курс от профессионального стилиста' />
     </div>
   </main>
 );
