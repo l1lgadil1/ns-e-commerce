@@ -56,14 +56,14 @@ export const MainBanner = (props: IProps) => {
               <H2 mode='primary' fontSize={22} lineHeight={28}>{title}</H2>
               {highlightText && <H2 mode='primary' fontSize={22} lineHeight={28} className={styles.highlightText}>{highlightText}</H2>}
             </Flex>
-            <P mode='secondary'>{!analysis ? t(id) : text}</P>
+            <P mode='secondary' color={analysis ? 'white' : 'black'}>{!analysis ? t(id) : text}</P>
           </Flex>
           <Flex mode='row' justify='center'>
             <Link prefetch href={href}>
-              <Button variant='outline' className='border-[1px] rounded-xl !text-[var(--white)] border-[var(--text-primary)]'>
+              <Button variant='outline' className={cn('border-[1px] rounded-xl !text-[var(--white)] border-[var(--text-primary)]', analysis && 'border-[white] !text-white')}>
                 {/* <P mode='primary' fontWeight={500} size='s'>{btnText || "Перейти"}</P> */}
                 {btnText || t("Перейти")}
-                <ChevronRight />
+                <ChevronRight color={analysis ? 'white' : 'black'} />
               </Button>
             </Link>
           </Flex>
