@@ -525,7 +525,7 @@ export const womensItems = [
         //   }
         // ],
         link: {
-          href: '/analysis-product',
+          href: '/analysis',
           highlightWord: 'мы провели ряд лабораторных анализов, изучающих влияние нашего продукта на здоровье',
           text: 'Анализ качества нашего продукта'
         },
