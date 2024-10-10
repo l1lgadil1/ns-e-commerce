@@ -16,6 +16,10 @@ export const menus = [
     href: 'about-us'
   },
   {
+    name: 'Лабораторные анализы',
+    href: '/analysis'
+  },
+  {
     name: 'Связаться с нами',
     // href: 'tel:+77762918098'
     href: 'https://api.whatsapp.com/send?phone=7762918098'

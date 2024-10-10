@@ -3,6 +3,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { cn } from "@/shared/lib";
 import styles from './styles.module.scss';
 import Image from 'next/image';
+import { SellContent } from "@/entities/product/model/types";
+import { Link } from "@/i18n/routing";
+import { useThemeStore } from "@/shared/lib/store";
+import { Button } from "@/shared/ui/button";
 
 const IMG_PADDING = 12;
 
@@ -64,7 +68,7 @@ const StickyImage = ({ imgUrl, isFirst }:any) => {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const TextParallaxContent = ({ imgUrl, subheading, heading, images, children, isFirst }:any) => {
+const TextParallaxContent = ({ imgUrl, subheading, heading, link, images, children, isFirst }:any) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const settings = {
     dots: images?.length > 0,
@@ -73,6 +77,25 @@ const TextParallaxContent = ({ imgUrl, subheading, heading, images, children, is
     // slidesToShow: 1,
     // slidesToScroll: 1,
   };
+  const gender = useThemeStore(state => state.theme);
+  const returnContent = (val:string) => {
+    if (link) {
+      const parts = val.split(link.highlightWord);
+
+      // Если целевой текст найден, оборачиваем его в <Link>
+      if (parts.length > 1) {
+        return (
+          <>
+            {parts[0]}
+            <Link target='_blank' className='text-blue-300 underline' href={`/${gender}${link.href}`}>{link.highlightWord}</Link>
+            {parts[1]}
+          </>
+        );
+      }
+    }
+    return val;
+  };
+
   return (
     <div>
       <div className={cn("relative",
@@ -84,9 +107,14 @@ const TextParallaxContent = ({ imgUrl, subheading, heading, images, children, is
         {/*    <StickyImage imgUrl={img} key={img} isFirst={isFirst} /> */}
         {/*  ))} */}
         {/* </Slider> */}
-        {!isFirst && (
+        {!isFirst && !link && (
           <h2 className="col-span-1 text-2xl mb-8 px-4 text-[var(--text-primary)] font-bold md:col-span-4">
             {highlightedText(subheading)}
+          </h2>
+        )}
+        {!isFirst && link && (
+          <h2 className="col-span-1 text-2xl mb-8 px-4 text-[var(--text-primary)] font-bold md:col-span-4">
+            {returnContent(subheading)}
           </h2>
         )}
         {imgUrl && <StickyImage imgUrl={imgUrl} isFirst={isFirst} />}
@@ -125,7 +153,7 @@ const TextParallaxContent = ({ imgUrl, subheading, heading, images, children, is
 // };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const ExampleContent = ({ title, text, href, images, isFirst }:{title:string, isFirst:boolean, href:string, text:string, images:{src:string, title?:string;text?:string, left?:string, top?:string;bottom?:string}[]}) => {
+const ExampleContent = ({ title, text, images, isFirst, link }:SellContent & {isFirst:boolean}) => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
@@ -133,7 +161,24 @@ const ExampleContent = ({ title, text, href, images, isFirst }:{title:string, is
   });
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
+  const gender = useThemeStore(state => state.theme);
+  const returnContent = (val:string) => {
+    if (link) {
+      const parts = val.split(link.highlightWord);
 
+      // Если целевой текст найден, оборачиваем его в <Link>
+      if (parts.length > 1) {
+        return (
+          <>
+            {parts[0]}
+            <Link target='_blank' className='text-blue-700 underline' href={`/${gender}${link.href}`}>{link.highlightWord}</Link>
+            {parts[1]}
+          </>
+        );
+      }
+    }
+    return val;
+  };
   return (
     <motion.div ref={targetRef} className={cn("mx-auto md:py-22 gap-8 px-4 pt-4 md:pt-8 flex flex-col", styles.textContainer)}>
       <div className="absolute bottom-0 left-0 top-[-1%] right-0 h-[10px] bg-gradient-to-t from-[var(--gradient)] to-transparent" />
@@ -143,7 +188,7 @@ const ExampleContent = ({ title, text, href, images, isFirst }:{title:string, is
           {highlightedText(title)}
         </motion.h2>
       )}
-      {images && images.length > 1 && (
+      {images && images.length > 0 && (
         <div className='flex overflow-x-scroll w-full pb-5 gap-3 '>
           {images.map(i => (
             // <Image src={i.src} alt='gallery image' className='w-[95%] !h-full rounded-md' width={220} height={340} />
@@ -165,7 +210,7 @@ const ExampleContent = ({ title, text, href, images, isFirst }:{title:string, is
                 }}
               >
                 {i.title && <h3 className='text-xl font-bold'>{i.title}</h3>}
-                {i.text && <h4 className='text-lg leading-[18px] text-[rgb(29, 29, 31)]'>{i.text}</h4>}
+                {i.text && <h4 className='text-lg leading-[18px] text-[rgb(29, 29, 31)]'>{returnContent(i.text)}</h4>}
               </div>
             </picture>
           ))}
@@ -173,9 +218,17 @@ const ExampleContent = ({ title, text, href, images, isFirst }:{title:string, is
       )}
       <div className="col-span-1 md:col-span-8 flex flex-col ">
         <motion.p className="mb-4 whitespace-pre-wrap text-xl  text-[var(--text-secondary)] ">
-          {highlightedText(text)}
+          {link ? returnContent(text) : highlightedText(text)}
         </motion.p>
       </div>
+
+      {link?.href && (
+        <Link target='_blank' href={`/${gender}${link.href}`}>
+          <Button>
+            {link?.text}
+          </Button>
+        </Link>
+      )}
       {/* {images && images.length > 1 && ( */}
       {/*  <div className='overflow-x-scroll hidden md:flex w-full pb-5 gap-3 '> */}
       {/*    {images.map(i => ( */}
@@ -198,17 +251,18 @@ const ExampleContent = ({ title, text, href, images, isFirst }:{title:string, is
   );
 };
 // TODO добавить общие модели везде
-export const ParallaxBox = ({ imgUrl, subHeading, isLast, heading, isFirst, images, href }:{imgUrl:string, isLast:boolean, href:string, subHeading:string, heading:string, images:{src:string, title?:string;text?:string, left?:string, top?:string;bottom?:string}[], isFirst:boolean}) => (
+export const ParallaxBox = ({ imageUrl, text, isLast, title, isFirst, link, images }:SellContent & {isFirst:boolean; isLast:boolean;}) => (
   <>
     <div className={cn('pb-5', !isFirst && 'pt-8', isLast && 'pb-[100px]', styles.container)}>
       <TextParallaxContent
-        imgUrl={imgUrl}
+        imgUrl={imageUrl}
         images={images}
-        subheading={subHeading}
-        heading={heading}
+        link={link}
+        subheading={text}
+        heading={title}
         isFirst={isFirst}
       >
-        {heading && subHeading && <ExampleContent isFirst={isFirst} images={images} href={href} text={heading} title={subHeading} />}
+        {title && text && <ExampleContent isFirst={isFirst} link={link} images={images} text={title} title={text} />}
       </TextParallaxContent>
     </div>
     <hr className={styles.hr} />

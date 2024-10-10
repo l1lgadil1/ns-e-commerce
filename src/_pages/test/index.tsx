@@ -89,11 +89,11 @@ export const TestPage = ({ product }: IProps) => {
             <ParallaxBox
               isLast={index === product.sellContent.length - 1}
               isFirst={index === 0}
-              imgUrl={i?.imageUrl || ''}
-              images={i?.images || []}
-              subHeading={i.title}
-              heading={i.text}
-              href={product.kaspiUrl}
+              imageUrl={i.imageUrl}
+              link={i.link}
+              text={i.title}
+              title={i.text}
+              images={i.images}
             />
 
           </>
