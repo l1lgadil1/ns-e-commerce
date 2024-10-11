@@ -3,35 +3,14 @@
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Line, LineChart, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  PointElement
-} from 'chart.js';
+
 import { AlertTriangle, Download, FileText } from "lucide-react";
 import { useRef, useState } from "react";
 import { Button } from "@/shared/ui/button";
 import Link from "next/link";
-import YouTube, { YouTubeProps } from "react-youtube";
-import { Line } from "react-chartjs-2";
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  PointElement
-);
+import YouTube from "react-youtube";
 
 export function AnalysisPage() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -90,94 +69,119 @@ export function AnalysisPage() {
     { name: 'Температура 2.txt', size: '254 kB', href: '/thermal_text.txt' },
   ];
 
-  const onPlayerReady: YouTubeProps['onReady'] = (event) => {
-    // access to player in all event handlers via event.target
-    event.target.pauseVideo();
-  };
+  // const onPlayerReady: YouTubeProps['onReady'] = (event) => {
+  //   // access to player in all event handlers via event.target
+  //   event.target.pauseVideo();
+  // };
+  //
+  // const opts: YouTubeProps['opts'] = {
+  //   height: '390',
+  //   width: '640',
+  //   playerVars: {
+  //     // https://developers.google.com/youtube/player_parameters
+  //     autoplay: 1,
+  //   },
+  // };
+  // // const chartRef = useRef<ChartJS>(null);
+  //
+  // const generateRandomData = (baseTemp: number, variance: number) => Array.from(
+  //   { length: 5 },
+  //   () => baseTemp + (Math.random() * 2 - 1) * variance
+  // );
 
-  const opts: YouTubeProps['opts'] = {
-    height: '390',
-    width: '640',
-    playerVars: {
-      // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
-    },
-  };
-  const chartRef = useRef<ChartJS>(null);
+  const data = [
+    { minute: "1 минута", high: 95, medium: 85, low: 65 },
+    { minute: "2 минута", high: 96, medium: 87, low: 67 },
+    { minute: "3 минута", high: 94, medium: 86, low: 66 },
+    { minute: "4 минута", high: 97, medium: 85, low: 65 },
+    { minute: "5 минута", high: 95, medium: 86, low: 67 },
+  ];
 
-  const generateRandomData = (baseTemp: number, variance: number) => Array.from(
-    { length: 5 },
-    () => baseTemp + (Math.random() * 2 - 1) * variance
-  );
-
-  const data = {
-    labels: ["1 минута", "2 минута", "3 минута", "4 минута", "5 минута"],
-    datasets: [
-      {
-        label: "Высокая температура",
-        data: generateRandomData(97, 2),
-        borderColor: "rgb(255, 99, 71)", // Red
-        backgroundColor: "rgba(255, 99, 71, 0.5)",
-        tension: 0.1,
-      },
-      {
-        label: "Средняя температура",
-        data: generateRandomData(85, 2),
-        borderColor: "rgb(255, 165, 0)", // Orange
-        backgroundColor: "rgba(255, 165, 0, 0.5)",
-        tension: 0.1,
-      },
-      {
-        label: "Низкая температура",
-        data: generateRandomData(67, 2),
-        borderColor: "rgb(50, 205, 50)", // Green
-        backgroundColor: "rgba(50, 205, 50, 0.5)",
-        tension: 0.1,
-      },
-    ],
-  };
-
-  const options = {
-    responsive: true,
-    scales: {
-      y: {
-        beginAtZero: false,
-        title: {
-          display: true,
-          text: "Температура (°C)",
-        },
-        min: 60,
-        max: 100,
-      },
-      x: {
-        title: {
-          display: true,
-          text: "Время",
-        },
-      },
-    },
-    plugins: {
-      legend: {
-        position: "top" as const,
-      },
-      title: {
-        display: true,
-        text: "График изменения температуры",
-      },
-    },
-  };
+  // const data = {
+  //   labels: ["1 минута", "2 минута", "3 минута", "4 минута", "5 минута"],
+  //   datasets: [
+  //     {
+  //       label: "Высокая температура",
+  //       data: generateRandomData(97, 2),
+  //       borderColor: "rgb(255, 99, 71)", // Red
+  //       backgroundColor: "rgba(255, 99, 71, 0.5)",
+  //       tension: 0.1,
+  //     },
+  //     {
+  //       label: "Средняя температура",
+  //       data: generateRandomData(85, 2),
+  //       borderColor: "rgb(255, 165, 0)", // Orange
+  //       backgroundColor: "rgba(255, 165, 0, 0.5)",
+  //       tension: 0.1,
+  //     },
+  //     {
+  //       label: "Низкая температура",
+  //       data: generateRandomData(67, 2),
+  //       borderColor: "rgb(50, 205, 50)", // Green
+  //       backgroundColor: "rgba(50, 205, 50, 0.5)",
+  //       tension: 0.1,
+  //     },
+  //   ],
+  // };
+  //
+  // const options = {
+  //   responsive: true,
+  //   maintainAspectRatio: true,
+  //   scales: {
+  //     y: {
+  //       beginAtZero: false,
+  //       title: {
+  //         display: true,
+  //         text: "Температура (°C)",
+  //       },
+  //       min: 40,
+  //       max: 100,
+  //     },
+  //     x: {
+  //       title: {
+  //         display: true,
+  //         text: "Время",
+  //       },
+  //     },
+  //   },
+  //   plugins: {
+  //     legend: {
+  //       position: "top" as const,
+  //     },
+  //     title: {
+  //       display: true,
+  //       text: "График изменения температуры",
+  //     },
+  //   },
+  // };
 
   return (
 
-    <div className='py-10'>
-      <section className="container mx-auto px-4 mt-[var(--header-height)] py-8">
-        <h2>Каждый наш лабораторный анализ нацелен на то, чтобы обеспечить долгое и безопасное использование нашего продукта без вреда для здоровья.
-
-          Например, каждый помнит запах некачественного пластика у нового товара, резкий не приятный запах говорит о наличии токсичных веществ у пластика, что негативно влияет на здоровье человека, в том числе активно повреждает структуру волос. Именно, поэтому, мы тщательно проверяем качество пластика используемого на насадках стайлера SUPERAIR.
-
-          Наша главная цель, обеспечить продукт, который не вредит здоровью и будет служить долгие годы.
-        </h2>
-      </section>
+    <div className='pb-10'>
+      <div className='h-[100svh] flex justify-center flex-col items-center w-full relative'>
+        <Image
+          alt='bg-main'
+          className='aspect-[287/438] h-full w-full absolute'
+          src="/images/lab-photos/longevity.png"
+          // height={450}
+          objectFit='cover'
+          fill
+          // width={300}
+          unoptimized
+          priority
+        />
+        <div className='inset-0 bg-neutral-950/50 absolute z-0' />
+        <section className="container w-full relative mx-auto px-4 py-8">
+          <h2 className='text-white'>Каждый наш лабораторный анализ нацелен на то, чтобы обеспечить долгое и безопасное использование нашего продукта без вреда для здоровья.
+            <br />
+            <br />
+            Например, <b>каждый помнит запах некачественного пластика у нового товара, резкий не приятный запах говорит о наличии токсичных веществ у пластика, что негативно влияет на здоровье человека, в том числе активно повреждает структуру волос</b>. Именно, поэтому, <b>мы тщательно проверяем качество пластика используемого на насадках стайлера SUPERAIR</b>.
+            <br />
+            <br />
+            <b> Наша главная цель, обеспечить продукт, который не вредит здоровью и будет служить долгие годы</b>.
+          </h2>
+        </section>
+      </div>
       <main className="container mx-auto px-4 my-10 py-8">
 
         {/* TODO превосходство */}
@@ -427,11 +431,27 @@ export function AnalysisPage() {
                 </Card>
                 <div className='space-y-2'>
 
+                  {/* <YouTube */}
+                  {/*  iframeClassName='w-full' */}
+                  {/*  videoId="rDKutXmKfXQ" */}
+                  {/*  opts={opts} */}
+                  {/*  onReady={onPlayerReady} */}
+                  {/* /> */}
                   <YouTube
+                    opts={{
+                      playerVars: {
+                        autoplay: true,
+                        controls: 0,
+                        playsinline: 1
+                      }
+                    }}
                     iframeClassName='w-full'
+                    className='w-full'
                     videoId="rDKutXmKfXQ"
-                    opts={opts}
-                    onReady={onPlayerReady}
+                    onReady={() => {
+                      // e.target.mute();
+                      // e.target.playVideo();
+                    }}
                   />
                   <div className="flex items-center justify-between p-2 bg-gray-100 rounded">
                     <div className="flex items-center">
@@ -491,11 +511,23 @@ export function AnalysisPage() {
 
                   </CardContent>
                 </Card>
+                <div className="h-[300px] w-full">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="minute" />
+                      <YAxis domain={[0, 100]} />
+                      <Tooltip />
+                      <Legend />
+                      <Line type="monotone" dataKey="high" stroke="red" strokeWidth={2} name="Высокий" />
+                      <Line type="monotone" dataKey="medium" stroke="orange" strokeWidth={2} name="Средний" />
+                      <Line type="monotone" dataKey="low" stroke="green" strokeWidth={2} name="Низкий" />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
                 <div className='flex h-full md:flex-row gap-4 flex-col'>
                   {/* <div className="w-full max-w-3xl mx-auto p-4 h-full"> */}
                   {/*  @ts-ignore */}
-                  <Line ref={chartRef} options={options} data={data} className='h-full' />
-                  {/* </div> */}
 
                   <div className='max-h-[30%] md:max-h-[200px] md:max-w-[400px]'>
                     <Image
@@ -506,14 +538,29 @@ export function AnalysisPage() {
                       className='h-full md:h-auto !w-full'
                     />
                   </div>
+                  {/* <YouTube */}
+                  {/*  iframeClassName='w-full' */}
+                  {/*  className='w-full' */}
+                  {/*  videoId="gTNsmAVRFxM" */}
+                  {/*  opts={opts} */}
+                  {/*  onReady={onPlayerReady} */}
+                  {/* /> */}
                   <YouTube
+                    opts={{
+                      playerVars: {
+                        autoplay: true,
+                        controls: 0,
+                        playsinline: 1
+                      }
+                    }}
                     iframeClassName='w-full'
                     className='w-full'
                     videoId="gTNsmAVRFxM"
-                    opts={opts}
-                    onReady={onPlayerReady}
+                    onReady={() => {
+                      // e.target.mute();
+                      // e.target.playVideo();
+                    }}
                   />
-
                 </div>
               </section>
             </AccordionContent>
