@@ -81,6 +81,8 @@ export function TestBtn({ currentPrice, href, oldPrice, count, name }: OrderButt
     downloadLink.click();
     document.body.removeChild(downloadLink);
   };
+
+  console.log('hui');
   const handleCheckout = () => {
     if (params?.id) {
       ymReachGoal(params.id as string);
