@@ -102,6 +102,7 @@ export const TestPage = ({ product }: IProps) => {
         {/* <CheckoutButton price={productInfo?.price} href={product.kaspiUrl} /> */}
         {productInfo?.price && (
           <TestBtn
+            name={product.name}
             href={product?.kaspiUrl}
             count={productInfo?.count}
             // currentPrice={79900}
